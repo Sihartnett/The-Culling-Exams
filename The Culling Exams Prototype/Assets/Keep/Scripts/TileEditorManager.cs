@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class TileManager : MonoBehaviour
+public class TileEditorManager : MonoBehaviour
 {
     public int rows;
     public int columns;
