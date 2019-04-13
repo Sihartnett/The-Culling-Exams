@@ -19,6 +19,8 @@ public class TileMap : ScriptableObject
         [Serializable]
         public class Tile
         {
+            public Vector3 CenterPoint;
+
             public bool fallTile = false;
             public bool barrierTile = false;
             public bool startTile = false;

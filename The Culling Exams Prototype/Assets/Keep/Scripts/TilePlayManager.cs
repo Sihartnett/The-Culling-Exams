@@ -48,9 +48,16 @@ public class TilePlayManager : MonoBehaviour
         {
             for (int column = 0; column < columns; column++)
             {
+                TileMap.Row.Tile dataTile = tileMap.rows[row].column[column];
+
                 allTiles[row, column] = Instantiate(tilePrefab, new Vector3(row, 0, column), this.transform.rotation, this.transform);
-                allTiles[row, column].GetComponent<Tile>().Row = row;
-                allTiles[row, column].GetComponent<Tile>().Column = column;
+
+                Tile tileComponent = allTiles[row, column].GetComponent<Tile>();
+                tileComponent.Row = row;
+                tileComponent.Column = column;
+
+                // Turn on the invisible Collision on the tile prefabs
+                allTiles[row, column].transform.GetChild(1).gameObject.SetActive(dataTile.barrierTile);
             }
         }
 
@@ -64,8 +71,9 @@ public class TilePlayManager : MonoBehaviour
 
                 if (tile.Crate || tile.Mirror)
                 {
+
                     GameObject addMe = Instantiate(
-                            cratePrefab, new Vector3(row, 0.5f, column),
+                            cratePrefab, tile.CenterPoint,
                             Quaternion.Euler(tile.rotation),
                             this.transform);
 
@@ -79,11 +87,25 @@ public class TilePlayManager : MonoBehaviour
                     {
                         meshes[0].material = defaultMaterial;
                     }
-                    
+
                     allCrates.Add(addMe);
                 }
             }
         }
+
+        for (int row = 0; row < rows; row++)
+        {
+            for (int column = 0; column < columns; column++)
+            {
+                TileMap.Row.Tile dataTile = tileMap.rows[row].column[column];
+                if (dataTile.startTile)
+                    this.transform.GetChild(0).transform.SetPositionAndRotation(dataTile.CenterPoint, Quaternion.identity);
+
+            }
+        }
+
+
+
     }
 
     private bool editLoop = true;
