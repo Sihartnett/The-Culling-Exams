@@ -226,9 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rows: 5
   columns: 10
-  tilePrefab: {fileID: 8452063183530609884, guid: ef17f9ab3927cd94087cb74522d2420c,
-    type: 3}
-  cratePrefab: {fileID: 8888088892994016553, guid: 7c8f8c8a781c87444ba1fa4a4588ad45,
+  tilePrefab: {fileID: 2617150703862465352, guid: 9a31ab1a5a3da8a44a56eb98478377a9,
     type: 3}
   tileMap: {fileID: 11400000, guid: 71d564d612fb91548956ca597358380f, type: 2}
   defaultMaterial: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
@@ -239,9 +237,14 @@ MonoBehaviour:
   moveableMaterial: {fileID: 0}
   crateMaterial: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
   mirrorMaterial: {fileID: 2100000, guid: 621e901dcf5ebaf46bce29d18f67194c, type: 2}
+  wallMaterial: {fileID: 0}
+  doorMaterial: {fileID: 0}
+  windowMaterial: {fileID: 0}
   normalMaterial: {fileID: 0}
   highlightMaterial: {fileID: 0}
   currentMaterial: {fileID: 0}
+  cratePrefab: {fileID: 8888088892994016553, guid: 7c8f8c8a781c87444ba1fa4a4588ad45,
+    type: 3}
 --- !u!1 &1981342105
 GameObject:
   m_ObjectHideFlags: 0
