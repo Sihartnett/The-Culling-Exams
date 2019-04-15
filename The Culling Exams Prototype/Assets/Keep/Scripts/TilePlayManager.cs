@@ -51,13 +51,31 @@ public class TilePlayManager : MonoBehaviour
                 TileMap.Row.Tile dataTile = tileMap.rows[row].column[column];
 
                 allTiles[row, column] = Instantiate(tilePrefab, new Vector3(row, 0, column), this.transform.rotation, this.transform);
-
+                
                 Tile tileComponent = allTiles[row, column].GetComponent<Tile>();
                 tileComponent.Row = row;
                 tileComponent.Column = column;
 
                 // Turn on the invisible Collision on the tile prefabs
                 allTiles[row, column].transform.GetChild(1).gameObject.SetActive(dataTile.barrierTile);
+
+                MeshRenderer[] meshes = allTiles[row, column].GetComponentsInChildren<MeshRenderer>();
+               
+
+                if (dataTile.startTile && startMaterial != null)
+                    meshes[0].material = startMaterial;
+
+                else if (dataTile.finishTile && finishMaterial != null)
+                    meshes[0].material = finishMaterial;
+
+                else if (dataTile.barrierTile && barrierMaterial != null)
+                    meshes[0].material = barrierMaterial;
+
+                else if (dataTile.fallTile && fallMaterial != null)
+                    meshes[0].material = fallMaterial;
+
+                else
+                    meshes[0].material = defaultMaterial;
             }
         }
 
@@ -93,6 +111,8 @@ public class TilePlayManager : MonoBehaviour
             }
         }
 
+
+        // Set players start position for scene
         for (int row = 0; row < rows; row++)
         {
             for (int column = 0; column < columns; column++)
@@ -103,54 +123,20 @@ public class TilePlayManager : MonoBehaviour
 
             }
         }
-
-
-
     }
 
     private bool editLoop = true;
     // Update is called once per frame
     void Update ()
     {
-        if (editLoop)
-        {
-            editLoop = false;
-            SetMapValues();
-        }
-
         SetDynamicValues();
     }
 
     private void SetDynamicValues ()
     {
+
+
+
     }
 
-    private void SetMapValues ()
-    {
-        foreach (GameObject tile in allTiles)
-        {
-            Tile scriptedTile = tile.GetComponent<Tile>();
-            MeshRenderer[] meshes = tile.GetComponentsInChildren<MeshRenderer>();
-
-            int row = scriptedTile.Row;
-            int column = scriptedTile.Column;
-
-            TileMap.Row.Tile tileMapTile = tileMap.rows[row].column[column];
-
-            if (tileMapTile.startTile && startMaterial != null)
-                meshes[0].material = startMaterial;
-
-            else if (tileMapTile.finishTile && finishMaterial != null)
-                meshes[0].material = finishMaterial;
-
-            else if (tileMapTile.barrierTile && barrierMaterial != null)
-                meshes[0].material = barrierMaterial;
-
-            else if (tileMapTile.fallTile && fallMaterial != null)
-                meshes[0].material = fallMaterial;
-
-            else
-                meshes[0].material = defaultMaterial;
-        }
-    }
 }
