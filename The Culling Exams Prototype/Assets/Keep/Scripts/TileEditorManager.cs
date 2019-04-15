@@ -40,9 +40,107 @@ public class TileEditorManager : TileManagerBase
             }
         }
     }
+<<<<<<< .mine
 
     void Update ()
+
+=======
+    
+    // Update is called once per frame
+    void Update()
+>>>>>>> .theirs
     {
         SetMapValues();
     }
+<<<<<<< .mine
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+
+    // For the editor this has to happen every frame since your editing the scriptable object itself
+    private void SetMapValues ()
+    {
+        foreach (GameObject tile in allTiles)
+        {
+            Tile scriptedTile = tile.GetComponent<Tile>();
+            MeshRenderer[] meshes = tile.GetComponentsInChildren<MeshRenderer>();
+
+            int row = scriptedTile.Row;
+            int column = scriptedTile.Column;
+
+            TileMap.Row.Tile tileMapTile = tileMap.rows[row].column[column];
+
+            if (tileMapTile.startTile && startMaterial != null)
+                meshes[0].material = startMaterial;
+
+            else if (tileMapTile.finishTile && finishMaterial != null)
+                meshes[0].material = finishMaterial;
+
+            else if (tileMapTile.barrierTile && barrierMaterial != null)
+                meshes[0].material = barrierMaterial;
+
+            else if (tileMapTile.fallTile && fallMaterial != null)
+                meshes[0].material = fallMaterial;
+
+            else
+                meshes[0].material = defaultMaterial;
+            
+            transform.rotation = Quaternion.Euler(tileMapTile.rotation);
+            if (tileMapTile.Crate)
+            {
+                meshes[1].enabled = true;
+                meshes[1].material = crateMaterial;
+            }
+            else if (tileMapTile.Mirror)
+            {
+                meshes[1].enabled = true;
+                meshes[1].material = mirrorMaterial;
+            }
+            else
+                meshes[1].enabled = false;
+        }
+    }
+>>>>>>> .theirs
 }
