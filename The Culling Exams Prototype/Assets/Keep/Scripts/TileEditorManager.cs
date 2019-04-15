@@ -33,7 +33,7 @@ public class TileEditorManager : MonoBehaviour
     // Start is called before the first frame update
     void Start ()
     {
-        // If the Scriptable Object for this level does not have the same rows columns lets go ahead and adjust it
+        // If the Scriptable Object for this level does not have the same rows columns lets go ahead and reset it
         if (tileMap != null && ( tileMap.rowCount != rows || tileMap.columnCount != columns ))
         {
             tileMap.rowCount = rows;
@@ -66,27 +66,14 @@ public class TileEditorManager : MonoBehaviour
         
 
     }
-
-    private bool editLoop = true;
+    
     // Update is called once per frame
     void Update()
     {
-        if (editLoop)
-        {
-
-#if !UNITY_EDITOR // Do the updates in Editor mode so you can edit the maps. Otherwise set the map once after everything is instanciated.
-            editLoop = false;
-#endif
-            SetMapValues();
-        }
-
-        SetDynamicValues();
+        SetMapValues();
     }
 
-    private void SetDynamicValues ()
-    {
-    }
-
+    // For the editor this has to happen every frame since your editing the scriptable object itself
     private void SetMapValues ()
     {
         foreach (GameObject tile in allTiles)
