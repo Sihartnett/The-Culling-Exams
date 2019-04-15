@@ -6,6 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Level1", menuName = "TileMap/Levels", order = 1)]
 public class TileMap : ScriptableObject
 {
+    public enum TileType { basic, fall, barrier, start, finish, moveable };
+    public enum WallType { none, wall, window, door };
+    public enum CrateType { none, crate, mirror };
+
     public Row[] rows;
 
     public int rowCount;
@@ -19,16 +23,16 @@ public class TileMap : ScriptableObject
         [Serializable]
         public class Tile
         {
+            [HideInInspector]
             public Vector3 CenterPoint;
 
-            public bool fallTile = false;
-            public bool barrierTile = false;
-            public bool startTile = false;
-            public bool finishTile = false;
-            public bool moveableTile = false;
-
-            public bool Crate = false;
-            public bool Mirror = false;
+            public TileType tileType;
+            public WallType northWallType;
+            public WallType southWallType;
+            public WallType eastWallType;
+            public WallType westWallType;
+            public CrateType crateType;
+            
             public Vector3 rotation;
         }
     }

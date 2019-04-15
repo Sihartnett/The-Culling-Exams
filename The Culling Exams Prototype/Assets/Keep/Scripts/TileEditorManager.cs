@@ -4,36 +4,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class TileEditorManager : MonoBehaviour
+public class TileEditorManager : TileManagerBase
 {
-    public int rows;
-    public int columns;
-
-    public GameObject tilePrefab;
-
-    private GameObject[,] allTiles;
-    public TileMap tileMap;
-
-    // Map Editor Materials
-    public Material defaultMaterial;
-    public Material startMaterial;
-    public Material finishMaterial;
-    public Material barrierMaterial;
-    public Material fallMaterial;
-    public Material moveableMaterial;
-
-    public Material crateMaterial;
-    public Material mirrorMaterial;
-
-    // Dynamic Materials
-    public Material normalMaterial;
-    public Material highlightMaterial;
-    public Material currentMaterial;
-
     // Start is called before the first frame update
     void Start ()
     {
-        // If the Scriptable Object for this level does not have the same rows columns lets go ahead and adjust it
+        // If the Scriptable Object for this level does not have the same rows columns lets go ahead and reset it
         if (tileMap != null && ( tileMap.rowCount != rows || tileMap.columnCount != columns ))
         {
             tileMap.rowCount = rows;
@@ -48,45 +24,35 @@ public class TileEditorManager : MonoBehaviour
             }
             EditorUtility.SetDirty(tileMap);
         }
-        
+
         allTiles = new GameObject[rows, columns];
         for (int row = 0; row < rows; row++)
         {
             for (int column = 0; column < columns; column++)
             {
                 TileMap.Row.Tile tile = tileMap.rows[row].column[column];
-                
+
                 tile.CenterPoint = new Vector3(row, 0.5f, column);
 
-                allTiles[row, column] = Instantiate(tilePrefab, new Vector3(row,0,column), this.transform.rotation, this.transform);
+                allTiles[row, column] = Instantiate(tilePrefab, new Vector3(row, 0, column), this.transform.rotation, this.transform);
                 allTiles[row, column].GetComponent<Tile>().Row = row;
                 allTiles[row, column].GetComponent<Tile>().Column = column;
             }
         }
-        
-
     }
-
-    private bool editLoop = true;
+    
     // Update is called once per frame
+<<<<<<< HEAD
+    void Update ()
+    {
+        SetMapValues();
+=======
     void Update()
     {
-        if (editLoop)
-        {
-
-#if !UNITY_EDITOR // Do the updates in Editor mode so you can edit the maps. Otherwise set the map once after everything is instanciated.
-            editLoop = false;
-#endif
-            SetMapValues();
-        }
-
-        SetDynamicValues();
+        SetMapValues();
     }
 
-    private void SetDynamicValues ()
-    {
-    }
-
+    // For the editor this has to happen every frame since your editing the scriptable object itself
     private void SetMapValues ()
     {
         foreach (GameObject tile in allTiles)
@@ -128,5 +94,6 @@ public class TileEditorManager : MonoBehaviour
             else
                 meshes[1].enabled = false;
         }
+>>>>>>> d4fb59e67316e12a42ee9c0e5b0ac64773307154
     }
 }
