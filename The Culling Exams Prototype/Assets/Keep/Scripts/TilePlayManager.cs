@@ -29,28 +29,10 @@ public class TilePlayManager : TileManagerBase
                 TileMap.Row.Tile dataTile = tileMap.rows[row].column[column];
 
                 allTiles[row, column] = Instantiate(tilePrefab, new Vector3(row, 0, column), this.transform.rotation, this.transform);
-                
+
                 Tile tileComponent = allTiles[row, column].GetComponent<Tile>();
                 tileComponent.Row = row;
                 tileComponent.Column = column;
-
-                MeshRenderer[] meshes = allTiles[row, column].GetComponentsInChildren<MeshRenderer>();
-               
-
-                if (dataTile.startTile && startMaterial != null)
-                    meshes[0].material = startMaterial;
-
-                else if (dataTile.finishTile && finishMaterial != null)
-                    meshes[0].material = finishMaterial;
-
-                else if (dataTile.barrierTile && barrierMaterial != null)
-                    meshes[0].material = barrierMaterial;
-
-                else if (dataTile.fallTile && fallMaterial != null)
-                    meshes[0].material = fallMaterial;
-
-                else
-                    meshes[0].material = defaultMaterial;
             }
         }
 
@@ -84,8 +66,6 @@ public class TilePlayManager : TileManagerBase
             }
         }
 
-
-        // Set players start position for scene
         for (int row = 0; row < rows; row++)
         {
             for (int column = 0; column < columns; column++)
@@ -96,13 +76,8 @@ public class TilePlayManager : TileManagerBase
 
             }
         }
-<<<<<<< .mine
 
         SetMapValues();
-=======
-
-
->>>>>>> .theirs
     }
     
     // Update is called once per frame
@@ -110,23 +85,4 @@ public class TilePlayManager : TileManagerBase
     {
         SetDynamicValues();
     }
-<<<<<<< .mine
-
-
-
-
-
-
-
-
-=======
-
-    private void SetDynamicValues ()
-    {
-
-
-
-    }
-
->>>>>>> .theirs
 }
