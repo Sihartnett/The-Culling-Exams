@@ -124,8 +124,7 @@ public class TilePlayManager : MonoBehaviour
             }
         }
     }
-
-    private bool editLoop = true;
+    
     // Update is called once per frame
     void Update ()
     {
