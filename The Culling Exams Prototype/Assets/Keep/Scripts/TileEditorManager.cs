@@ -40,28 +40,8 @@ public class TileEditorManager : TileManagerBase
             }
         }
     }
-<<<<<<< .mine
-
     void Update ()
-
-=======
-    
-    // Update is called once per frame
-    void Update()
->>>>>>> .theirs
     {
         SetMapValues();
     }
-<<<<<<< .mine
-
-
-
-
-
-
-
-
-
-
-
 }
