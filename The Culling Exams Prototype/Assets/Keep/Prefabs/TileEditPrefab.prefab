@@ -193,7 +193,6 @@ GameObject:
   - component: {fileID: 2617150703862465353}
   - component: {fileID: 511383989161368268}
   m_Layer: 0
-  m_Name: TileGameObject
   m_Name: TileEditPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,13 +429,11 @@ GameObject:
   - component: {fileID: 2750290044425871375}
   - component: {fileID: 2629827826599803729}
   m_Layer: 0
-  m_Name: Cube (1)
   m_Name: Cube Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
   m_IsActive: 0
 --- !u!4 &3939935455590395182
 Transform:
