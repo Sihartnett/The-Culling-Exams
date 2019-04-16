@@ -37,34 +37,34 @@ public class TilePlayManager : TileManagerBase
         }
 
         // Objects
-        //allCrates = new List<GameObject>();
-        //for (int row = 0; row < rows; row++)
-        //{
-        //    for (int column = 0; column < columns; column++)
-        //    {
-        //        TileMap.Row.Tile tile = tileMap.rows[row].column[column];
+        allCrates = new List<GameObject>();
+        for (int row = 0; row < rows; row++)
+        {
+            for (int column = 0; column < columns; column++)
+            {
+                TileMap.Row.Tile tile = tileMap.rows[row].column[column];
 
-        //        if (tile.crateType != TileMap.CrateType.none)
-        //        {
+                if (tile.crateType != TileMap.CrateType.none)
+                {
 
-        //            GameObject addMe = Instantiate(
-        //                    cratePrefab, tile.CenterPoint,
-        //                    Quaternion.Euler(tile.rotation),
-        //                    this.transform);
+                    GameObject addMe = Instantiate(
+                            cratePrefab, tile.CenterPoint,
+                            Quaternion.Euler(tile.rotation),
+                            this.transform);
 
-        //            MeshRenderer[] meshes = addMe.GetComponentsInChildren<MeshRenderer>();
+                    MeshRenderer[] meshes = addMe.GetComponentsInChildren<MeshRenderer>();
 
-        //            if (tile.crateType == TileMap.CrateType.crate)
-        //                meshes[0].material = crateMaterial;
-        //            else if (tile.crateType == TileMap.CrateType.mirror)
-        //                meshes[0].material = mirrorMaterial;
-        //            else
-        //                meshes[0].material = defaultMaterial;
+                    if (tile.crateType == TileMap.CrateType.crate)
+                        meshes[0].material = crateMaterial;
+                    else if (tile.crateType == TileMap.CrateType.mirror)
+                        meshes[0].material = mirrorMaterial;
+                    else
+                        meshes[0].material = defaultMaterial;
 
-        //            allCrates.Add(addMe);
-        //        }
-        //    }
-        //}
+                    allCrates.Add(addMe);
+                }
+            }
+        }
 
         for (int row = 0; row < rows; row++)
         {
