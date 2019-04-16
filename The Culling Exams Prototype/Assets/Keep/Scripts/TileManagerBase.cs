@@ -50,7 +50,6 @@ public class TileManagerBase : MonoBehaviour
         foreach (GameObject tile in allTiles)
         {
             Tile scriptedTile = tile.GetComponent<Tile>();
-            MeshRenderer[] meshes = tile.GetComponentsInChildren<MeshRenderer>();
             MeshRenderer[] meshes = tile.GetComponentsInChildren<MeshRenderer>(true);
 
             int row = scriptedTile.Row;
