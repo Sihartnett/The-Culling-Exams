@@ -118,7 +118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8888088892994016552}
   - component: {fileID: 6346104538917440685}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TileBoxPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
