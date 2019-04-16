@@ -27,6 +27,16 @@ public class SceneManagerSystem : MonoBehaviour
         }
     }
 
+    public void NextLevel()
+    {
+        if (SceneManager.GetActiveScene().name == LevelsName[1])
+            SceneManager.LoadScene(LevelsName[2]);
+        if (SceneManager.GetActiveScene().name == LevelsName[2])
+            SceneManager.LoadScene(LevelsName[3]);
+        if (SceneManager.GetActiveScene().name == LevelsName[3])
+            SceneManager.LoadScene(LevelsName[4]);
+    }
+
     public void QuitGame()
     {
         Application.Quit();

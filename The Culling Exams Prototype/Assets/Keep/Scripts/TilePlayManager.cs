@@ -10,9 +10,14 @@ public class TilePlayManager : TileManagerBase
 
     private List<GameObject> allCrates;
 
+    //Scene Manager
+    private SceneManagerSystem SMS;
+
     // Start is called before the first frame update
     void Start()
     {
+        SMS = FindObjectOfType<SceneManagerSystem>();
+
         if (tileMap != null && (tileMap.rowCount != rows || tileMap.columnCount != columns))
         {
             Debug.Log("ScirptableObjectDoes not match tiles");
@@ -99,16 +104,17 @@ public class TilePlayManager : TileManagerBase
                 TileMap.Row.Tile dataTile = tileMap.rows[scriptedTile.Row].column[scriptedTile.Column];
                 if (dataTile.tileType == TileMap.TileType.finish)
                 {
-                    for (int row = 0; row < rows; row++)
-                    {
-                        for (int column = 0; column < columns; column++)
-                        {
-                            TileMap.Row.Tile innerDataTile = tileMap.rows[row].column[column];
+                    SMS.NextLevel();
+                    //for (int row = 0; row < rows; row++)
+                    //{
+                    //    for (int column = 0; column < columns; column++)
+                    //    {
+                    //        TileMap.Row.Tile innerDataTile = tileMap.rows[row].column[column];
 
-                            if(innerDataTile.tileType == TileMap.TileType.start )
-                                this.transform.GetChild(0).transform.SetPositionAndRotation(innerDataTile.CenterPoint, Quaternion.identity);
-                        }
-                    }
+                    //        if(innerDataTile.tileType == TileMap.TileType.start )
+                    //            this.transform.GetChild(0).transform.SetPositionAndRotation(innerDataTile.CenterPoint, Quaternion.identity);
+                    //    }
+                    //}
                 }
             }
         }
