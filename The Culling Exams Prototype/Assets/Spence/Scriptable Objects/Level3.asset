@@ -476,7 +476,7 @@ MonoBehaviour:
       crateType: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 2}
-      tileType: 0
+      tileType: 2
       northWallType: 0
       southWallType: 0
       eastWallType: 0
