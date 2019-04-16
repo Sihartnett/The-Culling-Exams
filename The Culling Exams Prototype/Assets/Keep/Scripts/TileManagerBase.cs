@@ -189,5 +189,18 @@ public class TileManagerBase : MonoBehaviour
 
     protected void SetDynamicValues ()
     {
+
+        foreach (GameObject tile in allTiles)
+        {
+            Tile scriptedTile = tile.GetComponent<Tile>();
+            MeshRenderer[] meshes = tile.GetComponentsInChildren<MeshRenderer>(true);
+
+            int row = scriptedTile.Row;
+            int column = scriptedTile.Column;
+
+            TileMap.Row.Tile tileMapTile = tileMap.rows[row].column[column];
+            
+            tile.transform.GetChild(1).gameObject.SetActive(false);
+        }
     }
 }
