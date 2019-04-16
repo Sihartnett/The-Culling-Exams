@@ -51,6 +51,7 @@ public class TileManagerBase : MonoBehaviour
         {
             Tile scriptedTile = tile.GetComponent<Tile>();
             MeshRenderer[] meshes = tile.GetComponentsInChildren<MeshRenderer>();
+            MeshRenderer[] meshes = tile.GetComponentsInChildren<MeshRenderer>(true);
 
             int row = scriptedTile.Row;
             int column = scriptedTile.Column;
