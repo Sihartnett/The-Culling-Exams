@@ -19,6 +19,8 @@ public class TilePlayManager : TileManagerBase
     private SceneManagerSystem SMS;
 
     public Vector2 currentTile = new Vector2();
+
+    public SelectionType selectionType = SelectionType.none;
     public Vector2? selectedTile = null;
 
     // Start is called before the first frame update
@@ -151,9 +153,10 @@ public class TilePlayManager : TileManagerBase
                     // For Selection
                     CrateScript clickOnCrate = rayHit.collider.GetComponent<CrateScript>();
                     if (clickOnCrate != null)
+                    {
                         clickOnCrate.Select(true);
-
-                    currentSelected = rayHit.collider.gameObject;
+                        currentSelected = rayHit.collider.gameObject;
+                    }
                 }
             }
         }

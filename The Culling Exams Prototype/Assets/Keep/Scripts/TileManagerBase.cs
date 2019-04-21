@@ -221,6 +221,10 @@ public class TileManagerBase : MonoBehaviour
                         tile.transform.GetChild(1).gameObject.SetActive(true);
                         meshes[1].material = ghostMaterial;
                         break;
+                    case CrateType.crateGhostHighlighted:
+                        tile.transform.GetChild(1).gameObject.SetActive(true);
+                        meshes[1].material = highlightMaterial;
+                        break;
                     case CrateType.none:
                     default:
                         tile.transform.GetChild(1).gameObject.SetActive(false);
