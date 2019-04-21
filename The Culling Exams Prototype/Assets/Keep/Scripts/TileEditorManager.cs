@@ -20,7 +20,7 @@ public class TileEditorManager : TileManagerBase
             for (int row = 0; row < rows; row++)
             {
                 tileMap.rows[row] = new TileMap.Row();
-                tileMap.rows[row].column = new TileMap.Row.Tile[columns];
+                tileMap.rows[row].column = new Tile[columns];
             }
             EditorUtility.SetDirty(tileMap);
         }
@@ -30,13 +30,13 @@ public class TileEditorManager : TileManagerBase
         {
             for (int column = 0; column < columns; column++)
             {
-                TileMap.Row.Tile tile = tileMap.rows[row].column[column];
+                Tile tile = tileMap.rows[row].column[column];
 
                 tile.CenterPoint = new Vector3(row, 0.5f, column);
 
                 allTiles[row, column] = Instantiate(tilePrefab, new Vector3(row, 0, column), this.transform.rotation, this.transform);
-                allTiles[row, column].GetComponent<Tile>().Row = row;
-                allTiles[row, column].GetComponent<Tile>().Column = column;
+                allTiles[row, column].GetComponent<TileComponent>().Row = row;
+                allTiles[row, column].GetComponent<TileComponent>().Column = column;
             }
         }
     }

@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 2617150703218176283}
   - component: {fileID: 2617150703218176282}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cube Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,6 +234,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 0
+  Tile:
+    CenterPoint: {x: 0, y: 0, z: 0}
+    tileType: 0
+    northWallType: 0
+    southWallType: 0
+    eastWallType: 0
+    westWallType: 0
+    crateType: 0
+    rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &5875676294177166807
 GameObject:
   m_ObjectHideFlags: 0
