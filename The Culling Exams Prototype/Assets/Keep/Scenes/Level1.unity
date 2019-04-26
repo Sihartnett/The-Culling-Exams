@@ -374,15 +374,13 @@ MonoBehaviour:
   wallMaterial: {fileID: 0}
   doorMaterial: {fileID: 0}
   windowMaterial: {fileID: 0}
-  normalMaterial: {fileID: 0}
   highlightMaterial: {fileID: 2100000, guid: 65ae5ef8ed721f642934eef741d939a4, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 06feb80f4b45cbd44818103b51bee095, type: 2}
   ghostMaterial: {fileID: 2100000, guid: 21726911f754550409789e9e29489ed6, type: 2}
   cratePrefab: {fileID: 8888088892994016553, guid: 7c8f8c8a781c87444ba1fa4a4588ad45,
     type: 3}
-  rayCast: {fileID: 544804922}
+  rayCastSphere: {fileID: 2076292734}
   currentTile: {x: 0, y: 0}
-  selectionType: 0
 --- !u!1001 &1627391616
 PrefabInstance:
   m_ObjectHideFlags: 0

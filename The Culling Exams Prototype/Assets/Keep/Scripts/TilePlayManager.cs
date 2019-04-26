@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class TilePlayManager : TileManagerBase
 {
-    public GameObject cratePrefab;
     public GameObject rayCastSphere;
     
     Transform cameraTransform;
