@@ -7,11 +7,8 @@ using UnityEngine;
 public class TilePlayManager : TileManagerBase
 {
     public GameObject cratePrefab;
-    public GameObject rayCast;
-
-    private GameObject currentHighlight;
-    private GameObject currentSelected;
-
+    public GameObject rayCastSphere;
+    
     Transform cameraTransform;
     Transform centerTransform;
 
@@ -19,9 +16,8 @@ public class TilePlayManager : TileManagerBase
     private SceneManagerSystem SMS;
 
     public Vector2 currentTile = new Vector2();
-
-    public SelectionType selectionType = SelectionType.none;
-    public Vector2? selectedTile = null;
+    
+    int layerMask;
 
     // Start is called before the first frame update
     void Start ()
@@ -66,6 +62,8 @@ public class TilePlayManager : TileManagerBase
 
         cameraTransform = Camera.main.transform;
         centerTransform = GameObject.Find("Cylinder").transform;
+
+        layerMask = LayerMask.GetMask("clickableLayer");
     }
 
     // Update is called once per frame
@@ -86,10 +84,6 @@ public class TilePlayManager : TileManagerBase
                 if (scriptedTile.Row + 0.5f > playerPosition.x && playerPosition.x > scriptedTile.Row - 0.5f
                     && scriptedTile.Column + 0.5f > playerPosition.z && playerPosition.z > scriptedTile.Column - 0.5f)
                 {
-                    // You changed tiles
-                    // Drop any Selected Items
-                    // Reset Selections
-
                     Tile dataTile = tileMap.rows[scriptedTile.Row].column[scriptedTile.Column];
                     switch (dataTile.tileType)
                     {
@@ -114,51 +108,24 @@ public class TilePlayManager : TileManagerBase
         }
 
         //Debug.DrawRay(centerPoint.position, camera.TransformDirection(Vector3.forward), Color.red);
-        if (Physics.Raycast(centerTransform.position, cameraTransform.TransformDirection(Vector3.forward), out RaycastHit rayHit))
+        if (Physics.Raycast(centerTransform.position, cameraTransform.TransformDirection(Vector3.forward), out RaycastHit rayHit, layerMask))
         {
-            rayCast.transform.position = rayHit.point;
+            if(rayCastSphere != null)
+                rayCastSphere.transform.position = rayHit.point;
 
-            // For Highlighting
-            if (currentHighlight != rayHit.collider.gameObject)
+            CrateScript crateScript = rayHit.collider.GetComponent<CrateScript>();
+            if (crateScript != null)
             {
-                if (currentHighlight != null)
-                {
-                    CrateScript currentCrateScript = currentHighlight.GetComponent<CrateScript>();
-                    if (currentCrateScript != null)
-                        currentCrateScript.Highlight(false);
-                }
+                // Highlighting
+                crateScript.Highlight(rayHit.collider);
 
-                // For Highlighting
-                CrateScript crateScript = rayHit.collider.GetComponent<CrateScript>();
-                if (crateScript != null)
+                // Selection
+                if (Input.GetMouseButtonDown(0))
                 {
-                    crateScript.Highlight(true);
-                    currentHighlight = rayHit.collider.gameObject;
+                    crateScript.Select(rayHit.collider);
                 }
             }
 
-            // For Selection
-            if (Input.GetMouseButtonDown(0))
-            {
-                // For Selection
-                if (currentSelected != rayHit.collider.gameObject)
-                {
-                    if (currentSelected != null)
-                    {
-                        CrateScript currentCrate = currentSelected.GetComponent<CrateScript>();
-                        if (currentCrate != null)
-                            currentCrate.Select(false);
-                    }
-
-                    // For Selection
-                    CrateScript clickOnCrate = rayHit.collider.GetComponent<CrateScript>();
-                    if (clickOnCrate != null)
-                    {
-                        clickOnCrate.Select(true);
-                        currentSelected = rayHit.collider.gameObject;
-                    }
-                }
-            }
         }
     }
 }

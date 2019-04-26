@@ -29,7 +29,6 @@ public class TileManagerBase : MonoBehaviour
     public Material windowMaterial;
 
     // Dynamic Materials
-    public Material normalMaterial;
     public Material highlightMaterial;
     public Material selectedMaterial;
     public Material ghostMaterial;
@@ -230,6 +229,39 @@ public class TileManagerBase : MonoBehaviour
                         tile.transform.GetChild(1).gameObject.SetActive(false);
                         break;
                 }
+
+                //switch (tileComponent.Tile.tileType)
+                //{
+                //    case TileType.moveable:
+                //        tile.transform.GetChild(6).gameObject.SetActive(false);
+                //        meshes[0].material = moveableMaterial;
+                //        break;
+                //    case TileType.fall:
+                //        tile.transform.GetChild(6).gameObject.SetActive(true);
+                //        meshes[0].material = fallMaterial;
+                //        break;
+                        
+                //    case TileType.fallGhost:
+                //        tile.transform.GetChild(6).gameObject.SetActive(true);
+                //        meshes[0].material = moveableMaterial;
+                //        break;
+                //    case TileType.fallHighlighted:
+                //        tile.transform.GetChild(6).gameObject.SetActive(true);
+                //        meshes[0].material = moveableMaterial;
+                //        break;
+
+                //    case TileType.moveableHighlighted:
+                //        tile.transform.GetChild(6).gameObject.SetActive(false);
+                //        meshes[0].material = highlightMaterial;
+                //        break;
+
+                //    case TileType.basic:
+                //    default:
+                //        tile.transform.GetChild(6).gameObject.SetActive(false);
+                //        meshes[0].material = defaultMaterial;
+                //        break;
+
+                //}
             }
         }
     }

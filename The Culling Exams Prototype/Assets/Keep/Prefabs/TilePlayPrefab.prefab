@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 2617150703218176283}
   - component: {fileID: 2617150703218176282}
   - component: {fileID: 1814225219215808531}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd0c431aa4bf3840a74352b3db8eead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 2
+  myType: 2
 --- !u!1 &2617150703862465352
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 2750290044425871375}
   - component: {fileID: 2629827826599803729}
   - component: {fileID: 5537367827355839853}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +468,7 @@ Transform:
   m_GameObject: {fileID: 6522985217511615838}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children: []
   m_Father: {fileID: 2617150703862465353}
   m_RootOrder: 1
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd0c431aa4bf3840a74352b3db8eead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  myType: 1
 --- !u!1 &6638964297765287066
 GameObject:
   m_ObjectHideFlags: 0

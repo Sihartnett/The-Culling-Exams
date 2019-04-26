@@ -228,6 +228,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1293098526, guid: 0be4a71b4cfa86d409dbbe812e57019e, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 819
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0be4a71b4cfa86d409dbbe812e57019e, type: 3}
 --- !u!4 &730526554 stripped
@@ -378,6 +382,7 @@ MonoBehaviour:
     type: 3}
   rayCast: {fileID: 544804922}
   currentTile: {x: 0, y: 0}
+  selectionType: 0
 --- !u!1001 &1627391616
 PrefabInstance:
   m_ObjectHideFlags: 0
