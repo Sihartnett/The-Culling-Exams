@@ -308,9 +308,9 @@ MonoBehaviour:
   wallMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
   doorMaterial: {fileID: 0}
   windowMaterial: {fileID: 0}
-  normalMaterial: {fileID: 0}
   highlightMaterial: {fileID: 0}
-  currentMaterial: {fileID: 0}
+  selectedMaterial: {fileID: 0}
+  ghostMaterial: {fileID: 0}
 --- !u!4 &2107539656
 Transform:
   m_ObjectHideFlags: 0
