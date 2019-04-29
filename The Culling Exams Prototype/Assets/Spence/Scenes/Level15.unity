@@ -4678,11 +4678,11 @@ MonoBehaviour:
   wallMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
   doorMaterial: {fileID: 2100000, guid: 06feb80f4b45cbd44818103b51bee095, type: 2}
   windowMaterial: {fileID: 0}
-  normalMaterial: {fileID: 0}
   highlightMaterial: {fileID: 0}
-  currentMaterial: {fileID: 0}
-  cratePrefab: {fileID: 8888088892994016553, guid: 7c8f8c8a781c87444ba1fa4a4588ad45,
-    type: 3}
+  selectedMaterial: {fileID: 0}
+  ghostMaterial: {fileID: 0}
+  rayCastSphere: {fileID: 0}
+  currentTile: {x: 0, y: 0}
 --- !u!4 &101468805
 Transform:
   m_ObjectHideFlags: 0
