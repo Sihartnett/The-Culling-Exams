@@ -5,13 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerSystem : MonoBehaviour
 {
-    public string[] LevelsName;
     private bool isMainMenu = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().name == LevelsName[0])
+        if (SceneManager.GetActiveScene().buildIndex == 0)
             isMainMenu = true;
     }
 
@@ -22,19 +21,14 @@ public class SceneManagerSystem : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                SceneManager.LoadScene(LevelsName[1]);
+                SceneManager.LoadScene("Level1"); 
             }
         }
     }
 
     public void NextLevel()
     {
-        if (SceneManager.GetActiveScene().name == LevelsName[1])
-            SceneManager.LoadScene(LevelsName[2]);
-        if (SceneManager.GetActiveScene().name == LevelsName[2])
-            SceneManager.LoadScene(LevelsName[3]);
-        if (SceneManager.GetActiveScene().name == LevelsName[3])
-            SceneManager.LoadScene(LevelsName[4]);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
@@ -44,6 +38,6 @@ public class SceneManagerSystem : MonoBehaviour
 
     public void PlayAgain()
     {
-        SceneManager.LoadScene(LevelsName[1]);
+        SceneManager.LoadScene("Main Menu");
     }
 }

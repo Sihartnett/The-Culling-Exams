@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4678,11 +4678,11 @@ MonoBehaviour:
   wallMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
   doorMaterial: {fileID: 0}
   windowMaterial: {fileID: 0}
-  normalMaterial: {fileID: 0}
   highlightMaterial: {fileID: 0}
-  currentMaterial: {fileID: 0}
-  cratePrefab: {fileID: 8888088892994016553, guid: 7c8f8c8a781c87444ba1fa4a4588ad45,
-    type: 3}
+  selectedMaterial: {fileID: 0}
+  ghostMaterial: {fileID: 0}
+  rayCastSphere: {fileID: 0}
+  currentTile: {x: 0, y: 0}
 --- !u!4 &101468805
 Transform:
   m_ObjectHideFlags: 0
@@ -8640,22 +8640,32 @@ PrefabInstance:
     - target: {fileID: 4250469939411912859, guid: fbc0a7b6843e2cf4091886b00097708f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 391.1
+      value: -75.850006
       objectReference: {fileID: 0}
     - target: {fileID: 4250469939411912859, guid: fbc0a7b6843e2cf4091886b00097708f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 231.7
+      value: 156
       objectReference: {fileID: 0}
     - target: {fileID: 4250469939411912859, guid: fbc0a7b6843e2cf4091886b00097708f,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 151.7
+      value: 151.70001
       objectReference: {fileID: 0}
     - target: {fileID: 4250469939411912859, guid: fbc0a7b6843e2cf4091886b00097708f,
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 132.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250469939411912859, guid: fbc0a7b6843e2cf4091886b00097708f,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250469939411912859, guid: fbc0a7b6843e2cf4091886b00097708f,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbc0a7b6843e2cf4091886b00097708f, type: 3}
