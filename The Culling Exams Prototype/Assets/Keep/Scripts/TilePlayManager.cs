@@ -15,8 +15,12 @@ public class TilePlayManager : TileManagerBase
     private SceneManagerSystem SMS;
 
     public Vector2 currentTile = new Vector2();
+
+    // Current Fatigue Counter Set at the begining of every level
+    public int fatigue = 0;
     
-    int layerMask;
+    // needed for ray cast
+    private int layerMask;
 
     // Start is called before the first frame update
     void Start ()
@@ -107,6 +111,8 @@ public class TilePlayManager : TileManagerBase
         }
 
         //Debug.DrawRay(centerPoint.position, camera.TransformDirection(Vector3.forward), Color.red);
+
+        //if (Physics.Raycast(centerTransform.position, centerTransform.TransformDirection(Vector3.forward), out RaycastHit rayHit, layerMask))
         if (Physics.Raycast(centerTransform.position, cameraTransform.TransformDirection(Vector3.forward), out RaycastHit rayHit, layerMask))
         {
             if(rayCastSphere != null)

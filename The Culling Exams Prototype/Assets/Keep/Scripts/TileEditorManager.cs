@@ -22,7 +22,9 @@ public class TileEditorManager : TileManagerBase
                 tileMap.rows[row] = new TileMap.Row();
                 tileMap.rows[row].column = new Tile[columns];
             }
+#if UNITY_EDITOR
             EditorUtility.SetDirty(tileMap);
+#endif
         }
 
         allTiles = new GameObject[rows, columns];

@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TileType { basic, fall, barrier, start, finish, moveable, fallHighlighted, fallGhost, moveableHighlighted };
-public enum WallType { none, wall, window, door };
-public enum CrateType { none, crate, mirror,
-    crateSelected, crateHighlighted, crateGhost, crateGhostHighlighted,
-    mirrorSelected, mirrorHighlighted, mirrorGhost, mirrorGhostHighlighted };
+public enum TileType { basic, fall, barrier, start, finish, moveable, redTile, blueTile, fallHighlighted, fallGhost, moveableHighlighted };
+public enum WallType { none, wall, window, redDoor, blueDoor, redDoorOpen, blueDoorOpen };
+public enum CrateType { none, crate, mirror, redcrate, bluecrate };
+public enum CrateState { none, selected, highlighted, ghost, ghostHighlighted };
+
 public enum SelectionType { none, crate, tile }
 
 [Serializable]
@@ -22,6 +22,9 @@ public class Tile
     public WallType eastWallType;
     public WallType westWallType;
     public CrateType crateType;
+
+    [NonSerialized]
+    public CrateState crateState = CrateState.none;
 
     public Vector3 rotation;
 
