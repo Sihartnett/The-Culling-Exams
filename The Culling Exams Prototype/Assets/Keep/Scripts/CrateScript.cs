@@ -132,12 +132,16 @@ public class CrateScript : MonoBehaviour
     {
         TileComponent tileComponent = this.transform.parent.GetComponent<TileComponent>();
         TilePlayManager playManager = this.transform.parent.transform.parent.GetComponent<TilePlayManager>();
+        SceneManagerSystem SMS = FindObjectOfType<SceneManagerSystem>();
 
         // Deselect everything nothing is currently highlighted so deselect
         if (currentHighlight == null && currentSelection != null)
         {
             if (myType == SelectionType.crate)
             {
+
+                SMS.DeSelectCrate();
+
                 tileComponent.Tile.crateState = CrateState.none;
                 ResetGhosts(tileComponent, playManager);
             }
@@ -156,6 +160,11 @@ public class CrateScript : MonoBehaviour
                 // am i a crate selection or a tile
                 if (myType == SelectionType.crate)
                 {
+
+
+                    SMS.SelectCrate();
+
+
                     // Flip myself to selected
                     tileComponent.Tile.crateState = CrateState.selected;
 
@@ -199,6 +208,12 @@ public class CrateScript : MonoBehaviour
 
                 if (myType == SelectionType.crate)
                 {
+
+
+
+                    SMS.DeSelectCrate();
+
+
                     tileComponent.Tile.crateType = CrateType.crate;
                     tileComponent.Tile.crateState = CrateState.none;
 
