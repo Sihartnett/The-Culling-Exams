@@ -130,7 +130,6 @@ public class TilePlayManager : TileManagerBase
                     crateScript.Select(rayHit.collider);
                 }
             }
-
         }
     }
 }

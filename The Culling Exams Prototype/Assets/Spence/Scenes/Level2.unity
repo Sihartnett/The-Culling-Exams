@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1344814357}
-  m_IndirectSpecularColor: {r: 0.23236784, g: 0.23553982, b: 0.27230316, a: 1}
+  m_IndirectSpecularColor: {r: 0.29364532, g: 0.30143294, b: 0.3257857, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10648,6 +10648,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240154712}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &240196064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 954585562, guid: 0be4a71b4cfa86d409dbbe812e57019e,
+    type: 3}
+  m_PrefabInstance: {fileID: 559762078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &240196070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240196064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5752276e8e5d1e4479fcf60262e13c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivityX: 5
+  mouseSensitivityY: 4
+  walkSpeed: 5
+  turnSpeed: 5
 --- !u!1 &241270910
 GameObject:
   m_ObjectHideFlags: 0
@@ -24076,6 +24098,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 954585568, guid: 0be4a71b4cfa86d409dbbe812e57019e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 954585564, guid: 0be4a71b4cfa86d409dbbe812e57019e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 954585563, guid: 0be4a71b4cfa86d409dbbe812e57019e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 954585566, guid: 0be4a71b4cfa86d409dbbe812e57019e, type: 3}
+      propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
