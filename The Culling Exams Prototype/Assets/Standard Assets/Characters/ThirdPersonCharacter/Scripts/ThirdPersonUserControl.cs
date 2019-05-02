@@ -41,7 +41,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         //Simple camera orbiting around player using a pivot point (center point)
         void CameraOrbit ()
         {
-
             mouseX += Input.GetAxis("Mouse X") * mouseSensitivityX;
             mouseY -= Input.GetAxis("Mouse Y") * mouseSensitivityY;
 
@@ -55,6 +54,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         //Player movement and camera rotation, so that the player moves where the camera is pointing
         void Movement ()
         {
+           var temp =  transform.parent.GetComponent("TilePlayManager");
+
+
+            
+            //TilePlayManager tilePlayManager;
             moveH = Input.GetAxisRaw("Horizontal") * walkSpeed;
             moveV = Input.GetAxisRaw("Vertical") * walkSpeed;
 

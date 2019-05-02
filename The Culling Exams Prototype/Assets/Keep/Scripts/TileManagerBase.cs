@@ -66,37 +66,29 @@ public class TileManagerBase : MonoBehaviour
             switch (tileMapTile.tileType)
             {
                 case TileType.barrier:
-                    tile.transform.GetChild(6).gameObject.SetActive(true);
                     meshes[0].material = barrierMaterial;
                     break;
                 case TileType.finish:
-                    tile.transform.GetChild(6).gameObject.SetActive(false);
                     meshes[0].material = finishMaterial;
                     break;
                 case TileType.start:
-                    tile.transform.GetChild(6).gameObject.SetActive(false);
                     meshes[0].material = startMaterial;
                     break;
                 case TileType.moveable:
-                    tile.transform.GetChild(6).gameObject.SetActive(false);
                     meshes[0].material = moveableMaterial;
                     break;
                 case TileType.fall:
-                    tile.transform.GetChild(6).gameObject.SetActive(false);
                     meshes[0].material = fallMaterial;
                     break;
                 case TileType.blueTile:
-                    tile.transform.GetChild(6).gameObject.SetActive(false);
                     meshes[0].material = blueTileMaterial;
                     break;
                 case TileType.redTile:
-                    tile.transform.GetChild(6).gameObject.SetActive(false);
                     meshes[0].material = redTileMaterial;
                     break;
 
                 case TileType.basic:
                 default:
-                    tile.transform.GetChild(6).gameObject.SetActive(false);
                     meshes[0].material = defaultMaterial;
                     break;
             }

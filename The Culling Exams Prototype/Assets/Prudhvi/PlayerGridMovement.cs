@@ -40,37 +40,17 @@ public class PlayerGridMovement : MonoBehaviour
 
             if (input != Vector2.zero)
             {
-                StartCoroutine(move(transform));
+                //StartCoroutine(move(transform), new Vector3(0,0,0));
             }
         }
     }
 
-    public IEnumerator move(Transform transform)
+    public IEnumerator move(Transform transform, Vector3 endPoint)
     {
         isMoving = true;
         startPosition = transform.position;
         t = 0;
         
-        if (gridOrientation == Orientation.Horizontal)
-        {
-            endPosition = new Vector3(startPosition.x + System.Math.Sign(input.x) * gridSize,
-                startPosition.y, startPosition.z + System.Math.Sign(input.y) * gridSize);
-        }
-        else
-        {
-            endPosition = new Vector3(startPosition.x + System.Math.Sign(input.x) * gridSize,
-                startPosition.y + System.Math.Sign(input.y) * gridSize, startPosition.z);
-        }
-
-        if (allowDiagonals && correctDiagonalSpeed && input.x != 0 && input.y != 0)
-        {
-            factor = 0.7071f;
-        }
-        else
-        {
-            factor = 1f;
-        }
-
         while (t < 1f)
         {
             t += Time.deltaTime * (moveSpeed / gridSize) * factor;
@@ -81,4 +61,41 @@ public class PlayerGridMovement : MonoBehaviour
         isMoving = false;
         yield return 0;
     }
+
+    //public IEnumerator move(Transform transform)
+    //{
+    //    isMoving = true;
+    //    startPosition = transform.position;
+    //    t = 0;
+        
+    //    if (gridOrientation == Orientation.Horizontal)
+    //    {
+    //        endPosition = new Vector3(startPosition.x + System.Math.Sign(input.x) * gridSize,
+    //            startPosition.y, startPosition.z + System.Math.Sign(input.y) * gridSize);
+    //    }
+    //    else
+    //    {
+    //        endPosition = new Vector3(startPosition.x + System.Math.Sign(input.x) * gridSize,
+    //            startPosition.y + System.Math.Sign(input.y) * gridSize, startPosition.z);
+    //    }
+
+    //    if (allowDiagonals && correctDiagonalSpeed && input.x != 0 && input.y != 0)
+    //    {
+    //        factor = 0.7071f;
+    //    }
+    //    else
+    //    {
+    //        factor = 1f;
+    //    }
+
+    //    while (t < 1f)
+    //    {
+    //        t += Time.deltaTime * (moveSpeed / gridSize) * factor;
+    //        transform.position = Vector3.Lerp(startPosition, endPosition, t);
+    //        yield return null;
+    //    }
+
+    //    isMoving = false;
+    //    yield return 0;
+    //}
 }
