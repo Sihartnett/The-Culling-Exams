@@ -16,7 +16,7 @@ public class PauseMenuManager : MonoBehaviour
 
     private TilePlayManager TPM;
     private SceneManagerSystem SMS;
-    private ThirdPersonUserControl TPUS;
+    private PlayerMovement TPUS;
     private bool PauseorNot = false;
 
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class PauseMenuManager : MonoBehaviour
 
         TPM = FindObjectOfType<TilePlayManager>();
         SMS = FindObjectOfType<SceneManagerSystem>();
-        TPUS = FindObjectOfType<ThirdPersonUserControl>();
+        TPUS = FindObjectOfType<PlayerMovement>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         RenderSettings.skybox = skybox; 
@@ -92,7 +92,7 @@ public class PauseMenuManager : MonoBehaviour
         RenderSettings.skybox = skybox;
         TPM = FindObjectOfType<TilePlayManager>();
         SMS = FindObjectOfType<SceneManagerSystem>();
-        TPUS = FindObjectOfType<ThirdPersonUserControl>();
+        TPUS = FindObjectOfType<PlayerMovement>();
         SMS.LoadOneTime = true;
         if(scene.name == "Victory Scene" || scene.name == "Defeat Scene" || scene.name == "Main Menu")
         {

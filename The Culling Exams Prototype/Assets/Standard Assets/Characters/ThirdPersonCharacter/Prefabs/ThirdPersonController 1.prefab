@@ -1378,8 +1378,7 @@ GameObject:
   - component: {fileID: 954585567}
   - component: {fileID: 954585566}
   - component: {fileID: 954585565}
-  - component: {fileID: 954585564}
-  - component: {fileID: 954585563}
+  - component: {fileID: 1605226159}
   m_Layer: 0
   m_Name: ThirdPersonController 1
   m_TagString: Untagged
@@ -1452,7 +1451,7 @@ CapsuleCollider:
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
---- !u!114 &954585564
+--- !u!114 &1605226159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1461,30 +1460,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 954585562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
+  m_Script: {fileID: 11500000, guid: 5752276e8e5d1e4479fcf60262e13c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivityX: 5
   mouseSensitivityY: 4
   walkSpeed: 5
   turnSpeed: 5
---- !u!114 &954585563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954585562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_GravityMultiplier: 2
-  m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 1
-  m_AnimSpeedMultiplier: 1
-  m_GroundCheckDistance: 0.3
 --- !u!1 &980903013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,7 +1962,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 819
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
