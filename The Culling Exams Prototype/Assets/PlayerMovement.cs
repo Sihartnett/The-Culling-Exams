@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
                 tile.Tile.crateType == CrateType.none)
             {
                 var moveToMe = new Vector3(tile.Tile.CenterPoint.x, 0.1f, tile.Tile.CenterPoint.z);
-                tileManager.fatigue -= 1;
+                //tileManager.fatigue -= 1;
 
                 StartCoroutine(move(transform, moveToMe));
             }
