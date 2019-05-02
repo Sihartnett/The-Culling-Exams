@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -864,7 +864,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12914597}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.04, y: 0.56, z: 15.98}
+  m_LocalPosition: {x: -4.11, y: 0.56, z: 15.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2120877248}
@@ -3619,7 +3619,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87139510}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.02, y: 0.56, z: 15.05}
+  m_LocalPosition: {x: -9.02, y: 0.56, z: 16.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1325963305}
@@ -4673,16 +4673,22 @@ MonoBehaviour:
   barrierMaterial: {fileID: 2100000, guid: c3fc747f203636741a5fcbfc1fe7aa5f, type: 2}
   fallMaterial: {fileID: 0}
   moveableMaterial: {fileID: 2100000, guid: f174c50f8f71bbd458ed2807de6526c3, type: 2}
-  crateMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
+  blueTileMaterial: {fileID: 0}
+  redTileMaterial: {fileID: 0}
   mirrorMaterial: {fileID: 2100000, guid: 621e901dcf5ebaf46bce29d18f67194c, type: 2}
+  crateMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
+  redCrateMaterial: {fileID: 0}
+  blueCrateMaterial: {fileID: 0}
   wallMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
-  doorMaterial: {fileID: 0}
+  redDoorMaterial: {fileID: 0}
+  blueDoorMaterial: {fileID: 0}
   windowMaterial: {fileID: 0}
   highlightMaterial: {fileID: 0}
   selectedMaterial: {fileID: 0}
   ghostMaterial: {fileID: 0}
   rayCastSphere: {fileID: 0}
   currentTile: {x: 0, y: 0}
+  fatigue: 0
 --- !u!4 &101468805
 Transform:
   m_ObjectHideFlags: 0
@@ -36028,7 +36034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878122020}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 6.02, y: 0.56, z: 16.02}
+  m_LocalPosition: {x: 7.94, y: 0.56, z: 16.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1902243231}
@@ -66798,6 +66804,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656709606}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1661219282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1293098524, guid: 0be4a71b4cfa86d409dbbe812e57019e,
+    type: 3}
+  m_PrefabInstance: {fileID: 559762078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1661219284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661219282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1abee7adaed76fc4087e08828b45181b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 5
+  maxDistance: 15
+  smooth: 10
+  dollyDirAdjusted: {x: 0, y: 0, z: 0}
+  distance: 0
 --- !u!1 &1661421689
 GameObject:
   m_ObjectHideFlags: 0
@@ -68915,7 +68944,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1705257279}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.02, y: 0.56, z: -1.06}
+  m_LocalPosition: {x: -9.02, y: 0.56, z: -2.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1412898801}
