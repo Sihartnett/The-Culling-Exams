@@ -261,7 +261,7 @@ MonoBehaviour:
       northWallType: 0
       southWallType: 0
       eastWallType: 0
-      westWallType: 0
+      westWallType: 3
       crateType: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 9}
