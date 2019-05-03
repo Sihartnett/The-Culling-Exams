@@ -159,19 +159,23 @@ MonoBehaviour:
   columns: 10
   tilePrefab: {fileID: 2617150703862465352, guid: 9a31ab1a5a3da8a44a56eb98478377a9,
     type: 3}
-  tileMap: {fileID: 11400000, guid: 71d564d612fb91548956ca597358380f, type: 2}
+  tileMap: {fileID: 11400000, guid: 180df457ed9ab05409f39f4fdfd3f955, type: 2}
   defaultMaterial: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
   startMaterial: {fileID: 0}
   finishMaterial: {fileID: 0}
   barrierMaterial: {fileID: 2100000, guid: 621e901dcf5ebaf46bce29d18f67194c, type: 2}
   fallMaterial: {fileID: 0}
   moveableMaterial: {fileID: 0}
-  crateMaterial: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
+  blueTileMaterial: {fileID: 0}
+  redTileMaterial: {fileID: 0}
   mirrorMaterial: {fileID: 2100000, guid: 621e901dcf5ebaf46bce29d18f67194c, type: 2}
+  crateMaterial: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
+  redCrateMaterial: {fileID: 0}
+  blueCrateMaterial: {fileID: 0}
   wallMaterial: {fileID: 0}
-  doorMaterial: {fileID: 0}
+  redDoorMaterial: {fileID: 0}
+  blueDoorMaterial: {fileID: 0}
   windowMaterial: {fileID: 0}
-  normalMaterial: {fileID: 0}
   highlightMaterial: {fileID: 0}
   selectedMaterial: {fileID: 0}
   ghostMaterial: {fileID: 0}
