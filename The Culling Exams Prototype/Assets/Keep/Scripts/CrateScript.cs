@@ -166,39 +166,10 @@ public class CrateScript : MonoBehaviour
 
                     // Flip myself to selected
                     tileComponent.Tile.crateState = CrateState.selected;
-
-                    // place all ghost crates
-                    TileComponent tile = playManager.allTiles[tileComponent.Row - 1, tileComponent.Column].GetComponent<TileComponent>();
-                    if (!(tile.Row == playManager.currentTile.x && tile.Column == playManager.currentTile.y) &&
-                        tile.Tile.crateType == CrateType.none && tile.Tile.tileType == TileType.basic)
-                    {
-                        tile.Tile.crateType = CrateType.crate;
-                        tile.Tile.crateState = CrateState.ghost;
-                    }
-
-                    tile = playManager.allTiles[tileComponent.Row + 1, tileComponent.Column].GetComponent<TileComponent>();
-                    if (!(tile.Row == playManager.currentTile.x && tile.Column == playManager.currentTile.y) &&
-                        tile.Tile.crateType == CrateType.none && tile.Tile.tileType == TileType.basic)
-                    {
-                        tile.Tile.crateType = CrateType.crate;
-                        tile.Tile.crateState = CrateState.ghost;
-                    }
-
-                    tile = playManager.allTiles[tileComponent.Row, tileComponent.Column + 1].GetComponent<TileComponent>();
-                    if (!(tile.Row != playManager.currentTile.x && tile.Column != playManager.currentTile.y) &&
-                        tile.Tile.crateType == CrateType.none && tile.Tile.tileType == TileType.basic)
-                    {
-                        tile.Tile.crateType = CrateType.crate;
-                        tile.Tile.crateState = CrateState.ghost;
-                    }
-
-                    tile = playManager.allTiles[tileComponent.Row, tileComponent.Column - 1].GetComponent<TileComponent>();
-                    if (!(tile.Row != playManager.currentTile.x && tile.Column != playManager.currentTile.y) &&
-                        tile.Tile.crateType == CrateType.none && tile.Tile.tileType == TileType.basic)
-                    {
-                        tile.Tile.crateType = CrateType.crate;
-                        tile.Tile.crateState = CrateState.ghost;
-                    }
+                    
+                    // Get the tile component of 
+                    
+                    CreateGhosts(tileComponent, playManager);
                 }
             }
             
@@ -223,6 +194,41 @@ public class CrateScript : MonoBehaviour
 
                 ResetGhosts(sourceCrateTileComponent, playManager);
             }
+        }
+    }
+
+    private void CreateGhosts ( TileComponent tileComponent, TilePlayManager playManager)
+    {
+        TileComponent tile = playManager.allTiles[tileComponent.Row - 1, tileComponent.Column].GetComponent<TileComponent>();
+        if (!( tile.Row == playManager.currentTile.y && tile.Column == playManager.currentTile.x ) &&
+                                tile.Tile.crateType == CrateType.none && tile.Tile.tileType == TileType.basic)
+        {
+            tile.Tile.crateType = CrateType.crate;
+            tile.Tile.crateState = CrateState.ghost;
+        }
+
+        tile = playManager.allTiles[tileComponent.Row + 1, tileComponent.Column].GetComponent<TileComponent>();
+        if (!( tile.Row == (int)playManager.currentTile.y && tile.Column == (int)playManager.currentTile.x ) &&
+            tile.Tile.crateType == CrateType.none && tile.Tile.tileType == TileType.basic)
+        {
+            tile.Tile.crateType = CrateType.crate;
+            tile.Tile.crateState = CrateState.ghost;
+        }
+
+        tile = playManager.allTiles[tileComponent.Row, tileComponent.Column + 1].GetComponent<TileComponent>();
+        if (!( tile.Row != (int)playManager.currentTile.y && tile.Column != (int)playManager.currentTile.x ) &&
+            tile.Tile.crateType == CrateType.none && tile.Tile.tileType == TileType.basic)
+        {
+            tile.Tile.crateType = CrateType.crate;
+            tile.Tile.crateState = CrateState.ghost;
+        }
+
+        tile = playManager.allTiles[tileComponent.Row, tileComponent.Column - 1].GetComponent<TileComponent>();
+        if (!( tile.Row != (int)playManager.currentTile.y && tile.Column != (int)playManager.currentTile.x ) &&
+            tile.Tile.crateType == CrateType.none && tile.Tile.tileType == TileType.basic)
+        {
+            tile.Tile.crateType = CrateType.crate;
+            tile.Tile.crateState = CrateState.ghost;
         }
     }
 
