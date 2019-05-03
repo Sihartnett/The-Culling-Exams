@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8307833a7276a1445a96cc1d2e8c03cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -154,3 +154,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Row: 0
   Column: 0
+  Tile:
+    CenterPoint: {x: 0, y: 0, z: 0}
+    tileType: 0
+    northWallType: 0
+    southWallType: 0
+    eastWallType: 0
+    westWallType: 0
+    crateType: 0
+    rotation: {x: 0, y: 0, z: 0}

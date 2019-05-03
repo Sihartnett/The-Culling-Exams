@@ -50,12 +50,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Player movement and camera rotation, so that the player moves where the camera is pointing
-    void Movement()
+   public  void Movement()
     {
         if (!isMoving)
         {
             moveH = Input.GetAxisRaw("Horizontal") * walkSpeed;
             moveV = Input.GetAxisRaw("Vertical") * walkSpeed;
+
             
             TilePlayManager tileManager = transform.parent.GetComponent<TilePlayManager>();
 
@@ -92,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (moveV < 0)
             {
-                // Move forward
+                // Move back
                 if (45 <= temp2 && temp2 <= 135)
                 {
                     row = currentTile.x - 1;
@@ -112,35 +113,35 @@ public class PlayerMovement : MonoBehaviour
                 {
                     row = currentTile.x;
                     column = currentTile.y - 1;
-                }
-            }
-            else if (moveH > 0)
-            {
-                // Move forward
-                if (45 <= temp2 && temp2 <= 135)
-                {
-                    row = currentTile.x;
-                    column = currentTile.y + 1;
-                }
-                else if (135 <= temp2 && temp2 <= 225)
-                {
-                    row = currentTile.x - 1;
-                    column = currentTile.y;
-                }
-                else if (225 <= temp2 && temp2 <= 315)
-                {
-                    row = currentTile.x;
-                    column = currentTile.y - 1;
-                }
-                else if (315 <= temp2 && temp2 <= 360 || 0 <= temp2 && temp2 <= 45)
-                {
-                    row = currentTile.x + 1;
-                    column = currentTile.y;
                 }
             }
             else if (moveH < 0)
             {
-                // Move forward
+                // Move left
+                if (45 <= temp2 && temp2 <= 135)
+                {
+                    row = currentTile.x;
+                    column = currentTile.y + 1;
+                }
+                else if (135 <= temp2 && temp2 <= 225)
+                {
+                    row = currentTile.x - 1;
+                    column = currentTile.y;
+                }
+                else if (225 <= temp2 && temp2 <= 315)
+                {
+                    row = currentTile.x;
+                    column = currentTile.y - 1;
+                }
+                else if (315 <= temp2 && temp2 <= 360 || 0 <= temp2 && temp2 <= 45)
+                {
+                    row = currentTile.x + 1;
+                    column = currentTile.y;
+                }
+            }
+            else if (moveH > 0)
+            {
+                // Move right
                 if (45 <= temp2 && temp2 <= 135)
                 {
                     row = currentTile.x;
