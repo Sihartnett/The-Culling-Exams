@@ -22,15 +22,21 @@ public class TileManagerBase : MonoBehaviour
     public Material moveableMaterial;
     public Material blueTileMaterial;
     public Material redTileMaterial;
+    public Material purpleTileMaterial;
+    public Material brownTileMaterial;
 
     public Material mirrorMaterial;
     public Material crateMaterial;
     public Material redCrateMaterial;
     public Material blueCrateMaterial;
-    
+    public Material purpleCrateMaterial;
+    public Material brownCrateMaterial;
+
     public Material wallMaterial;
     public Material redDoorMaterial;
     public Material blueDoorMaterial;
+    public Material purpleDoorMaterial;
+    public Material brownDoorMaterial;
     public Material windowMaterial;
 
     // Dynamic Materials
@@ -86,7 +92,12 @@ public class TileManagerBase : MonoBehaviour
                 case TileType.redTile:
                     meshes[0].material = redTileMaterial;
                     break;
-
+                case TileType.purpleTile:
+                    meshes[0].material = purpleTileMaterial;
+                    break;
+                case TileType.brownTile:
+                    meshes[0].material = brownTileMaterial;
+                    break;
                 case TileType.basic:
                 default:
                     meshes[0].material = defaultMaterial;
@@ -101,13 +112,21 @@ public class TileManagerBase : MonoBehaviour
                     tile.transform.GetChild(1).gameObject.SetActive(true);
                     meshes[1].material = crateMaterial;
                     break;
-                case CrateType.redcrate:
+                case CrateType.redCrate:
                     tile.transform.GetChild(1).gameObject.SetActive(true);
                     meshes[1].material = redCrateMaterial;
                     break;
-                case CrateType.bluecrate:
+                case CrateType.blueCrate:
                     tile.transform.GetChild(1).gameObject.SetActive(true);
                     meshes[1].material = blueCrateMaterial;
+                    break;
+                case CrateType.purpleCrate:
+                    tile.transform.GetChild(1).gameObject.SetActive(true);
+                    meshes[1].material = purpleCrateMaterial;
+                    break;
+                case CrateType.brownCrate:
+                    tile.transform.GetChild(1).gameObject.SetActive(true);
+                    meshes[1].material = brownCrateMaterial;
                     break;
                 case CrateType.mirror:
                     tile.transform.GetChild(1).gameObject.SetActive(true);
@@ -138,6 +157,14 @@ public class TileManagerBase : MonoBehaviour
                     tile.transform.GetChild(2).gameObject.SetActive(true);
                     meshes[2].material = blueDoorMaterial;
                     break;
+                case WallType.purpleDoor:
+                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    meshes[2].material = purpleDoorMaterial;
+                    break;
+                case WallType.brownDoor:
+                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    meshes[2].material = brownDoorMaterial;
+                    break;
                 case WallType.none:
                 default:
                     tile.transform.GetChild(2).gameObject.SetActive(false);
@@ -160,6 +187,14 @@ public class TileManagerBase : MonoBehaviour
                 case WallType.blueDoor:
                     tile.transform.GetChild(3).gameObject.SetActive(true);
                     meshes[3].material = blueDoorMaterial;
+                    break;
+                case WallType.brownDoor:
+                    tile.transform.GetChild(3).gameObject.SetActive(true);
+                    meshes[3].material = brownDoorMaterial;
+                    break;
+                case WallType.purpleDoor:
+                    tile.transform.GetChild(3).gameObject.SetActive(true);
+                    meshes[3].material = purpleDoorMaterial;
                     break;
                 case WallType.none:
                 default:
@@ -184,6 +219,14 @@ public class TileManagerBase : MonoBehaviour
                     tile.transform.GetChild(4).gameObject.SetActive(true);
                     meshes[4].material = blueDoorMaterial;
                     break;
+                case WallType.brownDoor:
+                    tile.transform.GetChild(3).gameObject.SetActive(true);
+                    meshes[3].material = brownDoorMaterial;
+                    break;
+                case WallType.purpleDoor:
+                    tile.transform.GetChild(3).gameObject.SetActive(true);
+                    meshes[3].material = purpleDoorMaterial;
+                    break;
                 case WallType.none:
                 default:
                     tile.transform.GetChild(4).gameObject.SetActive(false);
@@ -206,6 +249,14 @@ public class TileManagerBase : MonoBehaviour
                 case WallType.blueDoor:
                     tile.transform.GetChild(5).gameObject.SetActive(true);
                     meshes[5].material = blueDoorMaterial;
+                    break;
+                case WallType.brownDoor:
+                    tile.transform.GetChild(3).gameObject.SetActive(true);
+                    meshes[3].material = brownDoorMaterial;
+                    break;
+                case WallType.purpleDoor:
+                    tile.transform.GetChild(3).gameObject.SetActive(true);
+                    meshes[3].material = purpleDoorMaterial;
                     break;
                 case WallType.none:
                 default:
@@ -253,13 +304,21 @@ public class TileManagerBase : MonoBehaviour
                                     tile.transform.GetChild(1).gameObject.SetActive(true);
                                     meshes[1].material = crateMaterial;
                                     break;
-                                case CrateType.redcrate:
+                                case CrateType.redCrate:
                                     tile.transform.GetChild(1).gameObject.SetActive(true);
                                     meshes[1].material = redCrateMaterial;
                                     break;
-                                case CrateType.bluecrate:
+                                case CrateType.blueCrate:
                                     tile.transform.GetChild(1).gameObject.SetActive(true);
                                     meshes[1].material = blueCrateMaterial;
+                                    break;
+                                case CrateType.brownCrate:
+                                    tile.transform.GetChild(1).gameObject.SetActive(true);
+                                    meshes[1].material = brownCrateMaterial;
+                                    break;
+                                case CrateType.purpleCrate:
+                                    tile.transform.GetChild(1).gameObject.SetActive(true);
+                                    meshes[1].material = purpleCrateMaterial;
                                     break;
                                 case CrateType.mirror:
                                     tile.transform.GetChild(1).gameObject.SetActive(true);
@@ -292,6 +351,14 @@ public class TileManagerBase : MonoBehaviour
                         tile.transform.GetChild(2).gameObject.SetActive(true);
                         meshes[2].material = blueDoorMaterial;
                         break;
+                    case WallType.purpleDoor:
+                        tile.transform.GetChild(2).gameObject.SetActive(true);
+                        meshes[2].material = purpleDoorMaterial;
+                        break;
+                    case WallType.brownDoor:
+                        tile.transform.GetChild(2).gameObject.SetActive(true);
+                        meshes[2].material = brownDoorMaterial;
+                        break;
                     case WallType.none:
                     default:
                         tile.transform.GetChild(2).gameObject.SetActive(false);
@@ -314,6 +381,14 @@ public class TileManagerBase : MonoBehaviour
                     case WallType.blueDoor:
                         tile.transform.GetChild(3).gameObject.SetActive(true);
                         meshes[3].material = blueDoorMaterial;
+                        break;
+                    case WallType.purpleDoor:
+                        tile.transform.GetChild(3).gameObject.SetActive(true);
+                        meshes[3].material = purpleDoorMaterial;
+                        break;
+                    case WallType.brownDoor:
+                        tile.transform.GetChild(3).gameObject.SetActive(true);
+                        meshes[3].material = brownDoorMaterial;
                         break;
                     case WallType.none:
                     default:
@@ -338,6 +413,14 @@ public class TileManagerBase : MonoBehaviour
                         tile.transform.GetChild(4).gameObject.SetActive(true);
                         meshes[4].material = blueDoorMaterial;
                         break;
+                    case WallType.brownDoor:
+                        tile.transform.GetChild(4).gameObject.SetActive(true);
+                        meshes[4].material = brownDoorMaterial;
+                        break;
+                    case WallType.purpleDoor:
+                        tile.transform.GetChild(4).gameObject.SetActive(true);
+                        meshes[4].material = purpleDoorMaterial;
+                        break;
                     case WallType.none:
                     default:
                         tile.transform.GetChild(4).gameObject.SetActive(false);
@@ -360,6 +443,14 @@ public class TileManagerBase : MonoBehaviour
                     case WallType.blueDoor:
                         tile.transform.GetChild(5).gameObject.SetActive(true);
                         meshes[5].material = blueDoorMaterial;
+                        break;
+                    case WallType.purpleDoor:
+                        tile.transform.GetChild(5).gameObject.SetActive(true);
+                        meshes[5].material = purpleDoorMaterial;
+                        break;
+                    case WallType.brownDoor:
+                        tile.transform.GetChild(5).gameObject.SetActive(true);
+                        meshes[5].material = brownDoorMaterial;
                         break;
                     case WallType.none:
                     default:

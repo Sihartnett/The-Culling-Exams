@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Defeat Scene.unity
     guid: 94c411362820b024e8ae91def8ff722c
+  - enabled: 1
+    path: Assets/Keep/Scenes/LevelSwitches.unity
+    guid: 4f57f9a7790e5424bae51a5622626c68
   m_configObjects: {}

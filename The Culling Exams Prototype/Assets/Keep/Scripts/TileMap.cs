@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TileType { basic, fall, barrier, start, finish, moveable, redTile, blueTile, fallHighlighted, fallGhost, moveableHighlighted };
-public enum WallType { none, wall, window, redDoor, blueDoor, redDoorOpen, blueDoorOpen };
-public enum CrateType { none, crate, mirror, redcrate, bluecrate };
+public enum TileType { basic, fall, barrier, start, finish, moveable, redTile, blueTile, purpleTile, brownTile, fallHighlighted, fallGhost, moveableHighlighted };
+public enum WallType { none, wall, window, redDoor, blueDoor, purpleDoor, brownDoor, redDoorOpen, blueDoorOpen, purpleDoorOpen, brownDoorOpen };
+public enum CrateType { none, crate, mirror, redCrate, blueCrate, purpleCrate, brownCrate };
 public enum CrateState { none, selected, highlighted, ghost, ghostHighlighted };
 
 public enum SelectionType { none, crate, tile }

@@ -143,7 +143,6 @@ public class CrateScript : MonoBehaviour
 
                 TileComponent sourceCrateTileComponent = currentSelection.transform.parent.GetComponent<TileComponent>();
                 
-
                 sourceCrateTileComponent.Tile.crateState = CrateState.none;
                 ResetGhosts(sourceCrateTileComponent, playManager);
             }
@@ -187,7 +186,7 @@ public class CrateScript : MonoBehaviour
 
                     // This is for when a blue crate lands on a blue tile
                     if (tileComponent.Tile.tileType == TileType.blueTile &&
-                        tileComponent.Tile.crateType == CrateType.bluecrate)
+                        tileComponent.Tile.crateType == CrateType.blueCrate)
                     {
                         // Open all blue Doors
                         for (int row = 0; row < playManager.rows; row++)
@@ -209,7 +208,7 @@ public class CrateScript : MonoBehaviour
 
                     // Red crate lands on red tile
                     if (tileComponent.Tile.tileType == TileType.redTile &&
-                        tileComponent.Tile.crateType == CrateType.redcrate)
+                        tileComponent.Tile.crateType == CrateType.redCrate)
                     {
                         // Open all red Doors
                         for (int row = 0; row < playManager.rows; row++)
@@ -229,9 +228,55 @@ public class CrateScript : MonoBehaviour
                         }
                     }
 
+
+                    // purple crate lands on purple tile
+                    if (tileComponent.Tile.tileType == TileType.purpleTile &&
+                        tileComponent.Tile.crateType == CrateType.purpleCrate)
+                    {
+                        // Open all purple Doors
+                        for (int row = 0; row < playManager.rows; row++)
+                        {
+                            for (int column = 0; column < playManager.columns; column++)
+                            {
+                                TileComponent tile = playManager.allTiles[row, column].GetComponent<TileComponent>();
+                                if (tile.Tile.eastWallType == WallType.purpleDoor)
+                                    tile.Tile.eastWallType = WallType.purpleDoorOpen;
+                                if (tile.Tile.northWallType == WallType.purpleDoor)
+                                    tile.Tile.northWallType = WallType.purpleDoorOpen;
+                                if (tile.Tile.southWallType == WallType.purpleDoor)
+                                    tile.Tile.southWallType = WallType.purpleDoorOpen;
+                                if (tile.Tile.westWallType == WallType.purpleDoor)
+                                    tile.Tile.westWallType = WallType.purpleDoorOpen;
+                            }
+                        }
+                    }
+
+
+                    // brown crate lands on brown tile
+                    if (tileComponent.Tile.tileType == TileType.brownTile &&
+                        tileComponent.Tile.crateType == CrateType.brownCrate)
+                    {
+                        // Open all brown Doors
+                        for (int row = 0; row < playManager.rows; row++)
+                        {
+                            for (int column = 0; column < playManager.columns; column++)
+                            {
+                                TileComponent tile = playManager.allTiles[row, column].GetComponent<TileComponent>();
+                                if (tile.Tile.eastWallType == WallType.brownDoor)
+                                    tile.Tile.eastWallType = WallType.brownDoorOpen;
+                                if (tile.Tile.northWallType == WallType.brownDoor)
+                                    tile.Tile.northWallType = WallType.brownDoorOpen;
+                                if (tile.Tile.southWallType == WallType.brownDoor)
+                                    tile.Tile.southWallType = WallType.brownDoorOpen;
+                                if (tile.Tile.westWallType == WallType.brownDoor)
+                                    tile.Tile.westWallType = WallType.brownDoorOpen;
+                            }
+                        }
+                    }
+
                     // TODO: Red tile has Red crate moved off of it
                     // TODO: Blue tile has Blue crate moved off of it
-                    
+
                     sourceCrateTileComponent.Tile.crateType = CrateType.none;
                     sourceCrateTileComponent.Tile.crateState = CrateState.none;
                 }

@@ -173,13 +173,17 @@ public class PlayerMovement : MonoBehaviour
                 // This is a valid move
                 if ((tile.Tile.tileType == TileType.basic ||
                     tile.Tile.tileType == TileType.moveable ||
+                    tile.Tile.tileType == TileType.blueTile ||
+                    tile.Tile.tileType == TileType.redTile ||
+                    tile.Tile.tileType == TileType.brownTile ||
+                    tile.Tile.tileType == TileType.purpleTile ||
                     tile.Tile.tileType == TileType.start ||
                     tile.Tile.tileType == TileType.finish) &&
                     tile.Tile.crateType == CrateType.none)
                 {
                     var moveToMe = new Vector3(tile.Tile.CenterPoint.x, 0.1f, tile.Tile.CenterPoint.z);
                     tileManager.fatigue -= 1;
-
+                    
                     StartCoroutine(move(transform, moveToMe));
                 }
             }
@@ -220,14 +224,18 @@ public class PlayerMovement : MonoBehaviour
         endPosition = endPoint;
         t = 0;
 
+        Animator anim = GetComponent<Animator>();
+
         while (t < 1f)
         {
             t += Time.deltaTime * (moveSpeed / gridSize) * factor;
             transform.position = Vector3.Lerp(startPosition, endPosition, t);
+            
             yield return null;
         }
 
         isMoving = false;
+
         yield return 0;
     }
 }
