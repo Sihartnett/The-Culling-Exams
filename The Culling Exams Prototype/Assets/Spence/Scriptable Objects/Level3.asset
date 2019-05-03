@@ -133,7 +133,7 @@ MonoBehaviour:
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 1
+      crateType: 3
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 1, y: 0.5, z: 4}
       tileType: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
       crateType: 1
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 3, y: 0.5, z: 7}
-      tileType: 0
+      tileType: 6
       northWallType: 0
       southWallType: 0
       eastWallType: 0

@@ -855,7 +855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &12914598
 Transform:
   m_ObjectHideFlags: 0
@@ -3641,7 +3641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &87139511
 Transform:
   m_ObjectHideFlags: 0
@@ -4704,22 +4704,22 @@ MonoBehaviour:
   barrierMaterial: {fileID: 2100000, guid: c3fc747f203636741a5fcbfc1fe7aa5f, type: 2}
   fallMaterial: {fileID: 0}
   moveableMaterial: {fileID: 2100000, guid: f174c50f8f71bbd458ed2807de6526c3, type: 2}
-  blueTileMaterial: {fileID: 0}
-  redTileMaterial: {fileID: 0}
+  blueTileMaterial: {fileID: 2100000, guid: 6db7bf600c82e4f49a9b1a3bef012ec5, type: 2}
+  redTileMaterial: {fileID: 2100000, guid: 06feb80f4b45cbd44818103b51bee095, type: 2}
   mirrorMaterial: {fileID: 2100000, guid: 621e901dcf5ebaf46bce29d18f67194c, type: 2}
   crateMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
-  redCrateMaterial: {fileID: 0}
-  blueCrateMaterial: {fileID: 0}
+  redCrateMaterial: {fileID: 2100000, guid: 06feb80f4b45cbd44818103b51bee095, type: 2}
+  blueCrateMaterial: {fileID: 2100000, guid: 6db7bf600c82e4f49a9b1a3bef012ec5, type: 2}
   wallMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
-  redDoorMaterial: {fileID: 0}
-  blueDoorMaterial: {fileID: 0}
+  redDoorMaterial: {fileID: 2100000, guid: 06feb80f4b45cbd44818103b51bee095, type: 2}
+  blueDoorMaterial: {fileID: 2100000, guid: 6db7bf600c82e4f49a9b1a3bef012ec5, type: 2}
   windowMaterial: {fileID: 0}
-  highlightMaterial: {fileID: 0}
-  selectedMaterial: {fileID: 0}
-  ghostMaterial: {fileID: 0}
+  highlightMaterial: {fileID: 2100000, guid: 65ae5ef8ed721f642934eef741d939a4, type: 2}
+  selectedMaterial: {fileID: 2100000, guid: 06feb80f4b45cbd44818103b51bee095, type: 2}
+  ghostMaterial: {fileID: 2100000, guid: f174c50f8f71bbd458ed2807de6526c3, type: 2}
   rayCastSphere: {fileID: 473522701}
   currentTile: {x: 0, y: 0}
-  fatigue: 0
+  fatigue: 15
 --- !u!4 &101468805
 Transform:
   m_ObjectHideFlags: 0
@@ -36133,7 +36133,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &878122021
 Transform:
   m_ObjectHideFlags: 0
@@ -52459,7 +52459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1271128932
 Transform:
   m_ObjectHideFlags: 0
@@ -69043,7 +69043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1705257280
 Transform:
   m_ObjectHideFlags: 0
