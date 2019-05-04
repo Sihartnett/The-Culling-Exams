@@ -193,7 +193,7 @@ MonoBehaviour:
       crateType: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 4}
-      tileType: 0
+      tileType: 8
       northWallType: 0
       southWallType: 0
       eastWallType: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 1
+      crateType: 6
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 7}
       tileType: 0
@@ -404,7 +404,7 @@ MonoBehaviour:
       crateType: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 3}
-      tileType: 0
+      tileType: 9
       northWallType: 0
       southWallType: 0
       eastWallType: 0
@@ -441,7 +441,7 @@ MonoBehaviour:
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 1
+      crateType: 5
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 8}
       tileType: 2

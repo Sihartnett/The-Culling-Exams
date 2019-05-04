@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: crate5 highlight 2
+  m_Name: crate5 Selected
   m_Shader: {fileID: 4800000, guid: 00ba0eae2d0749d489dba55f4e95ba5b, type: 3}
   m_ShaderKeywords: _NORMALMAP
   m_LightmapFlags: 4
