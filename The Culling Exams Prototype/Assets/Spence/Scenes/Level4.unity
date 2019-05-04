@@ -5222,10 +5222,10 @@ MonoBehaviour:
   tilePrefab: {fileID: 2617150703862465352, guid: 9a31ab1a5a3da8a44a56eb98478377a9,
     type: 3}
   tileMap: {fileID: 11400000, guid: 0e9eb5049c0b0cd499f878ec3c655a8d, type: 2}
-  defaultMaterial: {fileID: 2100000, guid: 621e901dcf5ebaf46bce29d18f67194c, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: c3fc747f203636741a5fcbfc1fe7aa5f, type: 2}
   startMaterial: {fileID: 2100000, guid: 6cee58cb067fcc24e9a462cd01b260c4, type: 2}
   finishMaterial: {fileID: 2100000, guid: 6cee58cb067fcc24e9a462cd01b260c4, type: 2}
-  barrierMaterial: {fileID: 2100000, guid: c3fc747f203636741a5fcbfc1fe7aa5f, type: 2}
+  barrierMaterial: {fileID: 2100000, guid: f174c50f8f71bbd458ed2807de6526c3, type: 2}
   fallMaterial: {fileID: 0}
   moveableMaterial: {fileID: 2100000, guid: f174c50f8f71bbd458ed2807de6526c3, type: 2}
   blueTileMaterial: {fileID: 2100000, guid: 6db7bf600c82e4f49a9b1a3bef012ec5, type: 2}
