@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         mouseY = Mathf.Clamp(mouseY, -60f, 0f);
 
         centerPoint.rotation = Quaternion.Euler(mouseY, mouseX, 0f);
-        player.rotation = Quaternion.Euler(0f, mouseX, 0f);
+        transform.rotation = Quaternion.Euler(0f, mouseX, 0f);
 
     }
 
