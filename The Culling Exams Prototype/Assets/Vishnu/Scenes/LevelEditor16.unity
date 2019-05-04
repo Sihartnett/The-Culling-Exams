@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.450507, g: 0.49839985, b: 0.5638286, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -174,13 +174,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684320849}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.40802613, y: -0.6419755, z: -0.110095024, w: 0.63973534}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 22.377, y: -99.79001, z: -45.962}
 --- !u!1 &1787445126
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,8 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707161efb0d8d0845aabe7e205ed0cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 5
-  columns: 9
+  rows: 9
+  columns: 13
   tilePrefab: {fileID: 2617150703862465352, guid: 9a31ab1a5a3da8a44a56eb98478377a9,
     type: 3}
   tileMap: {fileID: 11400000, guid: 41b5d68de79d7044ca34d7da448ae3bd, type: 2}
@@ -305,13 +305,19 @@ MonoBehaviour:
   moveableMaterial: {fileID: 2100000, guid: f174c50f8f71bbd458ed2807de6526c3, type: 2}
   blueTileMaterial: {fileID: 0}
   redTileMaterial: {fileID: 0}
+  purpleTileMaterial: {fileID: 0}
+  brownTileMaterial: {fileID: 0}
   mirrorMaterial: {fileID: 2100000, guid: 621e901dcf5ebaf46bce29d18f67194c, type: 2}
   crateMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
   redCrateMaterial: {fileID: 0}
   blueCrateMaterial: {fileID: 0}
+  purpleCrateMaterial: {fileID: 0}
+  brownCrateMaterial: {fileID: 0}
   wallMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
   redDoorMaterial: {fileID: 0}
   blueDoorMaterial: {fileID: 0}
+  purpleDoorMaterial: {fileID: 0}
+  brownDoorMaterial: {fileID: 0}
   windowMaterial: {fileID: 0}
   highlightMaterial: {fileID: 0}
   selectedMaterial: {fileID: 0}
