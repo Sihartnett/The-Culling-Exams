@@ -45,7 +45,7 @@ public class PauseMenuManager : MonoBehaviour
     {
         if (TPM.fatigue >= 0)
             fatigueCounter.text = "Fatigue: " + TPM.fatigue.ToString();
-        else if (TPM.fatigue <= 0)
+        if (TPM.fatigue <= 0)
         {
             SMS.LostGame();
             
