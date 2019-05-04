@@ -4396,13 +4396,19 @@ MonoBehaviour:
   moveableMaterial: {fileID: 2100000, guid: f174c50f8f71bbd458ed2807de6526c3, type: 2}
   blueTileMaterial: {fileID: 0}
   redTileMaterial: {fileID: 0}
+  purpleTileMaterial: {fileID: 0}
+  brownTileMaterial: {fileID: 0}
   mirrorMaterial: {fileID: 2100000, guid: 621e901dcf5ebaf46bce29d18f67194c, type: 2}
   crateMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
   redCrateMaterial: {fileID: 0}
   blueCrateMaterial: {fileID: 0}
+  purpleCrateMaterial: {fileID: 0}
+  brownCrateMaterial: {fileID: 0}
   wallMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
   redDoorMaterial: {fileID: 0}
   blueDoorMaterial: {fileID: 0}
+  purpleDoorMaterial: {fileID: 0}
+  brownDoorMaterial: {fileID: 0}
   windowMaterial: {fileID: 0}
   highlightMaterial: {fileID: 2100000, guid: 65ae5ef8ed721f642934eef741d939a4, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 06feb80f4b45cbd44818103b51bee095, type: 2}
@@ -11391,59 +11397,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301714063}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &302271383 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6731720756619830297, guid: 0be4a71b4cfa86d409dbbe812e57019e,
-    type: 3}
-  m_PrefabInstance: {fileID: 559762078}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &302271385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302271383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 939b1d6a8252d0c4a8f5b1694a55c058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
---- !u!95 &302271386
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302271383}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
-  m_Controller: {fileID: 9100000, guid: fbba71b3bb4a3e44ea83db44c3dc8cf9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &302271387
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302271383}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1001 &302931039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44597,29 +44550,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221219481}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1222128814 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1293098524, guid: 0be4a71b4cfa86d409dbbe812e57019e,
-    type: 3}
-  m_PrefabInstance: {fileID: 559762078}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1222128818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222128814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1abee7adaed76fc4087e08828b45181b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minDistance: 5
-  maxDistance: 15
-  smooth: 10
-  dollyDirAdjusted: {x: 0, y: 0, z: 0}
-  distance: 10
 --- !u!1 &1224464181
 GameObject:
   m_ObjectHideFlags: 0
