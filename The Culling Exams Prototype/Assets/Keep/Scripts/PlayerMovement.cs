@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         mouseY = Mathf.Clamp(mouseY, -60f, 0f);
 
         centerPoint.rotation = Quaternion.Euler(mouseY, mouseX, 0f);
-        player.rotation = Quaternion.Euler(0f, mouseX, 0f);
+        transform.rotation = Quaternion.Euler(0f, mouseX, 0f);
 
     }
 
@@ -56,36 +56,46 @@ public class PlayerMovement : MonoBehaviour
         {
             moveH = Input.GetAxisRaw("Horizontal") * walkSpeed;
             moveV = Input.GetAxisRaw("Vertical") * walkSpeed;
-
             
             TilePlayManager tileManager = transform.parent.GetComponent<TilePlayManager>();
 
             Vector2 currentTile = tileManager.currentTile;
 
-            float temp2 = player.transform.eulerAngles.y;
+            float playerRotationDegree = player.transform.eulerAngles.y;
 
             float row = 0;
             float column = 0;
 
+            if (moveV != 0 || moveH != 0)
+            {
+                while (0 < playerRotationDegree && playerRotationDegree >= 360)
+                {
+                    if (0 < playerRotationDegree)
+                        playerRotationDegree += 360;
+                    if (playerRotationDegree >= 360)
+                        playerRotationDegree -= 360;
+                }
+            }
+
             if (moveV > 0)
             {
                 // Move forward
-                if (45 <= temp2 && temp2 <= 135)
+                if (45 <= playerRotationDegree && playerRotationDegree <= 135)
                 {
                     row = currentTile.x + 1;
                     column = currentTile.y;
                 }
-                else if (135 <= temp2 && temp2 <= 225)
+                else if (135 <= playerRotationDegree && playerRotationDegree <= 225)
                 {
                     row = currentTile.x;
                     column = currentTile.y - 1;
                 }
-                else if (225 <= temp2 && temp2 <= 315)
+                else if (225 <= playerRotationDegree && playerRotationDegree <= 315)
                 {
                     row = currentTile.x - 1;
                     column = currentTile.y;
                 }
-                else if (315 <= temp2 && temp2 <= 360 || 0 <= temp2 && temp2 <= 45)
+                else if (315 <= playerRotationDegree && playerRotationDegree <= 360 || 0 <= playerRotationDegree && playerRotationDegree <= 45)
                 {
                     row = currentTile.x;
                     column = currentTile.y + 1;
@@ -94,22 +104,22 @@ public class PlayerMovement : MonoBehaviour
             else if (moveV < 0)
             {
                 // Move back
-                if (45 <= temp2 && temp2 <= 135)
+                if (45 <= playerRotationDegree && playerRotationDegree <= 135)
                 {
                     row = currentTile.x - 1;
                     column = currentTile.y;
                 }
-                else if (135 <= temp2 && temp2 <= 225)
+                else if (135 <= playerRotationDegree && playerRotationDegree <= 225)
                 {
                     row = currentTile.x;
                     column = currentTile.y + 1;
                 }
-                else if (225 <= temp2 && temp2 <= 315)
+                else if (225 <= playerRotationDegree && playerRotationDegree <= 315)
                 {
                     row = currentTile.x + 1;
                     column = currentTile.y;
                 }
-                else if (315 <= temp2 && temp2 <= 360 || 0 <= temp2 && temp2 <= 45)
+                else if (315 <= playerRotationDegree && playerRotationDegree <= 360 || 0 <= playerRotationDegree && playerRotationDegree <= 45)
                 {
                     row = currentTile.x;
                     column = currentTile.y - 1;
@@ -118,48 +128,48 @@ public class PlayerMovement : MonoBehaviour
             else if (moveH < 0)
             {
                 // Move left
-                if (45 <= temp2 && temp2 <= 135)
+                if (45 <= playerRotationDegree && playerRotationDegree <= 135)
                 {
                     row = currentTile.x;
                     column = currentTile.y + 1;
                 }
-                else if (135 <= temp2 && temp2 <= 225)
+                else if (135 <= playerRotationDegree && playerRotationDegree <= 225)
                 {
-                    row = currentTile.x - 1;
+                    row = currentTile.x + 1;
                     column = currentTile.y;
                 }
-                else if (225 <= temp2 && temp2 <= 315)
+                else if (225 <= playerRotationDegree && playerRotationDegree <= 315)
                 {
                     row = currentTile.x;
                     column = currentTile.y - 1;
                 }
-                else if (315 <= temp2 && temp2 <= 360 || 0 <= temp2 && temp2 <= 45)
+                else if (315 <= playerRotationDegree && playerRotationDegree <= 360 || 0 <= playerRotationDegree && playerRotationDegree <= 45)
                 {
-                    row = currentTile.x + 1;
+                    row = currentTile.x - 1;
                     column = currentTile.y;
                 }
             }
             else if (moveH > 0)
             {
                 // Move right
-                if (45 <= temp2 && temp2 <= 135)
+                if (45 <= playerRotationDegree && playerRotationDegree <= 135)
                 {
                     row = currentTile.x;
                     column = currentTile.y - 1;
                 }
-                else if (135 <= temp2 && temp2 <= 225)
+                else if (135 <= playerRotationDegree && playerRotationDegree <= 225)
                 {
-                    row = currentTile.x + 1;
+                    row = currentTile.x - 1;
                     column = currentTile.y;
                 }
-                else if (225 <= temp2 && temp2 <= 315)
+                else if (225 <= playerRotationDegree && playerRotationDegree <= 315)
                 {
                     row = currentTile.x;
                     column = currentTile.y + 1;
                 }
-                else if (315 <= temp2 && temp2 <= 360 || 0 <= temp2 && temp2 <= 45)
+                else if (315 <= playerRotationDegree && playerRotationDegree <= 360 || 0 <= playerRotationDegree && playerRotationDegree <= 45)
                 {
-                    row = currentTile.x - 1;
+                    row = currentTile.x + 1;
                     column = currentTile.y;
                 }
             }
