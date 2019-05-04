@@ -63,16 +63,19 @@ public class PlayerMovement : MonoBehaviour
 
             float playerRotationDegree = player.transform.eulerAngles.y;
 
-            while (0 < playerRotationDegree && playerRotationDegree >= 360)
-            {
-                if (0 < playerRotationDegree)
-                    playerRotationDegree += 360;
-                if (playerRotationDegree >= 360)
-                    playerRotationDegree -= 360;
-            }
-
             float row = 0;
             float column = 0;
+
+            if (moveV != 0 || moveH != 0)
+            {
+                while (0 < playerRotationDegree && playerRotationDegree >= 360)
+                {
+                    if (0 < playerRotationDegree)
+                        playerRotationDegree += 360;
+                    if (playerRotationDegree >= 360)
+                        playerRotationDegree -= 360;
+                }
+            }
 
             if (moveV > 0)
             {
