@@ -319,22 +319,22 @@ MonoBehaviour:
       northWallType: 0
       southWallType: 0
       eastWallType: 0
-      westWallType: 0
+      westWallType: 3
       crateType: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 2}
       tileType: 0
       northWallType: 0
       southWallType: 0
-      eastWallType: 0
-      westWallType: 0
+      eastWallType: 4
+      westWallType: 6
       crateType: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 3}
       tileType: 0
       northWallType: 0
       southWallType: 0
-      eastWallType: 0
+      eastWallType: 5
       westWallType: 0
       crateType: 0
       rotation: {x: 0, y: 0, z: 0}
