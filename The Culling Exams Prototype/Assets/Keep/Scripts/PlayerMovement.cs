@@ -224,7 +224,7 @@ public class PlayerMovement : MonoBehaviour
         endPosition = endPoint;
         t = 0;
 
-        Animator anim = GetComponent<Animator>();
+        //Animator anim = GetComponent<Animator>();
 
         while (t < 1f)
         {
