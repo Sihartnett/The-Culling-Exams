@@ -17,7 +17,7 @@ public class PauseMenuManager : MonoBehaviour
     private TilePlayManager TPM;
     private SceneManagerSystem SMS;
     private PlayerMovement TPUS;
-    private bool PauseorNot = false;
+    public bool PauseorNot = false;
 
     // Start is called before the first frame update
     void Awake()

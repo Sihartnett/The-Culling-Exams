@@ -124,10 +124,13 @@ public class TilePlayManager : TileManagerBase
                 // Highlighting
                 crateScript.Highlight(rayHit.collider);
 
-                // Selection
-                if (Input.GetMouseButtonDown(0))
+                if (PauseMenuManager.instance != null && !PauseMenuManager.instance.PauseorNot)
                 {
-                    crateScript.Select(rayHit.collider);
+                    // Selection
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        crateScript.Select(rayHit.collider);
+                    }
                 }
             }
         }

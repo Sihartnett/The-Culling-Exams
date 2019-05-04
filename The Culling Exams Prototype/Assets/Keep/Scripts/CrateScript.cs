@@ -273,10 +273,7 @@ public class CrateScript : MonoBehaviour
                             }
                         }
                     }
-
-                    // TODO: Red tile has Red crate moved off of it
-                    // TODO: Blue tile has Blue crate moved off of it
-
+                    
                     sourceCrateTileComponent.Tile.crateType = CrateType.none;
                     sourceCrateTileComponent.Tile.crateState = CrateState.none;
                 }
@@ -308,7 +305,8 @@ public class CrateScript : MonoBehaviour
     {
         if (!( tile.Row == (int)playManager.currentTile.x && tile.Column == (int)playManager.currentTile.y ) &&
             tile.Tile.crateType == CrateType.none &&
-            (tile.Tile.tileType == TileType.basic || tile.Tile.tileType == TileType.redTile || tile.Tile.tileType == TileType.blueTile ))
+            (tile.Tile.tileType == TileType.basic || tile.Tile.tileType == TileType.redTile || tile.Tile.tileType == TileType.blueTile
+            || tile.Tile.tileType == TileType.brownTile || tile.Tile.tileType == TileType.purpleTile))
         {
             tile.Tile.crateType = CrateType.crate;
             tile.Tile.crateState = CrateState.ghost;
