@@ -50,16 +50,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Player movement and camera rotation, so that the player moves where the camera is pointing
-   public  void Movement()
+    public void Movement()
     {
         if (!isMoving)
         {
             moveH = Input.GetAxisRaw("Horizontal") * walkSpeed;
             moveV = Input.GetAxisRaw("Vertical") * walkSpeed;
-            
+
             TilePlayManager tileManager = transform.parent.GetComponent<TilePlayManager>();
 
-            Vector2 currentTile = tileManager.currentTile;
+            TileComponent currentTile = tileManager.allTiles[(int)tileManager.currentTile.x, (int)tileManager.currentTile.y].GetComponent<TileComponent>();
 
             float playerRotationDegree = player.transform.eulerAngles.y;
 
@@ -82,23 +82,23 @@ public class PlayerMovement : MonoBehaviour
                 // Move forward
                 if (45 <= playerRotationDegree && playerRotationDegree <= 135)
                 {
-                    row = currentTile.x + 1;
-                    column = currentTile.y;
+                    row = currentTile.Row + 1;
+                    column = currentTile.Column;
                 }
                 else if (135 <= playerRotationDegree && playerRotationDegree <= 225)
                 {
-                    row = currentTile.x;
-                    column = currentTile.y - 1;
+                    row = currentTile.Row;
+                    column = currentTile.Column - 1;
                 }
                 else if (225 <= playerRotationDegree && playerRotationDegree <= 315)
                 {
-                    row = currentTile.x - 1;
-                    column = currentTile.y;
+                    row = currentTile.Row - 1;
+                    column = currentTile.Column;
                 }
                 else if (315 <= playerRotationDegree && playerRotationDegree <= 360 || 0 <= playerRotationDegree && playerRotationDegree <= 45)
                 {
-                    row = currentTile.x;
-                    column = currentTile.y + 1;
+                    row = currentTile.Row;
+                    column = currentTile.Column + 1;
                 }
             }
             else if (moveV < 0)
@@ -106,23 +106,23 @@ public class PlayerMovement : MonoBehaviour
                 // Move back
                 if (45 <= playerRotationDegree && playerRotationDegree <= 135)
                 {
-                    row = currentTile.x - 1;
-                    column = currentTile.y;
+                    row = currentTile.Row - 1;
+                    column = currentTile.Column;
                 }
                 else if (135 <= playerRotationDegree && playerRotationDegree <= 225)
                 {
-                    row = currentTile.x;
-                    column = currentTile.y + 1;
+                    row = currentTile.Row;
+                    column = currentTile.Column + 1;
                 }
                 else if (225 <= playerRotationDegree && playerRotationDegree <= 315)
                 {
-                    row = currentTile.x + 1;
-                    column = currentTile.y;
+                    row = currentTile.Row + 1;
+                    column = currentTile.Column;
                 }
                 else if (315 <= playerRotationDegree && playerRotationDegree <= 360 || 0 <= playerRotationDegree && playerRotationDegree <= 45)
                 {
-                    row = currentTile.x;
-                    column = currentTile.y - 1;
+                    row = currentTile.Row;
+                    column = currentTile.Column - 1;
                 }
             }
             else if (moveH < 0)
@@ -130,23 +130,23 @@ public class PlayerMovement : MonoBehaviour
                 // Move left
                 if (45 <= playerRotationDegree && playerRotationDegree <= 135)
                 {
-                    row = currentTile.x;
-                    column = currentTile.y + 1;
+                    row = currentTile.Row;
+                    column = currentTile.Column + 1;
                 }
                 else if (135 <= playerRotationDegree && playerRotationDegree <= 225)
                 {
-                    row = currentTile.x + 1;
-                    column = currentTile.y;
+                    row = currentTile.Row + 1;
+                    column = currentTile.Column;
                 }
                 else if (225 <= playerRotationDegree && playerRotationDegree <= 315)
                 {
-                    row = currentTile.x;
-                    column = currentTile.y - 1;
+                    row = currentTile.Row;
+                    column = currentTile.Column - 1;
                 }
                 else if (315 <= playerRotationDegree && playerRotationDegree <= 360 || 0 <= playerRotationDegree && playerRotationDegree <= 45)
                 {
-                    row = currentTile.x - 1;
-                    column = currentTile.y;
+                    row = currentTile.Row - 1;
+                    column = currentTile.Column;
                 }
             }
             else if (moveH > 0)
@@ -154,23 +154,23 @@ public class PlayerMovement : MonoBehaviour
                 // Move right
                 if (45 <= playerRotationDegree && playerRotationDegree <= 135)
                 {
-                    row = currentTile.x;
-                    column = currentTile.y - 1;
+                    row = currentTile.Row;
+                    column = currentTile.Column - 1;
                 }
                 else if (135 <= playerRotationDegree && playerRotationDegree <= 225)
                 {
-                    row = currentTile.x - 1;
-                    column = currentTile.y;
+                    row = currentTile.Row - 1;
+                    column = currentTile.Column;
                 }
                 else if (225 <= playerRotationDegree && playerRotationDegree <= 315)
                 {
-                    row = currentTile.x;
-                    column = currentTile.y + 1;
+                    row = currentTile.Row;
+                    column = currentTile.Column + 1;
                 }
                 else if (315 <= playerRotationDegree && playerRotationDegree <= 360 || 0 <= playerRotationDegree && playerRotationDegree <= 45)
                 {
-                    row = currentTile.x + 1;
-                    column = currentTile.y;
+                    row = currentTile.Row + 1;
+                    column = currentTile.Column;
                 }
             }
 
@@ -180,41 +180,84 @@ public class PlayerMovement : MonoBehaviour
 
             if (moveV != 0 || moveH != 0)
             {
-                // This is a valid move
-                if ((tile.Tile.tileType == TileType.basic ||
-                    tile.Tile.tileType == TileType.moveable ||
-                    tile.Tile.tileType == TileType.blueTile ||
-                    tile.Tile.tileType == TileType.redTile ||
-                    tile.Tile.tileType == TileType.brownTile ||
-                    tile.Tile.tileType == TileType.purpleTile ||
-                    tile.Tile.tileType == TileType.start ||
-                    tile.Tile.tileType == TileType.finish) &&
-                    tile.Tile.crateType == CrateType.none)
-                {
-                    var moveToMe = new Vector3(tile.Tile.CenterPoint.x, 0.1f, tile.Tile.CenterPoint.z);
-                    tileManager.fatigue -= 1;
-                    
-                    StartCoroutine(move(transform, moveToMe));
-                }
+                // if the target tile is a tile you cannot move return out of function
+                if ( tile.Tile.tileType == TileType.barrier
+                    || tile.Tile.tileType == TileType.fall
+                    || tile.Tile.tileType == TileType.moveableBarrier
+                    || tile.Tile.crateType != CrateType.none)
+                    return;
+                
+                // now check for all the impassible wall tiles in yourself and in your target 
+                if (currentTile.Row < row
+                    &&
+                    (currentTile.Tile.northWallType == WallType.blueDoor
+                    || currentTile.Tile.northWallType == WallType.brownDoor
+                    || currentTile.Tile.northWallType == WallType.purpleDoor
+                    || currentTile.Tile.northWallType == WallType.redDoor
+                    || currentTile.Tile.northWallType == WallType.wall
+                    || currentTile.Tile.northWallType == WallType.window
+                    || tile.Tile.southWallType == WallType.blueDoor
+                    || tile.Tile.southWallType == WallType.brownDoor
+                    || tile.Tile.southWallType == WallType.purpleDoor
+                    || tile.Tile.southWallType == WallType.redDoor
+                    || tile.Tile.southWallType == WallType.wall
+                    || tile.Tile.southWallType == WallType.window))
+                    return;
+
+                if (currentTile.Row > row
+                    &&
+                    (currentTile.Tile.southWallType == WallType.blueDoor
+                    || currentTile.Tile.southWallType == WallType.brownDoor
+                    || currentTile.Tile.southWallType == WallType.purpleDoor
+                    || currentTile.Tile.southWallType == WallType.redDoor
+                    || currentTile.Tile.southWallType == WallType.wall
+                    || currentTile.Tile.southWallType == WallType.window
+                    || tile.Tile.northWallType == WallType.blueDoor
+                    || tile.Tile.northWallType == WallType.brownDoor
+                    || tile.Tile.northWallType == WallType.purpleDoor
+                    || tile.Tile.northWallType == WallType.redDoor
+                    || tile.Tile.northWallType == WallType.wall
+                    || tile.Tile.northWallType == WallType.window))
+                    return;
+
+                if (currentTile.Column < column
+                    &&
+                    (currentTile.Tile.westWallType == WallType.blueDoor
+                    || currentTile.Tile.westWallType == WallType.brownDoor
+                    || currentTile.Tile.westWallType == WallType.purpleDoor
+                    || currentTile.Tile.westWallType == WallType.redDoor
+                    || currentTile.Tile.westWallType == WallType.wall
+                    || currentTile.Tile.westWallType == WallType.window
+                    || tile.Tile.eastWallType == WallType.blueDoor
+                    || tile.Tile.eastWallType == WallType.brownDoor
+                    || tile.Tile.eastWallType == WallType.purpleDoor
+                    || tile.Tile.eastWallType == WallType.redDoor
+                    || tile.Tile.eastWallType == WallType.wall
+                    || tile.Tile.eastWallType == WallType.window))
+                    return;
+
+                if (currentTile.Column > column
+                    &&
+                    (currentTile.Tile.eastWallType == WallType.blueDoor
+                    || currentTile.Tile.eastWallType == WallType.brownDoor
+                    || currentTile.Tile.eastWallType == WallType.purpleDoor
+                    || currentTile.Tile.eastWallType == WallType.redDoor
+                    || currentTile.Tile.eastWallType == WallType.wall
+                    || currentTile.Tile.eastWallType == WallType.window
+                    || tile.Tile.westWallType == WallType.blueDoor
+                    || tile.Tile.westWallType == WallType.brownDoor
+                    || tile.Tile.westWallType == WallType.purpleDoor
+                    || tile.Tile.westWallType == WallType.redDoor
+                    || tile.Tile.westWallType == WallType.wall
+                    || tile.Tile.westWallType == WallType.window))
+                    return;
+
+                var moveToMe = new Vector3(tile.Tile.CenterPoint.x, 0.1f, tile.Tile.CenterPoint.z);
+                tileManager.fatigue -= 1;
+
+                StartCoroutine(move(transform, moveToMe));
             }
         }
-
-        return;
-
-
-        Vector3 movement = new Vector3(moveH, 0, moveV);
-
-        movement = transform.rotation * movement;
-
-        transform.Translate(movement * Time.deltaTime);
-
-        if (Input.GetAxis("Vertical") != 0)
-        {
-            Quaternion turnAngle = Quaternion.Euler(0, centerPoint.eulerAngles.y, 0);
-
-            transform.rotation = Quaternion.Slerp(transform.rotation, turnAngle, Time.deltaTime * turnSpeed);
-        }
-
     }
 
     private float moveSpeed = 3f;
@@ -240,7 +283,7 @@ public class PlayerMovement : MonoBehaviour
         {
             t += Time.deltaTime * (moveSpeed / gridSize) * factor;
             transform.position = Vector3.Lerp(startPosition, endPosition, t);
-            
+
             yield return null;
         }
 

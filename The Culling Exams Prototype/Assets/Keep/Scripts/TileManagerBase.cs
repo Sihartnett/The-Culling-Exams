@@ -280,22 +280,22 @@ public class TileManagerBase : MonoBehaviour
                 switch (tileComponent.Tile.crateState)
                 {
 
-                    case CrateState.highlighted:
+                    case ObjectState.highlighted:
                         tile.transform.GetChild(1).gameObject.SetActive(true);
                         meshes[1].material = highlightMaterial;
                         break;
-                    case CrateState.selected:
+                    case ObjectState.selected:
                         tile.transform.GetChild(1).gameObject.SetActive(true);
                         meshes[1].material = selectedMaterial;
                         break;
-                    case CrateState.ghost:
+                    case ObjectState.ghost:
                         tile.transform.GetChild(1).gameObject.SetActive(true);
                         meshes[1].material = ghostMaterial; break;
-                    case CrateState.ghostHighlighted:
+                    case ObjectState.ghostHighlighted:
                         tile.transform.GetChild(1).gameObject.SetActive(true);
                         meshes[1].material = highlightMaterial;
                         break;
-                    case CrateState.none:
+                    case ObjectState.none:
                     default:
                         {
                             switch (tileComponent.Tile.crateType)
