@@ -50,21 +50,18 @@ public class CrateScript : MonoBehaviour
         if (tileComponent.Row == playManager.currentTile.x && playManager.currentTile.y == tileComponent.Column)
             return returnValue;
 
-        if (tileComponent.Tile.crateType != CrateType.none)
-        {
-            // Deselect everything
-            if (tileComponent.Tile.crateState == ObjectState.highlighted)
-                tileComponent.Tile.crateState = ObjectState.none;
+        // Deselect everything
+        if (tileComponent.Tile.crateState == ObjectState.highlighted)
+            tileComponent.Tile.crateState = ObjectState.none;
 
-            if (tileComponent.Tile.crateState == ObjectState.ghostHighlighted)
-                tileComponent.Tile.crateState = ObjectState.ghost;
+        if (tileComponent.Tile.crateState == ObjectState.ghostHighlighted)
+            tileComponent.Tile.crateState = ObjectState.ghost;
 
-            // Tile Highlights
-            //if (tileComponent.Tile.tileType == TileType.moveableHighlighted)
-            //    tileComponent.Tile.tileType = TileType.moveable;
-            //if (tileComponent.Tile.tileType == TileType.fallHighlighted)
-            //    tileComponent.Tile.tileType = TileType.fallGhost;
-        }
+        if (tileComponent.Tile.tileState == ObjectState.highlighted)
+            tileComponent.Tile.tileState = ObjectState.none;
+
+        if (tileComponent.Tile.tileState == ObjectState.ghostHighlighted)
+            tileComponent.Tile.tileState = ObjectState.ghost;
 
         if (highlight)
         {
@@ -84,13 +81,14 @@ public class CrateScript : MonoBehaviour
                         returnValue = true;
                     }
 
-                    // Tile Movement
-                    //if (this.myType == SelectionType.tile)
-                    //{
-                    //    tileComponent.Tile.tileType = TileType.moveableHighlighted;
-                    //    currentSelectionType = SelectionType.tile;
-                    //    returnValue = true;
-                    //}
+                    if (this.myType == SelectionType.tile)
+                    {
+                        if (tileComponent.Tile.tileType == TileType.moveable || tileComponent.Tile.tileType == TileType.moveableBarrier)
+                        {
+                            tileComponent.Tile.tileState = ObjectState.highlighted;
+                            returnValue = true;
+                        }
+                    }
                 }
             }
             else if (selectedTile != null)
@@ -111,16 +109,14 @@ public class CrateScript : MonoBehaviour
                         }
                     }
 
-                    // Tile stuff
-                    //if (this.myType == SelectionType.tile)
-                    //{
-                    //    if (tileComponent.Tile.tileType == TileType.fallGhost)
-                    //    {
-                    //        tileComponent.Tile.tileType = TileType.fallHighlighted;
-                    //        currentSelectionType = SelectionType.tile;
-                    //        returnValue = true;
-                    //    }
-                    //}
+                    if (this.myType == SelectionType.tile)
+                    {
+                        if (tileComponent.Tile.tileState == ObjectState.ghost)
+                        {
+                            tileComponent.Tile.tileState = ObjectState.ghostHighlighted;
+                            returnValue = true;
+                        }
+                    }
                 }
             }
         }

@@ -27,6 +27,7 @@ public class Tile
 
     [NonSerialized]
     public ObjectState crateState = ObjectState.none;
+    public ObjectState tileState = ObjectState.none;
 
     public Vector3 rotation;
 

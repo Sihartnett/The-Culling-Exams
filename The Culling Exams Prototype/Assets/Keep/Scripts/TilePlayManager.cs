@@ -113,7 +113,7 @@ public class TilePlayManager : TileManagerBase
         //Debug.DrawRay(centerPoint.position, camera.TransformDirection(Vector3.forward), Color.red);
 
         //if (Physics.Raycast(centerTransform.position, centerTransform.TransformDirection(Vector3.forward), out RaycastHit rayHit, layerMask))
-        if (Physics.Raycast(new Vector3(centerTransform.position.x, centerTransform.position.y + 0.75f, centerTransform.position.z),
+        if (Physics.Raycast(new Vector3(centerTransform.position.x, centerTransform.position.y + 0.3f, centerTransform.position.z),
             cameraTransform.TransformDirection(Vector3.forward), out RaycastHit rayHit, layerMask))
         {
             if(rayCastSphere != null)

@@ -20,6 +20,7 @@ public class TileManagerBase : MonoBehaviour
     public Material barrierMaterial;
     public Material fallMaterial;
     public Material moveableMaterial;
+    public Material moveableBarrierMaterial;
     public Material blueTileMaterial;
     public Material redTileMaterial;
     public Material purpleTileMaterial;
@@ -82,6 +83,9 @@ public class TileManagerBase : MonoBehaviour
                     break;
                 case TileType.moveable:
                     meshes[0].material = moveableMaterial;
+                    break;
+                case TileType.moveableBarrier:
+                    meshes[0].material = moveableBarrierMaterial;
                     break;
                 case TileType.fall:
                     meshes[0].material = fallMaterial;
@@ -333,6 +337,64 @@ public class TileManagerBase : MonoBehaviour
                         break;
                 }
 
+                switch (tileComponent.Tile.tileState)
+                {
+                    case ObjectState.highlighted:
+                        meshes[0].material = highlightMaterial;
+                        break;
+                    case ObjectState.selected:
+                        meshes[0].material = selectedMaterial;
+                        break;
+                    case ObjectState.ghost:
+                        meshes[0].material = ghostMaterial; break;
+                    case ObjectState.ghostHighlighted:
+                        meshes[0].material = highlightMaterial;
+                        break;
+                    case ObjectState.none:
+                    default:
+                        {
+                            switch (tileComponent.Tile.tileType)
+                            {
+                                case TileType.barrier:
+                                    meshes[0].material = barrierMaterial;
+                                    break;
+                                case TileType.finish:
+                                    meshes[0].material = finishMaterial;
+                                    break;
+                                case TileType.start:
+                                    meshes[0].material = startMaterial;
+                                    break;
+                                case TileType.moveable:
+                                    meshes[0].material = moveableMaterial;
+                                    break;
+                                case TileType.moveableBarrier:
+                                    meshes[0].material = moveableBarrierMaterial;
+                                    break;
+                                case TileType.fall:
+                                    meshes[0].material = fallMaterial;
+                                    break;
+                                case TileType.blueTile:
+                                    meshes[0].material = blueTileMaterial;
+                                    break;
+                                case TileType.redTile:
+                                    meshes[0].material = redTileMaterial;
+                                    break;
+                                case TileType.purpleTile:
+                                    meshes[0].material = purpleTileMaterial;
+                                    break;
+                                case TileType.brownTile:
+                                    meshes[0].material = brownTileMaterial;
+                                    break;
+
+                                case TileType.basic:
+                                default:
+                                    meshes[0].material = defaultMaterial;
+                                    break;
+                            }
+                        }
+                        break;
+                }
+
                 switch (tileComponent.Tile.northWallType)
                 {
                     case WallType.wall:
@@ -458,47 +520,6 @@ public class TileManagerBase : MonoBehaviour
                         break;
                 }
                 
-                //switch (tileComponent.Tile.tileType)
-                //{
-                //    case TileType.moveable:
-                //        tile.transform.GetChild(6).gameObject.SetActive(false);
-                //        meshes[0].material = moveableMaterial;
-                //        break;
-                //    case TileType.fall:
-                //        tile.transform.GetChild(6).gameObject.SetActive(true);
-                //        meshes[0].material = fallMaterial;
-                //        break;
-
-                //    case TileType.fallGhost:
-                //        tile.transform.GetChild(6).gameObject.SetActive(true);
-                //        meshes[0].material = moveableMaterial;
-                //        break;
-                //    case TileType.fallHighlighted:
-                //        tile.transform.GetChild(6).gameObject.SetActive(true);
-                //        meshes[0].material = moveableMaterial;
-                //        break;
-
-                //    case TileType.moveableHighlighted:
-                //        tile.transform.GetChild(6).gameObject.SetActive(false);
-                //        meshes[0].material = highlightMaterial;
-                //        break;
-
-                //            case TileType.blueTile:
-                //    tile.transform.GetChild(6).gameObject.SetActive(false);
-                //meshes[0].material = blueTileMaterial;
-                //break;
-                //case TileType.redTile:
-                //    tile.transform.GetChild(6).gameObject.SetActive(false);
-                //meshes[0].material = redTileMaterial;
-                //break;
-
-                //    case TileType.basic:
-                //    default:
-                //        tile.transform.GetChild(6).gameObject.SetActive(false);
-                //        meshes[0].material = defaultMaterial;
-                //        break;
-
-                //}
             }
         }
     }
