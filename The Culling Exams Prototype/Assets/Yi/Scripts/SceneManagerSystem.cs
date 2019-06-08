@@ -28,7 +28,7 @@ public class SceneManagerSystem : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                SceneManager.LoadScene("Level1"); 
+                SceneManager.LoadScene("Level1_Backup"); 
             }
         }
     }
