@@ -133,17 +133,14 @@ public class CrateScript : MonoBehaviour
         // Deselect everything nothing is currently highlighted but we have a selection
         if (currentHighlight == null && currentSelection != null)
         {
-            if (myType == SelectionType.crate)
-            {
-                SMS.DeSelectCrate();
+            SMS.DeSelectCrate();
 
-                TileComponent sourceCrateTileComponent = currentSelection.transform.parent.GetComponent<TileComponent>();
+            TileComponent sourceCrateTileComponent = currentSelection.transform.parent.GetComponent<TileComponent>();
 
-                sourceCrateTileComponent.Tile.crateState = ObjectState.none;
-                sourceCrateTileComponent.Tile.tileState = ObjectState.none;
+            sourceCrateTileComponent.Tile.crateState = ObjectState.none;
+            sourceCrateTileComponent.Tile.tileState = ObjectState.none;
 
-                ResetGhosts(sourceCrateTileComponent, playManager);
-            }
+            ResetGhosts(sourceCrateTileComponent, playManager);
         }
 
         // We have a valid highlight
