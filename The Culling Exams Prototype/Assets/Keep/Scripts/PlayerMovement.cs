@@ -5,14 +5,21 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    //Scene Manager
+    private SceneManagerSystem SMS;
+
+
     private void Start()
     {
+        SMS = FindObjectOfType<SceneManagerSystem>();
     }
 
     private void Awake()
     {
         centerPoint = GameObject.Find("Cylinder").transform;
         player = GameObject.Find("Ethan").transform;
+        //animator = player.GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -34,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     public float mouseSensitivityX = 5f, mouseSensitivityY = 4f, walkSpeed = 5f, turnSpeed = 5f;
 
     private Transform centerPoint, player;
+    //private Animator animator;
     private float mouseX, mouseY, moveV, moveH;
 
     //Simple camera orbiting around player using a pivot point (center point)
@@ -46,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
 
         centerPoint.rotation = Quaternion.Euler(mouseY, mouseX, 0f);
         transform.rotation = Quaternion.Euler(0f, mouseX, 0f);
-
     }
 
     //Player movement and camera rotation, so that the player moves where the camera is pointing
@@ -63,8 +70,8 @@ public class PlayerMovement : MonoBehaviour
 
             float playerRotationDegree = player.transform.eulerAngles.y;
 
-            float row = 0;
-            float column = 0;
+            int row = 0;
+            int column = 0;
 
             if (moveV != 0 || moveH != 0)
             {
@@ -176,14 +183,14 @@ public class PlayerMovement : MonoBehaviour
 
             TileComponent tile = null;
 
-            tile = tileManager.allTiles[(int)row, (int)column].GetComponent<TileComponent>();
+            tile = tileManager.allTiles[row, column].GetComponent<TileComponent>();
 
             if (moveV != 0 || moveH != 0)
             {
                 // if the target tile is a tile you cannot move return out of function
-                if ( tile.Tile.tileType == TileType.barrier
-                    || tile.Tile.tileType == TileType.fall
-                    || tile.Tile.tileType == TileType.moveableBarrier
+                if ( tile.Tile.tileType == TileType.barrierTile
+                    || tile.Tile.tileType == TileType.fallTile
+                    || tile.Tile.tileType == TileType.moveableBarrierTile
                     || tile.Tile.crateType != CrateType.none)
                     return;
                 
@@ -255,7 +262,13 @@ public class PlayerMovement : MonoBehaviour
                 var moveToMe = new Vector3(tile.Tile.CenterPoint.x, 0.1f, tile.Tile.CenterPoint.z);
                 tileManager.fatigue -= 1;
 
-                StartCoroutine(move(transform, moveToMe));
+                StartCoroutine(move(transform, moveToMe, moveV, moveH));
+
+                tileManager.currentTile.x = row;
+                tileManager.currentTile.y = column;
+
+                if (tile.Tile.tileType == TileType.finishTile)
+                    SMS.NextLevel();
             }
         }
     }
@@ -270,14 +283,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 endPosition;
     private float t;
 
-    public IEnumerator move(Transform transform, Vector3 endPoint)
+    public IEnumerator move(Transform transform, Vector3 endPoint, float vert, float horiz)
     {
         isMoving = true;
         startPosition = transform.position;
         endPosition = endPoint;
         t = 0;
 
-        //Animator anim = GetComponent<Animator>();
+        //animator?.SetFloat("Vertical", vert);
+        //animator?.SetFloat("Horizontal", vert);
+        //animator?.SetBool("isMoving", true);
 
         while (t < 1f)
         {
@@ -288,6 +303,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         isMoving = false;
+
+        //animator?.SetFloat("Verticle", 0);
+        //animator?.SetFloat("Horizontal", 0);
+        //animator?.SetBool("isMoving", false);
 
         yield return 0;
     }

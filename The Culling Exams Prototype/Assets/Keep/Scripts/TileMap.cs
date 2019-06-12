@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum WallType { none, wall, window, redDoor, blueDoor, purpleDoor, brownDoor, redDoorOpen, blueDoorOpen, purpleDoorOpen, brownDoorOpen };
 
-public enum TileType { basic, fall, barrier, start, finish, moveable, redTile, blueTile, purpleTile, brownTile, moveableBarrier };
+public enum TileType { basicTile, fallTile, barrierTile, startTile, finishTile, moveableTile, redTile, blueTile, purpleTile, brownTile, moveableBarrierTile, moveableCrateTile };
 public enum CrateType { none, crate, mirror, redCrate, blueCrate, purpleCrate, brownCrate };
 
 public enum ObjectState { none, selected, highlighted, ghost, ghostHighlighted };
@@ -27,6 +27,7 @@ public class Tile
 
     [NonSerialized]
     public ObjectState crateState = ObjectState.none;
+    [NonSerialized]
     public ObjectState tileState = ObjectState.none;
 
     public Vector3 rotation;

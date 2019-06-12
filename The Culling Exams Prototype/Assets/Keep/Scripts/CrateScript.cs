@@ -52,16 +52,16 @@ public class CrateScript : MonoBehaviour
 
         // Deselect everything
         if (tileComponent.Tile.crateState == ObjectState.highlighted)
-            tileComponent.Tile.crateState = ObjectState.none;
+            playManager.SetCrate(tileComponent.Row, tileComponent.Column, tileComponent.Tile.crateType, ObjectState.none);
 
         if (tileComponent.Tile.crateState == ObjectState.ghostHighlighted)
-            tileComponent.Tile.crateState = ObjectState.ghost;
+            playManager.SetCrate(tileComponent.Row, tileComponent.Column, tileComponent.Tile.crateType, ObjectState.ghost);
 
         if (tileComponent.Tile.tileState == ObjectState.highlighted)
-            tileComponent.Tile.tileState = ObjectState.none;
+            playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.none);
 
         if (tileComponent.Tile.tileState == ObjectState.ghostHighlighted)
-            tileComponent.Tile.tileState = ObjectState.ghost;
+            playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.ghost);
 
         if (highlight)
         {
@@ -77,15 +77,15 @@ public class CrateScript : MonoBehaviour
                 {
                     if (this.myType == SelectionType.crate)
                     {
-                        tileComponent.Tile.crateState = ObjectState.highlighted;
+                        playManager.SetCrate(tileComponent.Row, tileComponent.Column, tileComponent.Tile.crateType, ObjectState.highlighted);
                         returnValue = true;
                     }
 
                     if (this.myType == SelectionType.tile)
                     {
-                        if (tileComponent.Tile.tileType == TileType.moveable || tileComponent.Tile.tileType == TileType.moveableBarrier)
+                        if (tileComponent.Tile.tileType == TileType.moveableTile || tileComponent.Tile.tileType == TileType.moveableBarrierTile)
                         {
-                            tileComponent.Tile.tileState = ObjectState.highlighted;
+                            playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.highlighted);
                             returnValue = true;
                         }
                     }
@@ -104,7 +104,7 @@ public class CrateScript : MonoBehaviour
                     {
                         if (tileComponent.Tile.crateState == ObjectState.ghost)
                         {
-                            tileComponent.Tile.crateState = ObjectState.ghostHighlighted;
+                            playManager.SetCrate(tileComponent.Row, tileComponent.Column, tileComponent.Tile.crateType, ObjectState.ghostHighlighted);
                             returnValue = true;
                         }
                     }
@@ -113,7 +113,7 @@ public class CrateScript : MonoBehaviour
                     {
                         if (tileComponent.Tile.tileState == ObjectState.ghost)
                         {
-                            tileComponent.Tile.tileState = ObjectState.ghostHighlighted;
+                            playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.ghostHighlighted);
                             returnValue = true;
                         }
                     }
@@ -137,8 +137,8 @@ public class CrateScript : MonoBehaviour
 
             TileComponent sourceCrateTileComponent = currentSelection.transform.parent.GetComponent<TileComponent>();
 
-            sourceCrateTileComponent.Tile.crateState = ObjectState.none;
-            sourceCrateTileComponent.Tile.tileState = ObjectState.none;
+            playManager.SetCrate(tileComponent.Row, tileComponent.Column, tileComponent.Tile.crateType, ObjectState.none);
+            playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.none);
 
             ResetGhosts(sourceCrateTileComponent, playManager);
         }
@@ -157,9 +157,9 @@ public class CrateScript : MonoBehaviour
                 SMS.SelectCrate();
 
                 if (myType == SelectionType.crate)
-                    tileComponent.Tile.crateState = ObjectState.selected;
+                    playManager.SetCrate(tileComponent.Row, tileComponent.Column, tileComponent.Tile.crateType, ObjectState.selected);
                 else if (myType == SelectionType.tile)
-                    tileComponent.Tile.tileState = ObjectState.selected;
+                    playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.selected);
 
                 CreateGhosts(tileComponent, playManager);
             }
@@ -173,8 +173,8 @@ public class CrateScript : MonoBehaviour
                 {
                     SMS.DeSelectCrate();
 
-                    tileComponent.Tile.crateType = sourceCrateTileComponent.Tile.crateType;
-                    tileComponent.Tile.crateState = ObjectState.none;
+                    playManager.SetCrate(tileComponent.Row, tileComponent.Column, sourceCrateTileComponent.Tile.crateType, ObjectState.none);
+                    playManager.SetCrate(sourceCrateTileComponent.Row, sourceCrateTileComponent.Column, CrateType.none, ObjectState.none);
 
                     // This is for when a blue crate lands on a blue tile
                     if (tileComponent.Tile.tileType == TileType.blueTile &&
@@ -187,13 +187,13 @@ public class CrateScript : MonoBehaviour
                             {
                                 TileComponent tile = playManager.allTiles[row, column].GetComponent<TileComponent>();
                                 if (tile.Tile.eastWallType == WallType.blueDoor)
-                                    tile.Tile.eastWallType = WallType.blueDoorOpen;
+                                    playManager.SetEastWall(tile.Row, tile.Column, WallType.blueDoorOpen);
                                 if (tile.Tile.northWallType == WallType.blueDoor)
-                                    tile.Tile.northWallType = WallType.blueDoorOpen;
+                                    playManager.SetNorthWall(tile.Row, tile.Column, WallType.blueDoorOpen);
                                 if (tile.Tile.southWallType == WallType.blueDoor)
-                                    tile.Tile.southWallType = WallType.blueDoorOpen;
+                                    playManager.SetSouthWall(tile.Row, tile.Column, WallType.blueDoorOpen);
                                 if (tile.Tile.westWallType == WallType.blueDoor)
-                                    tile.Tile.westWallType = WallType.blueDoorOpen;
+                                    playManager.SetWestWall(tile.Row, tile.Column, WallType.blueDoorOpen);
                             }
                         }
                     }
@@ -209,13 +209,13 @@ public class CrateScript : MonoBehaviour
                             {
                                 TileComponent tile = playManager.allTiles[row, column].GetComponent<TileComponent>();
                                 if (tile.Tile.eastWallType == WallType.redDoor)
-                                    tile.Tile.eastWallType = WallType.redDoorOpen;
+                                    playManager.SetEastWall(tile.Row, tile.Column, WallType.redDoorOpen);
                                 if (tile.Tile.northWallType == WallType.redDoor)
-                                    tile.Tile.northWallType = WallType.redDoorOpen;
+                                    playManager.SetNorthWall(tile.Row, tile.Column, WallType.redDoorOpen);
                                 if (tile.Tile.southWallType == WallType.redDoor)
-                                    tile.Tile.southWallType = WallType.redDoorOpen;
+                                    playManager.SetSouthWall(tile.Row, tile.Column, WallType.redDoorOpen);
                                 if (tile.Tile.westWallType == WallType.redDoor)
-                                    tile.Tile.westWallType = WallType.redDoorOpen;
+                                    playManager.SetWestWall(tile.Row, tile.Column, WallType.redDoorOpen);
                             }
                         }
                     }
@@ -231,13 +231,13 @@ public class CrateScript : MonoBehaviour
                             {
                                 TileComponent tile = playManager.allTiles[row, column].GetComponent<TileComponent>();
                                 if (tile.Tile.eastWallType == WallType.purpleDoor)
-                                    tile.Tile.eastWallType = WallType.purpleDoorOpen;
+                                    playManager.SetEastWall(tile.Row, tile.Column, WallType.purpleDoorOpen);
                                 if (tile.Tile.northWallType == WallType.purpleDoor)
-                                    tile.Tile.northWallType = WallType.purpleDoorOpen;
+                                    playManager.SetNorthWall(tile.Row, tile.Column, WallType.purpleDoorOpen);
                                 if (tile.Tile.southWallType == WallType.purpleDoor)
-                                    tile.Tile.southWallType = WallType.purpleDoorOpen;
+                                    playManager.SetSouthWall(tile.Row, tile.Column, WallType.purpleDoorOpen);
                                 if (tile.Tile.westWallType == WallType.purpleDoor)
-                                    tile.Tile.westWallType = WallType.purpleDoorOpen;
+                                    playManager.SetWestWall(tile.Row, tile.Column, WallType.purpleDoorOpen);
                             }
                         }
                     }
@@ -253,36 +253,30 @@ public class CrateScript : MonoBehaviour
                             {
                                 TileComponent tile = playManager.allTiles[row, column].GetComponent<TileComponent>();
                                 if (tile.Tile.eastWallType == WallType.brownDoor)
-                                    tile.Tile.eastWallType = WallType.brownDoorOpen;
+                                    playManager.SetEastWall(tile.Row, tile.Column, WallType.brownDoorOpen);
                                 if (tile.Tile.northWallType == WallType.brownDoor)
-                                    tile.Tile.northWallType = WallType.brownDoorOpen;
+                                    playManager.SetNorthWall(tile.Row, tile.Column, WallType.brownDoorOpen);
                                 if (tile.Tile.southWallType == WallType.brownDoor)
-                                    tile.Tile.southWallType = WallType.brownDoorOpen;
+                                    playManager.SetSouthWall(tile.Row, tile.Column, WallType.brownDoorOpen);
                                 if (tile.Tile.westWallType == WallType.brownDoor)
-                                    tile.Tile.westWallType = WallType.brownDoorOpen;
+                                    playManager.SetWestWall(tile.Row, tile.Column, WallType.brownDoorOpen);
                             }
                         }
                     }
-
-                    sourceCrateTileComponent.Tile.crateType = CrateType.none;
-                    sourceCrateTileComponent.Tile.crateState = ObjectState.none;
                 }
 
                 else if (myType == SelectionType.tile)
                 {
-                    tileComponent.Tile.tileType = sourceCrateTileComponent.Tile.tileType;
-                    tileComponent.Tile.tileState = ObjectState.none;
-
-                    sourceCrateTileComponent.Tile.tileType = TileType.fall;
-                    sourceCrateTileComponent.Tile.tileState = ObjectState.none;
+                    playManager.SetTile(tileComponent.Row, tileComponent.Column, sourceCrateTileComponent.Tile.tileType, ObjectState.none);
+                    playManager.SetTile(sourceCrateTileComponent.Row, sourceCrateTileComponent.Column, TileType.fallTile, ObjectState.none);
                 }
 
                 ResetGhosts(sourceCrateTileComponent, playManager);
             }
         }
     }
-    
-    private void CreateGhosts ( TileComponent tileComponent, TilePlayManager playManager)
+
+    private void CreateGhosts ( TileComponent tileComponent, TilePlayManager playManager )
     {
         TileComponent tile = playManager.allTiles[tileComponent.Row - 1, tileComponent.Column].GetComponent<TileComponent>();
         FlipGhost(playManager, tile);
@@ -297,7 +291,7 @@ public class CrateScript : MonoBehaviour
         FlipGhost(playManager, tile);
     }
 
-    private void FlipGhost ( TilePlayManager playManager, TileComponent tile)
+    private void FlipGhost ( TilePlayManager playManager, TileComponent tile )
     {
         // if im standing on the tile do nothing
         if (tile.Row != (int)playManager.currentTile.x || tile.Column != (int)playManager.currentTile.y)
@@ -307,65 +301,53 @@ public class CrateScript : MonoBehaviour
                 // make sure there is no crate and is a valid place to put it
                 if (tile.Tile.crateType == CrateType.none
                    &&
-                   ( tile.Tile.tileType == TileType.basic
+                   ( tile.Tile.tileType == TileType.basicTile
                     || tile.Tile.tileType == TileType.redTile
                     || tile.Tile.tileType == TileType.blueTile
                     || tile.Tile.tileType == TileType.brownTile
-                    || tile.Tile.tileType == TileType.purpleTile ))
+                    || tile.Tile.tileType == TileType.purpleTile
+                    || tile.Tile.tileType == TileType.moveableCrateTile ))
                 {
-                    tile.Tile.crateType = CrateType.crate;
-                    tile.Tile.crateState = ObjectState.ghost;
+                    playManager.SetCrate(tile.Row, tile.Column, CrateType.crate, ObjectState.ghost);
                 }
             }
-            else if (myType == SelectionType.tile && tile.Tile.tileType == TileType.fall)
-                tile.Tile.tileState = ObjectState.ghost;
+            else if (myType == SelectionType.tile && tile.Tile.tileType == TileType.fallTile)
+                playManager.SetTile(tile.Row, tile.Column, tile.Tile.tileType, ObjectState.ghost);
         }
     }
 
-    private void ResetGhosts ( TileComponent tileComponent, TilePlayManager playManager)
+    private void ResetGhosts ( TileComponent tileComponent, TilePlayManager playManager )
     {
         selectedTile = null;
         currentSelection = null;
         currentSelectionType = SelectionType.none;
-        
-            TileComponent tile = playManager.allTiles[tileComponent.Row - 1, tileComponent.Column].GetComponent<TileComponent>();
-            if (tile.Tile.crateState == ObjectState.ghost && tile.Tile.crateType == CrateType.crate)
-            {
-                tile.Tile.crateType = CrateType.none;
-                tile.Tile.crateState = ObjectState.none;
-            }
 
-            if (tile.Tile.tileState == ObjectState.ghost && tile.Tile.tileType == TileType.fall)
-                tile.Tile.tileState = ObjectState.none;
+        TileComponent tile = playManager.allTiles[tileComponent.Row - 1, tileComponent.Column].GetComponent<TileComponent>();
+        if (tile.Tile.crateState == ObjectState.ghost && tile.Tile.crateType == CrateType.crate)
+            playManager.SetCrate(tile.Row, tile.Column, CrateType.none, ObjectState.none);
 
-            tile = playManager.allTiles[tileComponent.Row + 1, tileComponent.Column].GetComponent<TileComponent>();
-            if (tile.Tile.crateState == ObjectState.ghost && tile.Tile.crateType == CrateType.crate)
-            {
-                tile.Tile.crateType = CrateType.none;
-                tile.Tile.crateState = ObjectState.none;
-            }
+        if (tile.Tile.tileState == ObjectState.ghost && tile.Tile.tileType == TileType.fallTile)
+            playManager.SetTile(tile.Row, tile.Column, tile.Tile.tileType, ObjectState.none);
 
-            if (tile.Tile.tileState == ObjectState.ghost && tile.Tile.tileType == TileType.fall)
-                tile.Tile.tileState = ObjectState.none;
+        tile = playManager.allTiles[tileComponent.Row + 1, tileComponent.Column].GetComponent<TileComponent>();
+        if (tile.Tile.crateState == ObjectState.ghost && tile.Tile.crateType == CrateType.crate)
+            playManager.SetCrate(tile.Row, tile.Column, CrateType.none, ObjectState.none);
 
-            tile = playManager.allTiles[tileComponent.Row, tileComponent.Column + 1].GetComponent<TileComponent>();
-            if (tile.Tile.crateState == ObjectState.ghost && tile.Tile.crateType == CrateType.crate)
-            {
-                tile.Tile.crateType = CrateType.none;
-                tile.Tile.crateState = ObjectState.none;
-            }
+        if (tile.Tile.tileState == ObjectState.ghost && tile.Tile.tileType == TileType.fallTile)
+            playManager.SetTile(tile.Row, tile.Column, tile.Tile.tileType, ObjectState.none);
 
-            if (tile.Tile.tileState == ObjectState.ghost && tile.Tile.tileType == TileType.fall)
-                tile.Tile.tileState = ObjectState.none;
+        tile = playManager.allTiles[tileComponent.Row, tileComponent.Column + 1].GetComponent<TileComponent>();
+        if (tile.Tile.crateState == ObjectState.ghost && tile.Tile.crateType == CrateType.crate)
+            playManager.SetCrate(tile.Row, tile.Column, CrateType.none, ObjectState.none);
 
-            tile = playManager.allTiles[tileComponent.Row, tileComponent.Column - 1].GetComponent<TileComponent>();
-            if (tile.Tile.crateState == ObjectState.ghost && tile.Tile.crateType == CrateType.crate)
-            {
-                tile.Tile.crateType = CrateType.none;
-                tile.Tile.crateState = ObjectState.none;
-            }
+        if (tile.Tile.tileState == ObjectState.ghost && tile.Tile.tileType == TileType.fallTile)
+            playManager.SetTile(tile.Row, tile.Column, tile.Tile.tileType, ObjectState.none);
 
-            if (tile.Tile.tileState == ObjectState.ghost && tile.Tile.tileType == TileType.fall)
-                tile.Tile.tileState = ObjectState.none;
+        tile = playManager.allTiles[tileComponent.Row, tileComponent.Column - 1].GetComponent<TileComponent>();
+        if (tile.Tile.crateState == ObjectState.ghost && tile.Tile.crateType == CrateType.crate)
+            playManager.SetCrate(tile.Row, tile.Column, CrateType.none, ObjectState.none);
+
+        if (tile.Tile.tileState == ObjectState.ghost && tile.Tile.tileType == TileType.fallTile)
+            playManager.SetTile(tile.Row, tile.Column, tile.Tile.tileType, ObjectState.none);
     }
 }
