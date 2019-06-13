@@ -267,6 +267,12 @@ public class PlayerMovement : MonoBehaviour
                 tileManager.currentTile.x = row;
                 tileManager.currentTile.y = column;
 
+                if (tile.Tile.pickupType == PickupType.fatiguePickup)
+                {
+                    tileManager.fatigue += (int)tile.Tile.pickupCount;
+                    tileManager.SetPickupType(row, column, PickupType.none, 0.0f);
+                }
+
                 if (tile.Tile.tileType == TileType.finishTile)
                     SMS.NextLevel();
             }

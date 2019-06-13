@@ -21,6 +21,7 @@ public class TileManagerBase : MonoBehaviour
     public Material fallMaterial;
     public Material moveableMaterial;
     public Material moveableBarrierMaterial;
+    public Material moveableCrateMaterial;
     public Material blueTileMaterial;
     public Material redTileMaterial;
     public Material purpleTileMaterial;
@@ -40,11 +41,16 @@ public class TileManagerBase : MonoBehaviour
     public Material brownDoorMaterial;
     public Material windowMaterial;
 
+    // Pickup Materials
+    public Material fatiguePickupMaterial;
+    public Material crateMovePickupMaterial;
+    public Material timePickupMaterial;
+
     // Dynamic Materials
     public Material highlightMaterial;
     public Material selectedMaterial;
     public Material ghostMaterial;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +92,9 @@ public class TileManagerBase : MonoBehaviour
                     break;
                 case TileType.moveableBarrierTile:
                     meshes[0].material = moveableBarrierMaterial;
+                    break;
+                case TileType.moveableCrateTile:
+                    meshes[0].material = moveableCrateMaterial;
                     break;
                 case TileType.fallTile:
                     meshes[0].material = fallMaterial;
@@ -267,7 +276,27 @@ public class TileManagerBase : MonoBehaviour
                     tile.transform.GetChild(5).gameObject.SetActive(false);
                     break;
             }
+
+            // TODO: When the prefab is updated then this should work
+            //switch (tileMapTile.pickupType)
+            //{
+            //    case PickupType.fatiguePickup:
+            //        tile.transform.GetChild(6).gameObject.SetActive(true);
+            //        meshes[6].material = fatiguePickupMaterial;
+            //        break;
+            //    case PickupType.crateMovePickup:
+            //        tile.transform.GetChild(6).gameObject.SetActive(true);
+            //        meshes[6].material = crateMovePickupMaterial;
+            //        break;
+            //    case PickupType.timePickup:
+            //        tile.transform.GetChild(6).gameObject.SetActive(true);
+            //        meshes[6].material = timePickupMaterial;
+            //        break;
+            //    case PickupType.none:
+            //    default:
+            //        tile.transform.GetChild(6).gameObject.SetActive(false);
+            //        break;
+            //}
         }
     }
-    
 }

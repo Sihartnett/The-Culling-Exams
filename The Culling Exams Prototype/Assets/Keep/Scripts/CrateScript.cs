@@ -7,8 +7,8 @@ public class CrateScript : MonoBehaviour
 {
     public SelectionType myType;
 
-    static GameObject currentSelection = null;
-    static GameObject currentHighlight = null;
+    public static GameObject CurrentSelection = null;
+    public static GameObject CurrentHighlight = null;
 
     static SelectionType currentSelectionType = SelectionType.none;
     static Vector2? selectedTile = null;
@@ -20,21 +20,21 @@ public class CrateScript : MonoBehaviour
     public void Highlight ( Collider collider )
     {
         // If there is a current highlight remove it
-        if (currentHighlight != collider.gameObject)
+        if (CurrentHighlight != collider.gameObject)
         {
-            if (currentHighlight != null)
+            if (CurrentHighlight != null)
             {
-                CrateScript currentCrateScript = currentHighlight.GetComponent<CrateScript>();
+                CrateScript currentCrateScript = CurrentHighlight.GetComponent<CrateScript>();
                 if (currentCrateScript != null)
                 {
                     currentCrateScript.SetHighLight(false);
-                    currentHighlight = null;
+                    CurrentHighlight = null;
                 }
             }
 
             if (SetHighLight(true))
             {
-                currentHighlight = collider.gameObject;
+                CurrentHighlight = collider.gameObject;
             }
         }
     }
@@ -83,7 +83,9 @@ public class CrateScript : MonoBehaviour
 
                     if (this.myType == SelectionType.tile)
                     {
-                        if (tileComponent.Tile.tileType == TileType.moveableTile || tileComponent.Tile.tileType == TileType.moveableBarrierTile)
+                        if (tileComponent.Tile.tileType == TileType.moveableTile 
+                            || tileComponent.Tile.tileType == TileType.moveableBarrierTile 
+                            || tileComponent.Tile.tileType == TileType.moveableCrateTile)
                         {
                             playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.highlighted);
                             returnValue = true;
@@ -131,11 +133,11 @@ public class CrateScript : MonoBehaviour
         SceneManagerSystem SMS = FindObjectOfType<SceneManagerSystem>();
 
         // Deselect everything nothing is currently highlighted but we have a selection
-        if (currentHighlight == null && currentSelection != null)
+        if (CurrentHighlight == null && CurrentSelection != null)
         {
             SMS.DeSelectCrate();
 
-            TileComponent sourceCrateTileComponent = currentSelection.transform.parent.GetComponent<TileComponent>();
+            TileComponent sourceCrateTileComponent = CurrentSelection.transform.parent.GetComponent<TileComponent>();
 
             playManager.SetCrate(tileComponent.Row, tileComponent.Column, tileComponent.Tile.crateType, ObjectState.none);
             playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.none);
@@ -144,13 +146,13 @@ public class CrateScript : MonoBehaviour
         }
 
         // We have a valid highlight
-        else if (currentHighlight != null)
+        else if (CurrentHighlight != null)
         {
             // We do not have a current selection so lets make the highlighted object the current selection
-            if (currentSelection == null)
+            if (CurrentSelection == null)
             {
-                currentSelection = currentHighlight;
-                currentHighlight = null;
+                CurrentSelection = CurrentHighlight;
+                CurrentHighlight = null;
                 selectedTile = new Vector2(tileComponent.Row, tileComponent.Column);
                 currentSelectionType = myType;
 
@@ -167,13 +169,13 @@ public class CrateScript : MonoBehaviour
             // We have a valid selection and a valid highlight so do the move
             else
             {
-                TileComponent sourceCrateTileComponent = currentSelection.transform.parent.GetComponent<TileComponent>();
+                TileComponent sourceCrateTileComponent = CurrentSelection.transform.parent.GetComponent<TileComponent>();
 
                 if (myType == SelectionType.crate)
                 {
                     SMS.DeSelectCrate();
 
-                    playManager.SetCrate(tileComponent.Row, tileComponent.Column, sourceCrateTileComponent.Tile.crateType, ObjectState.none);
+                    playManager.SetCrate(tileComponent.Row, tileComponent.Column, sourceCrateTileComponent.Tile.crateType, ObjectState.highlighted);
                     playManager.SetCrate(sourceCrateTileComponent.Row, sourceCrateTileComponent.Column, CrateType.none, ObjectState.none);
 
                     // This is for when a blue crate lands on a blue tile
@@ -268,7 +270,10 @@ public class CrateScript : MonoBehaviour
                 else if (myType == SelectionType.tile)
                 {
                     playManager.SetTile(tileComponent.Row, tileComponent.Column, sourceCrateTileComponent.Tile.tileType, ObjectState.none);
+                    playManager.SetCrate(tileComponent.Row, tileComponent.Column, sourceCrateTileComponent.Tile.crateType, ObjectState.none);
+
                     playManager.SetTile(sourceCrateTileComponent.Row, sourceCrateTileComponent.Column, TileType.fallTile, ObjectState.none);
+                    playManager.SetCrate(sourceCrateTileComponent.Row, sourceCrateTileComponent.Column, CrateType.none, ObjectState.none);
                 }
 
                 ResetGhosts(sourceCrateTileComponent, playManager);
@@ -276,7 +281,7 @@ public class CrateScript : MonoBehaviour
         }
     }
 
-    private void CreateGhosts ( TileComponent tileComponent, TilePlayManager playManager )
+    public void CreateGhosts ( TileComponent tileComponent, TilePlayManager playManager )
     {
         TileComponent tile = playManager.allTiles[tileComponent.Row - 1, tileComponent.Column].GetComponent<TileComponent>();
         FlipGhost(playManager, tile);
@@ -319,7 +324,7 @@ public class CrateScript : MonoBehaviour
     private void ResetGhosts ( TileComponent tileComponent, TilePlayManager playManager )
     {
         selectedTile = null;
-        currentSelection = null;
+        CurrentSelection = null;
         currentSelectionType = SelectionType.none;
 
         TileComponent tile = playManager.allTiles[tileComponent.Row - 1, tileComponent.Column].GetComponent<TileComponent>();

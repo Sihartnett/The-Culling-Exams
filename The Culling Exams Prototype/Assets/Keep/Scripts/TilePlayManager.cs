@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TilePlayManager : TileManagerBase
 {
@@ -389,5 +385,37 @@ public class TilePlayManager : TileManagerBase
                 tile.transform.GetChild(5).gameObject.SetActive(false);
                 break;
         }
+    }
+
+    public void SetPickupType(int row, int column, PickupType type, float pickupCount)
+    {
+        GameObject tile = allTiles[row, column];
+        TileComponent tileComponent = tile.GetComponent<TileComponent>();
+
+        MeshRenderer[] meshes = tile.GetComponentsInChildren<MeshRenderer>(true);
+        
+        tileComponent.Tile.pickupType = type;
+        tileComponent.Tile.pickupCount = pickupCount;
+        
+        // TODO: comment back in when prefab fixed
+        //switch (type)
+        //{
+        //    case PickupType.fatiguePickup:
+        //        tile.transform.GetChild(6).gameObject.SetActive(true);
+        //        meshes[6].material = fatiguePickupMaterial;
+        //        break;
+        //    case PickupType.crateMovePickup:
+        //        tile.transform.GetChild(6).gameObject.SetActive(true);
+        //        meshes[6].material = crateMovePickupMaterial;
+        //        break;
+        //    case PickupType.timePickup:
+        //        tile.transform.GetChild(6).gameObject.SetActive(true);
+        //        meshes[6].material = timePickupMaterial;
+        //        break;
+        //    case PickupType.none:
+        //    default:
+        //        tile.transform.GetChild(6).gameObject.SetActive(false);
+        //        break;
+        //}
     }
 }

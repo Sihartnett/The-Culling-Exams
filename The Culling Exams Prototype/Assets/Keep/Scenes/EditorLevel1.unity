@@ -159,7 +159,7 @@ MonoBehaviour:
   columns: 10
   tilePrefab: {fileID: 2617150703862465352, guid: 9a31ab1a5a3da8a44a56eb98478377a9,
     type: 3}
-  tileMap: {fileID: 11400000, guid: 9f9f3b0c756c1ed4d91d9a9ee662a50d, type: 2}
+  tileMap: {fileID: 11400000, guid: 52b27e37acb146542b96b5ba6936b034, type: 2}
   defaultMaterial: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
   startMaterial: {fileID: 0}
   finishMaterial: {fileID: 0}
@@ -168,6 +168,7 @@ MonoBehaviour:
   moveableMaterial: {fileID: 2100000, guid: e45779e828373c241aaf277bfef3d307, type: 2}
   moveableBarrierMaterial: {fileID: 2100000, guid: c9bc6fdbdb6cdd24e9726311d238f2e4,
     type: 2}
+  moveableCrateMaterial: {fileID: 0}
   blueTileMaterial: {fileID: 0}
   redTileMaterial: {fileID: 0}
   purpleTileMaterial: {fileID: 0}
