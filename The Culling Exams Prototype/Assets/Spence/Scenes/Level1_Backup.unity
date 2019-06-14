@@ -2340,6 +2340,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
+        type: 3}
+      propertyPath: m_AutoUVMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108000010213783520, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
         type: 3}
       propertyPath: m_Range
@@ -2359,11 +2364,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
-        type: 3}
-      propertyPath: m_AutoUVMaxDistance
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f, type: 3}
@@ -2634,6 +2634,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
+        type: 3}
+      propertyPath: m_AutoUVMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108000010213783520, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
         type: 3}
       propertyPath: m_Intensity
@@ -2658,11 +2663,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
-        type: 3}
-      propertyPath: m_AutoUVMaxDistance
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f, type: 3}
@@ -4179,6 +4179,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
+        type: 3}
+      propertyPath: m_AutoUVMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108000010213783520, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
         type: 3}
       propertyPath: m_Range
@@ -4198,11 +4203,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
-        type: 3}
-      propertyPath: m_AutoUVMaxDistance
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f, type: 3}
@@ -4455,6 +4455,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
+        type: 3}
+      propertyPath: m_AutoUVMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108000010213783520, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
         type: 3}
       propertyPath: m_Range
@@ -4474,11 +4479,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
-        type: 3}
-      propertyPath: m_AutoUVMaxDistance
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f, type: 3}
@@ -4759,6 +4759,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
+        type: 3}
+      propertyPath: m_AutoUVMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108000010213783520, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
         type: 3}
       propertyPath: m_Range
@@ -4778,11 +4783,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
-        type: 3}
-      propertyPath: m_AutoUVMaxDistance
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f, type: 3}
@@ -5693,6 +5693,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
+        type: 3}
+      propertyPath: m_AutoUVMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108000010213783520, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
         type: 3}
       propertyPath: m_Range
@@ -5732,11 +5737,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BounceIntensity
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
-        type: 3}
-      propertyPath: m_AutoUVMaxDistance
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4000012999982074, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6202,6 +6202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: scientist 1
       objectReference: {fileID: 0}
+    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.327
@@ -6246,10 +6250,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
@@ -6504,6 +6504,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
+        type: 3}
+      propertyPath: m_AutoUVMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108000010213783520, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
         type: 3}
       propertyPath: m_Range
@@ -6523,11 +6528,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
-        type: 3}
-      propertyPath: m_AutoUVMaxDistance
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f, type: 3}
@@ -7044,6 +7044,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
+        type: 3}
+      propertyPath: m_AutoUVMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108000010213783520, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
         type: 3}
       propertyPath: m_Range
@@ -7063,11 +7068,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
-        type: 3}
-      propertyPath: m_AutoUVMaxDistance
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f, type: 3}
@@ -8887,6 +8887,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scientist 2
       objectReference: {fileID: 0}
+    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.32
@@ -8935,10 +8939,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.0639
       objectReference: {fileID: 0}
-    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
@@ -9024,6 +9024,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
+        type: 3}
+      propertyPath: m_AutoUVMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108000010213783520, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
         type: 3}
       propertyPath: m_Range
@@ -9043,11 +9048,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
-        type: 3}
-      propertyPath: m_AutoUVMaxDistance
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f, type: 3}
@@ -9569,6 +9569,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
+        type: 3}
+      propertyPath: m_AutoUVMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108000010213783520, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
         type: 3}
       propertyPath: m_Range
@@ -9588,11 +9593,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
-        type: 3}
-      propertyPath: m_AutoUVMaxDistance
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f, type: 3}
@@ -10276,6 +10276,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
+        type: 3}
+      propertyPath: m_AutoUVMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108000010213783520, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
         type: 3}
       propertyPath: m_Range
@@ -10295,11 +10300,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
-        type: 3}
-      propertyPath: m_AutoUVMaxDistance
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f, type: 3}
@@ -12268,6 +12268,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
+        type: 3}
+      propertyPath: m_AutoUVMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108000010213783520, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
         type: 3}
       propertyPath: m_Range
@@ -12287,11 +12292,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
-        type: 3}
-      propertyPath: m_AutoUVMaxDistance
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f, type: 3}
@@ -13287,6 +13287,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000005
       objectReference: {fileID: 0}
+    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
+        type: 3}
+      propertyPath: m_AutoUVMaxDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 108000010213783520, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
         type: 3}
       propertyPath: m_Range
@@ -13306,11 +13311,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 23000010888369456, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f,
-        type: 3}
-      propertyPath: m_AutoUVMaxDistance
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b1146ffc6ea01e4bb2c86bdc19a332f, type: 3}
