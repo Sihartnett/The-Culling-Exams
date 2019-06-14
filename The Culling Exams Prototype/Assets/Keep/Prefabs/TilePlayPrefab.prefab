@@ -255,6 +255,7 @@ MonoBehaviour:
     eastWallType: 0
     westWallType: 0
     crateType: 0
+    tileState: 0
     rotation: {x: 0, y: 0, z: 0}
 --- !u!1 &5875676294177166807
 GameObject:
@@ -479,7 +480,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6522985217511615838}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 3f732e08dd2f16344a5e0ea65641a1f9, type: 3}
 --- !u!23 &2750290044425871375
 MeshRenderer:
   m_ObjectHideFlags: 0

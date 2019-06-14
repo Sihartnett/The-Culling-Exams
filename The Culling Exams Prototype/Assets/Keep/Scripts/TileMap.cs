@@ -6,6 +6,8 @@ public enum WallType { none, wall, window, redDoor, blueDoor, purpleDoor, brownD
 public enum TileType { basicTile, fallTile, barrierTile, startTile, finishTile, moveableTile, redTile, blueTile, purpleTile, brownTile, moveableBarrierTile, moveableCrateTile };
 public enum CrateType { none, crate, mirror, redCrate, blueCrate, purpleCrate, brownCrate };
 
+public enum PickupType { none, fatiguePickup, crateMovePickup, timePickup }
+
 public enum ObjectState { none, selected, highlighted, ghost, ghostHighlighted };
 
 public enum PickupType { none, fatiguePickup, crateMovePickup, timePickup }
@@ -25,6 +27,9 @@ public class Tile
     public WallType westWallType;
     public CrateType crateType;
     
+    public PickupType pickupType;
+    public float pickupCount;
+
     public PickupType pickupType;
     public float pickupCount;
 

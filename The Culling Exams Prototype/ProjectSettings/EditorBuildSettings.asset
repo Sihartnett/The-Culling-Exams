@@ -27,8 +27,14 @@ EditorBuildSettings:
     path: Assets/Spence/Scenes/Level5.unity
     guid: 89f579ac42c913f41a050b1cff6ca039
   - enabled: 1
+    path: Assets/Spence/Scenes/Level16.unity
+    guid: f8390b2379da679419e620ebeb6b1e4c
+  - enabled: 1
     path: Assets/Spence/Scenes/Level11.unity
     guid: c1dcd7fad6ff57a4b9723d391273bee5
+  - enabled: 1
+    path: Assets/Spence/Scenes/Level12.unity
+    guid: b3c9468f00c9fa24cb4006697f5b9351
   - enabled: 1
     path: Assets/Scenes/Victory Scene.unity
     guid: 0b23762fb54bce64b8fd770290edf73b
