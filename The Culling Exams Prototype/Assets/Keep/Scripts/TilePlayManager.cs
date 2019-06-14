@@ -410,26 +410,25 @@ public class TilePlayManager : TileManagerBase
 
         tileComponent.Tile.pickupType = type;
         tileComponent.Tile.pickupCount = pickupCount;
-
-        // TODO: comment back in when prefab fixed
-        //switch (type)
-        //{
-        //    case PickupType.fatiguePickup:
-        //        tile.transform.GetChild(6).gameObject.SetActive(true);
-        //        meshes[6].material = fatiguePickupMaterial;
-        //        break;
-        //    case PickupType.crateMovePickup:
-        //        tile.transform.GetChild(6).gameObject.SetActive(true);
-        //        meshes[6].material = crateMovePickupMaterial;
-        //        break;
-        //    case PickupType.timePickup:
-        //        tile.transform.GetChild(6).gameObject.SetActive(true);
-        //        meshes[6].material = timePickupMaterial;
-        //        break;
-        //    case PickupType.none:
-        //    default:
-        //        tile.transform.GetChild(6).gameObject.SetActive(false);
-        //        break;
-        //}
+        
+        switch (type)
+        {
+            case PickupType.fatiguePickup:
+                tile.transform.GetChild(6).gameObject.SetActive(true);
+                meshes[6].material = fatiguePickupMaterial;
+                break;
+            case PickupType.crateMovePickup:
+                tile.transform.GetChild(6).gameObject.SetActive(true);
+                meshes[6].material = crateMovePickupMaterial;
+                break;
+            case PickupType.timePickup:
+                tile.transform.GetChild(6).gameObject.SetActive(true);
+                meshes[6].material = timePickupMaterial;
+                break;
+            case PickupType.none:
+            default:
+                tile.transform.GetChild(6).gameObject.SetActive(false);
+                break;
+        }
     }
 }
