@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SceneManagerSystem : MonoBehaviour
 {
@@ -9,28 +10,19 @@ public class SceneManagerSystem : MonoBehaviour
 
     public bool LoadOneTime = true;
 
-    private bool isMainMenu = false;
     private AudioSource audioPlayer;
 
+    
     // Start is called before the first frame update
     void Start()
     {
         audioPlayer = GetComponent<AudioSource>();
-
-        if (SceneManager.GetActiveScene().buildIndex == 0)
-            isMainMenu = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isMainMenu)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                SceneManager.LoadScene("Level1_Backup"); 
-            }
-        }
+
     }
 
     public void NextLevel()
