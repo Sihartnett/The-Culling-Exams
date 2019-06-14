@@ -270,6 +270,7 @@ public class TileManagerBase : MonoBehaviour
                     tile.transform.GetChild(5).gameObject.SetActive(false);
                     break;
             }
+
             // TODO: When the prefab is updated then this should work
             //switch (tileMapTile.pickupType)
             //{

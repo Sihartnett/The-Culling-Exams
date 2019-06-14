@@ -10,8 +10,6 @@ public enum PickupType { none, fatiguePickup, crateMovePickup, timePickup }
 
 public enum ObjectState { none, selected, highlighted, ghost, ghostHighlighted };
 
-public enum PickupType { none, fatiguePickup, crateMovePickup, timePickup }
-
 public enum SelectionType { none, crate, tile }
 
 [Serializable]
@@ -29,10 +27,7 @@ public class Tile
     
     public PickupType pickupType;
     public float pickupCount;
-
-    public PickupType pickupType;
-    public float pickupCount;
-
+    
     [NonSerialized]
     public ObjectState crateState = ObjectState.none;
     [NonSerialized]
