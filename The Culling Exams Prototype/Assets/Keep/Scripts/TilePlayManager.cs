@@ -6,19 +6,22 @@ using UnityEngine;
 
 public class TilePlayManager : TileManagerBase
 {
+    private Transform cameraTransform;
+
     public GameObject rayCastSphere;
+    public float rayCastYoffset = 1.3f;
 
-    Transform cameraTransform;
-    Transform centerTransform;
+    public PlayerMovement player;
 
+    [NonSerialized]
     public Vector2 currentTile = new Vector2();
 
-    // Current Fatigue Counter Set at the begining of every level
+    // Current Counters Set at the begining of every level
     public int fatigue = 0;
     public int timeLeft = 0;
     public int crateMoves = 0;
 
-    // needed for ray cast
+    // needed for ray cast collision culling
     private int layerMask;
 
     // Start is called before the first frame update
@@ -58,16 +61,18 @@ public class TilePlayManager : TileManagerBase
         SetMapValues();
 
         cameraTransform = Camera.main.transform;
-        centerTransform = GameObject.Find("Cylinder").transform;
-
+        
+        player = FindObjectOfType<PlayerMovement>();
         layerMask = LayerMask.GetMask("clickableLayer");
     }
-
-
+    
     // Update is called once per frame
     void Update ()
     {
-        if (Physics.Raycast(new Vector3(centerTransform.position.x, centerTransform.position.y + 0.3f, centerTransform.position.z),
+        player.Movement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), player.gameObject.transform);
+        
+        if (Physics.Raycast(
+            new Vector3(player.transform.position.x, player.transform.position.y + rayCastYoffset, player.transform.position.z),
             cameraTransform.TransformDirection(Vector3.forward), out RaycastHit rayHit, layerMask))
         {
             if (rayCastSphere != null)
@@ -84,6 +89,11 @@ public class TilePlayManager : TileManagerBase
                     if (Input.GetMouseButtonDown(0))
                     {
                         crateScript.Select(rayHit.collider);
+                    }
+
+                    if (Input.GetMouseButtonDown(1))
+                    {
+                        crateScript.ShootRay(this, player.gameObject);
                     }
                 }
             }
@@ -389,5 +399,37 @@ public class TilePlayManager : TileManagerBase
                 tile.transform.GetChild(5).gameObject.SetActive(false);
                 break;
         }
+    }
+
+    public void SetPickupType ( int row, int column, PickupType type, float pickupCount )
+    {
+        GameObject tile = allTiles[row, column];
+        TileComponent tileComponent = tile.GetComponent<TileComponent>();
+
+        MeshRenderer[] meshes = tile.GetComponentsInChildren<MeshRenderer>(true);
+
+        tileComponent.Tile.pickupType = type;
+        tileComponent.Tile.pickupCount = pickupCount;
+
+        // TODO: comment back in when prefab fixed
+        //switch (type)
+        //{
+        //    case PickupType.fatiguePickup:
+        //        tile.transform.GetChild(6).gameObject.SetActive(true);
+        //        meshes[6].material = fatiguePickupMaterial;
+        //        break;
+        //    case PickupType.crateMovePickup:
+        //        tile.transform.GetChild(6).gameObject.SetActive(true);
+        //        meshes[6].material = crateMovePickupMaterial;
+        //        break;
+        //    case PickupType.timePickup:
+        //        tile.transform.GetChild(6).gameObject.SetActive(true);
+        //        meshes[6].material = timePickupMaterial;
+        //        break;
+        //    case PickupType.none:
+        //    default:
+        //        tile.transform.GetChild(6).gameObject.SetActive(false);
+        //        break;
+        //}
     }
 }

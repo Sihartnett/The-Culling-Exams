@@ -140,7 +140,7 @@ public class CrateScript : MonoBehaviour
             playManager.SetCrate(tileComponent.Row, tileComponent.Column, tileComponent.Tile.crateType, ObjectState.none);
             playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.none);
 
-            ResetGhosts(sourceCrateTileComponent, playManager);
+            ResetGhosts(playManager, sourceCrateTileComponent);
         }
 
         // We have a valid highlight
@@ -161,7 +161,7 @@ public class CrateScript : MonoBehaviour
                 else if (myType == SelectionType.tile)
                     playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.selected);
 
-                CreateGhosts(tileComponent, playManager);
+                CreateGhosts( playManager, tileComponent );
             }
 
             // We have a valid selection and a valid highlight so do the move
@@ -173,7 +173,7 @@ public class CrateScript : MonoBehaviour
                 {
                     SMS.DeSelectCrate();
 
-                    playManager.SetCrate(tileComponent.Row, tileComponent.Column, sourceCrateTileComponent.Tile.crateType, ObjectState.none);
+                    playManager.SetCrate(tileComponent.Row, tileComponent.Column, sourceCrateTileComponent.Tile.crateType, ObjectState.highlighted);
                     playManager.SetCrate(sourceCrateTileComponent.Row, sourceCrateTileComponent.Column, CrateType.none, ObjectState.none);
 
                     // This is for when a blue crate lands on a blue tile
@@ -271,12 +271,12 @@ public class CrateScript : MonoBehaviour
                     playManager.SetTile(sourceCrateTileComponent.Row, sourceCrateTileComponent.Column, TileType.fallTile, ObjectState.none);
                 }
 
-                ResetGhosts(sourceCrateTileComponent, playManager);
+                ResetGhosts(playManager, sourceCrateTileComponent);
             }
         }
     }
 
-    private void CreateGhosts ( TileComponent tileComponent, TilePlayManager playManager )
+    private void CreateGhosts ( TilePlayManager playManager, TileComponent tileComponent )
     {
         TileComponent tile = playManager.allTiles[tileComponent.Row - 1, tileComponent.Column].GetComponent<TileComponent>();
         FlipGhost(playManager, tile);
@@ -291,32 +291,32 @@ public class CrateScript : MonoBehaviour
         FlipGhost(playManager, tile);
     }
 
-    private void FlipGhost ( TilePlayManager playManager, TileComponent tile )
+    private void FlipGhost ( TilePlayManager playManager, TileComponent tileComponent )
     {
         // if im standing on the tile do nothing
-        if (tile.Row != (int)playManager.currentTile.x || tile.Column != (int)playManager.currentTile.y)
+        if (tileComponent.Row != (int)playManager.currentTile.x || tileComponent.Column != (int)playManager.currentTile.y)
         {
             if (myType == SelectionType.crate)
             {
                 // make sure there is no crate and is a valid place to put it
-                if (tile.Tile.crateType == CrateType.none
+                if (tileComponent.Tile.crateType == CrateType.none
                    &&
-                   ( tile.Tile.tileType == TileType.basicTile
-                    || tile.Tile.tileType == TileType.redTile
-                    || tile.Tile.tileType == TileType.blueTile
-                    || tile.Tile.tileType == TileType.brownTile
-                    || tile.Tile.tileType == TileType.purpleTile
-                    || tile.Tile.tileType == TileType.moveableCrateTile ))
+                   ( tileComponent.Tile.tileType == TileType.basicTile
+                    || tileComponent.Tile.tileType == TileType.redTile
+                    || tileComponent.Tile.tileType == TileType.blueTile
+                    || tileComponent.Tile.tileType == TileType.brownTile
+                    || tileComponent.Tile.tileType == TileType.purpleTile
+                    || tileComponent.Tile.tileType == TileType.moveableCrateTile ))
                 {
-                    playManager.SetCrate(tile.Row, tile.Column, CrateType.crate, ObjectState.ghost);
+                    playManager.SetCrate(tileComponent.Row, tileComponent.Column, CrateType.crate, ObjectState.ghost);
                 }
             }
-            else if (myType == SelectionType.tile && tile.Tile.tileType == TileType.fallTile)
-                playManager.SetTile(tile.Row, tile.Column, tile.Tile.tileType, ObjectState.ghost);
+            else if (myType == SelectionType.tile && tileComponent.Tile.tileType == TileType.fallTile)
+                playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.ghost);
         }
     }
 
-    private void ResetGhosts ( TileComponent tileComponent, TilePlayManager playManager )
+    private void ResetGhosts ( TilePlayManager playManager, TileComponent tileComponent )
     {
         selectedTile = null;
         currentSelection = null;
@@ -349,5 +349,32 @@ public class CrateScript : MonoBehaviour
 
         if (tile.Tile.tileState == ObjectState.ghost && tile.Tile.tileType == TileType.fallTile)
             playManager.SetTile(tile.Row, tile.Column, tile.Tile.tileType, ObjectState.none);
+    }
+
+    public void ShootRay ( TilePlayManager playManager, GameObject player )
+    {
+        TileComponent currentTile = playManager.allTiles[(int)playManager.currentTile.x, (int)playManager.currentTile.y].GetComponent<TileComponent>();
+        
+        // Find the Forward direction of the player
+        // Loop through the forward direction until we hit something
+        float playerRotationDegree = player.transform.eulerAngles.y;
+
+        // Find our forward Direction
+        Vector2 forwardDirection = Vector2.zero;
+        if (45 <= playerRotationDegree && playerRotationDegree <= 135)
+            forwardDirection.x = 1;
+        else if (135 <= playerRotationDegree && playerRotationDegree <= 225)
+            forwardDirection.y = -1;
+        else if (225 <= playerRotationDegree && playerRotationDegree <= 315)
+            forwardDirection.x = -1;
+        else if (315 <= playerRotationDegree && playerRotationDegree <= 360 || 0 <= playerRotationDegree && playerRotationDegree <= 45)
+            forwardDirection.y = 1;
+
+
+
+        // Loop that direction till you hit something. 
+        // If you hit a Mirror then find the new direction and loop that direction till you hit something
+
+
     }
 }

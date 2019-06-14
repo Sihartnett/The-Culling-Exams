@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     //Scene Manager
     private SceneManagerSystem SMS;
-
 
     private void Start()
     {
@@ -18,31 +14,19 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         centerPoint = GameObject.Find("Cylinder").transform;
-        player = GameObject.Find("Ethan").transform;
         //animator = player.GetComponentInChildren<Animator>();
     }
 
     private void Update()
     {
-
-    }
-
-    // Fixed update is called in sync with physics
-    private void FixedUpdate()
-    {
-        Movement();
-    }
-
-    private void LateUpdate()
-    {
         CameraOrbit();
     }
+    
+    public float mouseSensitivityX = 5f, mouseSensitivityY = 4f;
 
-    public float mouseSensitivityX = 5f, mouseSensitivityY = 4f, walkSpeed = 5f, turnSpeed = 5f;
+    private Transform centerPoint;
 
-    private Transform centerPoint, player;
-    //private Animator animator;
-    private float mouseX, mouseY, moveV, moveH;
+    float mouseX = 0.0f, mouseY = 0.0f;
 
     //Simple camera orbiting around player using a pivot point (center point)
     void CameraOrbit()
@@ -57,13 +41,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Player movement and camera rotation, so that the player moves where the camera is pointing
-    public void Movement()
+    public void Movement(float moveH, float moveV, Transform player)
     {
         if (!isMoving)
         {
-            moveH = Input.GetAxisRaw("Horizontal") * walkSpeed;
-            moveV = Input.GetAxisRaw("Vertical") * walkSpeed;
-
             TilePlayManager tileManager = transform.parent.GetComponent<TilePlayManager>();
 
             TileComponent currentTile = tileManager.allTiles[(int)tileManager.currentTile.x, (int)tileManager.currentTile.y].GetComponent<TileComponent>();
@@ -269,6 +250,12 @@ public class PlayerMovement : MonoBehaviour
 
                 if (tile.Tile.tileType == TileType.finishTile)
                     SMS.NextLevel();
+
+                if (tile.Tile.pickupType == PickupType.fatiguePickup)
+                {
+                    tileManager.fatigue += (int)tile.Tile.pickupCount;
+                    tileManager.SetPickupType(row, column, PickupType.none, 0.0f);
+                }
             }
         }
     }

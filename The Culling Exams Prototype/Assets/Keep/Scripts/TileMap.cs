@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum WallType { none, wall, window, redDoor, blueDoor, purpleDoor, brownDoor, redDoorOpen, blueDoorOpen, purpleDoorOpen, brownDoorOpen };
@@ -9,6 +7,8 @@ public enum TileType { basicTile, fallTile, barrierTile, startTile, finishTile, 
 public enum CrateType { none, crate, mirror, redCrate, blueCrate, purpleCrate, brownCrate };
 
 public enum ObjectState { none, selected, highlighted, ghost, ghostHighlighted };
+
+public enum PickupType { none, fatiguePickup, crateMovePickup, timePickup }
 
 public enum SelectionType { none, crate, tile }
 
@@ -24,6 +24,9 @@ public class Tile
     public WallType eastWallType;
     public WallType westWallType;
     public CrateType crateType;
+    
+    public PickupType pickupType;
+    public float pickupCount;
 
     [NonSerialized]
     public ObjectState crateState = ObjectState.none;
@@ -43,6 +46,7 @@ public class Tile
         this.eastWallType = tile.eastWallType;
         this.crateType = tile.crateType;
         this.rotation = tile.rotation;
+        this.pickupType = tile.pickupType;
     }
 }
 
