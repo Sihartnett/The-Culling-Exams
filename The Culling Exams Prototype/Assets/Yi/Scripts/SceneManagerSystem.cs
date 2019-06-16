@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class SceneManagerSystem : MonoBehaviour
 {
@@ -37,7 +34,7 @@ public class SceneManagerSystem : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
@@ -45,9 +42,16 @@ public class SceneManagerSystem : MonoBehaviour
         Application.Quit();
     }
 
-    public void PlayAgain()
+    public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadSceneAsync("Main Menu");
+    }
+
+    public void ResetLevel()
+    {
+        string scene;
+        scene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadSceneAsync(scene);
     }
 
     public void LostGame()
@@ -62,7 +66,7 @@ public class SceneManagerSystem : MonoBehaviour
 
     public void LoadLostGame()
     {
-        SceneManager.LoadScene("Defeat Scene");
+        SceneManager.LoadSceneAsync("Defeat Scene");
     }
 
     public void SelectCrate()

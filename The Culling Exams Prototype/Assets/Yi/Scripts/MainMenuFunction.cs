@@ -1,16 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class MainMenuFunction : MonoBehaviour
 {
     [SerializeField] string[] LevelName;
-    [SerializeField] GameObject levelbutton;
+    [SerializeField] Button levelbutton;
     [SerializeField] GameObject title;
     [SerializeField] GameObject levelselect;
     [SerializeField] Transform buttonParent;
 
     public void enableLevelSelect()
+    {
+        GetComponentInChildren<Animator>().SetTrigger("PlayTitle");
+        Invoke("showLevelSelect", 1f);
+    }
+
+    void showLevelSelect()
     {
         title.SetActive(false);
         levelselect.SetActive(true);
@@ -21,8 +28,16 @@ public class MainMenuFunction : MonoBehaviour
     {
         for (int i = 0; i < LevelName.Length; i++)
         {
-            Instantiate(levelbutton, buttonParent);
+            Button lb = Instantiate(levelbutton, buttonParent);
+            lb.GetComponentInChildren<TextMeshProUGUI>().text = "Level" + (i + 1);
+            int tempint = i;
+            lb.onClick.AddListener(() => LoadSelectedLevel(tempint));
         }
+    }
+
+    void LoadSelectedLevel(int scenenum)
+    {
+        SceneManager.LoadSceneAsync(LevelName[scenenum]);
     }
 
     // Start is called before the first frame update
