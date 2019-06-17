@@ -4677,8 +4677,9 @@ MonoBehaviour:
   finishMaterial: {fileID: 2100000, guid: b5d657a024a98df46a18ab495128b29a, type: 2}
   barrierMaterial: {fileID: 2100000, guid: 87717ca849566114782d0b04da9209db, type: 2}
   fallMaterial: {fileID: 2100000, guid: 96b3312a47d9012408be796c4c0cc878, type: 2}
-  moveableMaterial: {fileID: 2100000, guid: f174c50f8f71bbd458ed2807de6526c3, type: 2}
-  moveableBarrierMaterial: {fileID: 0}
+  moveableMaterial: {fileID: 2100000, guid: b90fa29cc03969e43b7b63ccf088bdaf, type: 2}
+  moveableBarrierMaterial: {fileID: 2100000, guid: 03f7e2f909b4dc845a85cd3e81034ee9,
+    type: 2}
   moveableCrateMaterial: {fileID: 0}
   blueTileMaterial: {fileID: 0}
   redTileMaterial: {fileID: 0}
