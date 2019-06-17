@@ -21,6 +21,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 0, y: 0.5, z: 1}
       tileType: 2
@@ -29,6 +31,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 0, y: 0.5, z: 2}
       tileType: 2
@@ -37,6 +41,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 0, y: 0.5, z: 3}
       tileType: 2
@@ -45,6 +51,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 0, y: 0.5, z: 4}
       tileType: 2
@@ -53,6 +61,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 0, y: 0.5, z: 5}
       tileType: 2
@@ -61,6 +71,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 0, y: 0.5, z: 6}
       tileType: 2
@@ -69,6 +81,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 0, y: 0.5, z: 7}
       tileType: 2
@@ -77,6 +91,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 0, y: 0.5, z: 8}
       tileType: 2
@@ -85,6 +101,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 0, y: 0.5, z: 9}
       tileType: 2
@@ -93,6 +111,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 0, y: 0.5, z: 10}
       tileType: 2
@@ -101,6 +121,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 0, y: 0.5, z: 11}
       tileType: 2
@@ -109,6 +131,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 0, y: 0.5, z: 12}
       tileType: 2
@@ -117,6 +141,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
   - column:
     - CenterPoint: {x: 1, y: 0.5, z: 0}
@@ -126,6 +152,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 1, y: 0.5, z: 1}
       tileType: 2
@@ -134,6 +162,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 1, y: 0.5, z: 2}
       tileType: 2
@@ -142,70 +172,88 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 1, y: 0.5, z: 3}
-      tileType: 2
+      tileType: 7
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 1, y: 0.5, z: 4}
-      tileType: 2
+      tileType: 0
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 0
+      crateType: 1
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 1, y: 0.5, z: 5}
-      tileType: 2
+      tileType: 0
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 0
+      crateType: 4
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 1, y: 0.5, z: 6}
-      tileType: 2
+      tileType: 0
       northWallType: 0
       southWallType: 0
-      eastWallType: 0
+      eastWallType: 4
       westWallType: 0
-      crateType: 0
+      crateType: 1
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 1, y: 0.5, z: 7}
-      tileType: 2
+      tileType: 0
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 1, y: 0.5, z: 8}
-      tileType: 2
+      tileType: 0
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 0
+      crateType: 1
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 1, y: 0.5, z: 9}
-      tileType: 2
+      tileType: 0
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 1, y: 0.5, z: 10}
-      tileType: 2
+      tileType: 0
       northWallType: 0
       southWallType: 0
-      eastWallType: 0
+      eastWallType: 3
       westWallType: 0
-      crateType: 0
+      crateType: 6
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 1, y: 0.5, z: 11}
       tileType: 2
@@ -214,6 +262,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 1, y: 0.5, z: 12}
       tileType: 2
@@ -222,6 +272,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
   - column:
     - CenterPoint: {x: 2, y: 0.5, z: 0}
@@ -231,30 +283,38 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 1}
-      tileType: 2
+      tileType: 3
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 2}
-      tileType: 2
+      tileType: 0
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 3}
-      tileType: 2
+      tileType: 0
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 4}
       tileType: 0
@@ -263,6 +323,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 1
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 5}
       tileType: 0
@@ -270,15 +332,19 @@ MonoBehaviour:
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 1
+      crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 6}
       tileType: 0
       northWallType: 0
       southWallType: 0
-      eastWallType: 0
+      eastWallType: 4
       westWallType: 0
       crateType: 1
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 7}
       tileType: 0
@@ -287,6 +353,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 8}
       tileType: 0
@@ -294,31 +362,39 @@ MonoBehaviour:
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 0
+      crateType: 1
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 9}
-      tileType: 2
+      tileType: 6
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 10}
-      tileType: 2
+      tileType: 0
       northWallType: 0
       southWallType: 0
-      eastWallType: 0
-      westWallType: 0
+      eastWallType: 3
+      westWallType: 6
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 11}
-      tileType: 2
+      tileType: 4
       northWallType: 0
       southWallType: 0
-      eastWallType: 0
+      eastWallType: 5
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 2, y: 0.5, z: 12}
       tileType: 2
@@ -327,6 +403,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
   - column:
     - CenterPoint: {x: 3, y: 0.5, z: 0}
@@ -336,6 +414,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 3, y: 0.5, z: 1}
       tileType: 2
@@ -344,22 +424,28 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 3, y: 0.5, z: 2}
-      tileType: 2
+      tileType: 0
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 3, y: 0.5, z: 3}
-      tileType: 2
+      tileType: 8
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 0
+      crateType: 3
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 3, y: 0.5, z: 4}
       tileType: 0
@@ -367,7 +453,9 @@ MonoBehaviour:
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 0
+      crateType: 1
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 3, y: 0.5, z: 5}
       tileType: 0
@@ -376,14 +464,18 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 3, y: 0.5, z: 6}
-      tileType: 2
+      tileType: 9
       northWallType: 0
       southWallType: 0
-      eastWallType: 0
+      eastWallType: 4
       westWallType: 0
-      crateType: 0
+      crateType: 1
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 3, y: 0.5, z: 7}
       tileType: 0
@@ -391,7 +483,9 @@ MonoBehaviour:
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 1
+      crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 3, y: 0.5, z: 8}
       tileType: 0
@@ -399,23 +493,29 @@ MonoBehaviour:
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 0
+      crateType: 1
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 3, y: 0.5, z: 9}
-      tileType: 2
+      tileType: 0
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 3, y: 0.5, z: 10}
-      tileType: 2
+      tileType: 0
       northWallType: 0
       southWallType: 0
-      eastWallType: 0
+      eastWallType: 3
       westWallType: 0
-      crateType: 0
+      crateType: 5
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 3, y: 0.5, z: 11}
       tileType: 2
@@ -424,6 +524,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 3, y: 0.5, z: 12}
       tileType: 2
@@ -432,6 +534,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
   - column:
     - CenterPoint: {x: 4, y: 0.5, z: 0}
@@ -441,6 +545,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 1}
       tileType: 2
@@ -449,38 +555,48 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 2}
-      tileType: 3
+      tileType: 2
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 3}
-      tileType: 0
+      tileType: 2
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 4}
-      tileType: 0
+      tileType: 2
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 5}
-      tileType: 0
+      tileType: 2
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 1
+      crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 6}
       tileType: 2
@@ -489,22 +605,28 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 7}
-      tileType: 0
+      tileType: 2
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 8}
-      tileType: 0
+      tileType: 2
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 1
+      crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 9}
       tileType: 0
@@ -513,14 +635,18 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 10}
-      tileType: 4
+      tileType: 2
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 11}
       tileType: 2
@@ -529,6 +655,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 4, y: 0.5, z: 12}
       tileType: 2
@@ -537,6 +665,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
   - column:
     - CenterPoint: {x: 5, y: 0.5, z: 0}
@@ -546,6 +676,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 1}
       tileType: 2
@@ -554,6 +686,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 2}
       tileType: 2
@@ -562,6 +696,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 3}
       tileType: 2
@@ -570,22 +706,28 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 4}
-      tileType: 0
+      tileType: 2
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 1
+      crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 5}
-      tileType: 0
+      tileType: 2
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 1
+      crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 6}
       tileType: 2
@@ -594,22 +736,28 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 7}
-      tileType: 0
+      tileType: 2
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 1
+      crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 8}
-      tileType: 0
+      tileType: 2
       northWallType: 0
       southWallType: 0
       eastWallType: 0
       westWallType: 0
-      crateType: 1
+      crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 9}
       tileType: 2
@@ -618,6 +766,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 10}
       tileType: 2
@@ -626,6 +776,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 11}
       tileType: 2
@@ -634,6 +786,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
     - CenterPoint: {x: 5, y: 0.5, z: 12}
       tileType: 2
@@ -642,321 +796,8 @@ MonoBehaviour:
       eastWallType: 0
       westWallType: 0
       crateType: 0
+      pickupType: 0
+      pickupCount: 0
       rotation: {x: 0, y: 0, z: 0}
-  - column:
-    - CenterPoint: {x: 6, y: 0.5, z: 0}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 6, y: 0.5, z: 1}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 6, y: 0.5, z: 2}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 6, y: 0.5, z: 3}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 6, y: 0.5, z: 4}
-      tileType: 0
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 1
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 6, y: 0.5, z: 5}
-      tileType: 0
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 6, y: 0.5, z: 6}
-      tileType: 0
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 1
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 6, y: 0.5, z: 7}
-      tileType: 0
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 1
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 6, y: 0.5, z: 8}
-      tileType: 0
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 1
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 6, y: 0.5, z: 9}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 6, y: 0.5, z: 10}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 6, y: 0.5, z: 11}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 6, y: 0.5, z: 12}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-  - column:
-    - CenterPoint: {x: 7, y: 0.5, z: 0}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 7, y: 0.5, z: 1}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 7, y: 0.5, z: 2}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 7, y: 0.5, z: 3}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 7, y: 0.5, z: 4}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 7, y: 0.5, z: 5}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 7, y: 0.5, z: 6}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 7, y: 0.5, z: 7}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 7, y: 0.5, z: 8}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 7, y: 0.5, z: 9}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 7, y: 0.5, z: 10}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 7, y: 0.5, z: 11}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 7, y: 0.5, z: 12}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-  - column:
-    - CenterPoint: {x: 8, y: 0.5, z: 0}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 8, y: 0.5, z: 1}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 8, y: 0.5, z: 2}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 8, y: 0.5, z: 3}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 8, y: 0.5, z: 4}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 8, y: 0.5, z: 5}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 8, y: 0.5, z: 6}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 8, y: 0.5, z: 7}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 8, y: 0.5, z: 8}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 8, y: 0.5, z: 9}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 8, y: 0.5, z: 10}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 8, y: 0.5, z: 11}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-    - CenterPoint: {x: 8, y: 0.5, z: 12}
-      tileType: 2
-      northWallType: 0
-      southWallType: 0
-      eastWallType: 0
-      westWallType: 0
-      crateType: 0
-      rotation: {x: 0, y: 0, z: 0}
-  rowCount: 14
-  columnCount: 16
+  rowCount: 6
+  columnCount: 13
