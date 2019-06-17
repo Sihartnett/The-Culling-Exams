@@ -5,6 +5,7 @@ using TMPro;
 public class PauseMenuManager : MonoBehaviour
 {
 
+    #region Variables
     public static PauseMenuManager instance = null;
 
     [SerializeField] GameObject PauseMenu;
@@ -18,8 +19,12 @@ public class PauseMenuManager : MonoBehaviour
     private TilePlayManager TPM;
     private PlayerMovement TPUS;
     private bool canPause = true;
+    private bool canFatigue = true;
     private bool PauseorNot = false;
 
+    #endregion
+
+    #region Pause Function
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,10 +45,18 @@ public class PauseMenuManager : MonoBehaviour
         //RenderSettings.skybox = skybox; 
     }
 
+    void EnableLostScreen()
+    {
+        lostScreen.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        canPause = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (canPause)
+        if (canFatigue)
         {
             if (TPM.fatigue >= 0)
             {
@@ -53,11 +66,11 @@ public class PauseMenuManager : MonoBehaviour
             if (TPM.fatigue <= 0)
             {
                 //SMS.LostGame();
-                lostScreen.SetActive(true);
-                canPause = false;
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
+                EnableLostScreen();
             }
+        }
+        if (canPause)
+        {
 
             if (Input.GetKeyDown(KeyCode.Escape))
                 PauseorNot = !PauseorNot;
@@ -85,16 +98,9 @@ public class PauseMenuManager : MonoBehaviour
     {
         PauseorNot = !PauseorNot;
     }
+        #endregion
 
-    public void Quit2()
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-         Application.Quit();
-#endif
-    }
-
+    #region OnLoaded
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -111,6 +117,7 @@ public class PauseMenuManager : MonoBehaviour
             Time.timeScale = 1;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            canFatigue = false;
             canPause = false;
         }
         else
@@ -121,6 +128,7 @@ public class PauseMenuManager : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             canPause = true;
+            canFatigue = true;
             PauseorNot = false;
             lostScreen.SetActive(false);
             SMS.LoadOneTime = true;
@@ -131,4 +139,5 @@ public class PauseMenuManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+    #endregion
 }
