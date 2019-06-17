@@ -10,6 +10,7 @@ public class MainMenuFunction : MonoBehaviour
     [SerializeField] GameObject title;
     [SerializeField] GameObject levelselect;
     [SerializeField] Transform buttonParent;
+    public GameObject Parent;
 
     public void enableLevelSelect()
     {
@@ -26,6 +27,11 @@ public class MainMenuFunction : MonoBehaviour
 
     void CreateLevelButton()
     {
+        foreach (Transform child in Parent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        Debug.Log("clear");
         for (int i = 0; i < LevelName.Length; i++)
         {
             Button lb = Instantiate(levelbutton, buttonParent);

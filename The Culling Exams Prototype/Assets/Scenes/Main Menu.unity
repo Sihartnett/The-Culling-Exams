@@ -602,6 +602,7 @@ MonoBehaviour:
   title: {fileID: 1107738695}
   levelselect: {fileID: 887242221}
   buttonParent: {fileID: 746508898}
+  Parent: {fileID: 746508897}
 --- !u!1 &746508897
 GameObject:
   m_ObjectHideFlags: 0
