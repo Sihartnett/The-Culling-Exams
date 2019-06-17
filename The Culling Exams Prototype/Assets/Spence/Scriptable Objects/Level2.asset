@@ -15,7 +15,7 @@ MonoBehaviour:
   rows:
   - column:
     - CenterPoint: {x: 0, y: 0.5, z: 0}
-      tileType: 0
+      tileType: 2
       northWallType: 0
       southWallType: 0
       eastWallType: 0

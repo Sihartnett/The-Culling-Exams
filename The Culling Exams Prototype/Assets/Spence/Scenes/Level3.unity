@@ -406,8 +406,8 @@ MonoBehaviour:
     type: 3}
   tileMap: {fileID: 11400000, guid: d5f8cf7fb7733634f83593293634e375, type: 2}
   defaultMaterial: {fileID: 2100000, guid: 1dc90dde883cb034ca62574140bd3600, type: 2}
-  startMaterial: {fileID: 2100000, guid: a61ca0b706f7b0641adb1815b64f8adb, type: 2}
-  finishMaterial: {fileID: 2100000, guid: a61ca0b706f7b0641adb1815b64f8adb, type: 2}
+  startMaterial: {fileID: 2100000, guid: b5d657a024a98df46a18ab495128b29a, type: 2}
+  finishMaterial: {fileID: 2100000, guid: b5d657a024a98df46a18ab495128b29a, type: 2}
   barrierMaterial: {fileID: 2100000, guid: 87717ca849566114782d0b04da9209db, type: 2}
   fallMaterial: {fileID: 0}
   moveableMaterial: {fileID: 0}
@@ -424,7 +424,7 @@ MonoBehaviour:
   purpleCrateMaterial: {fileID: 0}
   brownCrateMaterial: {fileID: 0}
   wallMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
-  redDoorMaterial: {fileID: 2100000, guid: 06feb80f4b45cbd44818103b51bee095, type: 2}
+  redDoorMaterial: {fileID: 2100000, guid: 90d86ba34eb51514f8addf6cde6d5cb3, type: 2}
   blueDoorMaterial: {fileID: 0}
   purpleDoorMaterial: {fileID: 0}
   brownDoorMaterial: {fileID: 0}
@@ -1173,6 +1173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: scientist 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.327
@@ -1217,10 +1221,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
@@ -2864,6 +2864,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scientist 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.32
@@ -2912,10 +2916,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.0639
       objectReference: {fileID: 0}
-    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b235179bd2a63d1468dd430670338c55, type: 3}

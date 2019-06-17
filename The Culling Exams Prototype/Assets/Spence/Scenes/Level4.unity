@@ -417,6 +417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scientist 2
       objectReference: {fileID: 0}
+    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.32
@@ -465,10 +469,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.0639
       objectReference: {fileID: 0}
-    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
@@ -601,8 +601,8 @@ MonoBehaviour:
     type: 3}
   tileMap: {fileID: 11400000, guid: 0e9eb5049c0b0cd499f878ec3c655a8d, type: 2}
   defaultMaterial: {fileID: 2100000, guid: 1dc90dde883cb034ca62574140bd3600, type: 2}
-  startMaterial: {fileID: 2100000, guid: a61ca0b706f7b0641adb1815b64f8adb, type: 2}
-  finishMaterial: {fileID: 2100000, guid: a61ca0b706f7b0641adb1815b64f8adb, type: 2}
+  startMaterial: {fileID: 2100000, guid: b5d657a024a98df46a18ab495128b29a, type: 2}
+  finishMaterial: {fileID: 2100000, guid: b5d657a024a98df46a18ab495128b29a, type: 2}
   barrierMaterial: {fileID: 2100000, guid: 87717ca849566114782d0b04da9209db, type: 2}
   fallMaterial: {fileID: 0}
   moveableMaterial: {fileID: 0}
@@ -618,11 +618,11 @@ MonoBehaviour:
   blueCrateMaterial: {fileID: 2100000, guid: 0d35513d6737a0341807fb5bc8a26766, type: 2}
   purpleCrateMaterial: {fileID: 2100000, guid: 4c31c80a0bd50e04eb85d2dde38e0a0c, type: 2}
   brownCrateMaterial: {fileID: 2100000, guid: a71185acaf4d7a24eb23ad2cd6d90916, type: 2}
-  wallMaterial: {fileID: 2100000, guid: 59bace052c2116f4d90d4f16c1676b0e, type: 2}
-  redDoorMaterial: {fileID: 2100000, guid: 06feb80f4b45cbd44818103b51bee095, type: 2}
-  blueDoorMaterial: {fileID: 2100000, guid: 6db7bf600c82e4f49a9b1a3bef012ec5, type: 2}
-  purpleDoorMaterial: {fileID: 2100000, guid: 41051d5b9892dcf48929fb97258bb433, type: 2}
-  brownDoorMaterial: {fileID: 2100000, guid: be39591f198088a4aa025aea51f556bf, type: 2}
+  wallMaterial: {fileID: 2100000, guid: 9ce631de5db9f0b42806b5466d3654af, type: 2}
+  redDoorMaterial: {fileID: 2100000, guid: 90d86ba34eb51514f8addf6cde6d5cb3, type: 2}
+  blueDoorMaterial: {fileID: 2100000, guid: 996bdd565e69d5d429009d35ae1009e1, type: 2}
+  purpleDoorMaterial: {fileID: 2100000, guid: bb801d9e87879ea4ebfada8addcf9167, type: 2}
+  brownDoorMaterial: {fileID: 2100000, guid: bb4adcd8804b4cc489267a749664057d, type: 2}
   windowMaterial: {fileID: 0}
   fatiguePickupMaterial: {fileID: 0}
   crateMovePickupMaterial: {fileID: 0}
@@ -760,6 +760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scientist 1
       objectReference: {fileID: 0}
+    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.327
@@ -804,10 +808,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b235179bd2a63d1468dd430670338c55, type: 3}

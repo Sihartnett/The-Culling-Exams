@@ -714,10 +714,10 @@ MonoBehaviour:
     type: 3}
   tileMap: {fileID: 11400000, guid: 0dde9d658ff18604b972ec22c6483634, type: 2}
   defaultMaterial: {fileID: 2100000, guid: 1dc90dde883cb034ca62574140bd3600, type: 2}
-  startMaterial: {fileID: 2100000, guid: a61ca0b706f7b0641adb1815b64f8adb, type: 2}
-  finishMaterial: {fileID: 2100000, guid: a61ca0b706f7b0641adb1815b64f8adb, type: 2}
+  startMaterial: {fileID: 2100000, guid: b5d657a024a98df46a18ab495128b29a, type: 2}
+  finishMaterial: {fileID: 2100000, guid: b5d657a024a98df46a18ab495128b29a, type: 2}
   barrierMaterial: {fileID: 2100000, guid: 87717ca849566114782d0b04da9209db, type: 2}
-  fallMaterial: {fileID: 2100000, guid: 502f33a364c91614a8361a1eb08a0373, type: 2}
+  fallMaterial: {fileID: 2100000, guid: 96b3312a47d9012408be796c4c0cc878, type: 2}
   moveableMaterial: {fileID: 2100000, guid: f174c50f8f71bbd458ed2807de6526c3, type: 2}
   moveableBarrierMaterial: {fileID: 2100000, guid: 21726911f754550409789e9e29489ed6,
     type: 2}
@@ -6134,6 +6134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ethan (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.32
@@ -6182,10 +6186,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.0639
       objectReference: {fileID: 0}
-    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
 --- !u!1 &1050242697
@@ -9903,6 +9903,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ethan (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     - target: {fileID: 400168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.327
@@ -9947,10 +9951,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 13700004, guid: b235179bd2a63d1468dd430670338c55, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f62b52b2d4b721742a0bc5c6b4db468d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
 --- !u!1001 &1639192780
