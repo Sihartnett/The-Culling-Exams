@@ -12,9 +12,11 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI fatigueCounter;
     [SerializeField] Material skybox;
     [SerializeField] SceneManagerSystem SMS;
-    [SerializeField] GameObject FatigueGroup;
+  
     [SerializeField] GameObject lostScreen;
     [SerializeField] GameObject managerGroup;
+
+    public int fatigueCopy = 0;
 
     private TilePlayManager TPM;
     private PlayerMovement TPUS;
@@ -61,7 +63,7 @@ public class PauseMenuManager : MonoBehaviour
             if (TPM.fatigue >= 0)
             {
                 fatigueCounter.text = "Fatigue: " + TPM.fatigue.ToString();
-                FatigueGroup.GetComponentInChildren<TextMeshPro>().text = "Fatigue: " + TPM.fatigue.ToString();
+                fatigueCopy = TPM.fatigue;
             }
             if (TPM.fatigue <= 0)
             {
