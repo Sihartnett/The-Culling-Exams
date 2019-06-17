@@ -896,7 +896,7 @@ MonoBehaviour:
   rayCastSphere: {fileID: 473522701}
   rayCastYoffset: 1.3
   player: {fileID: 0}
-  fatigue: 32
+  fatigue: 28
   timeLeft: 0
   crateMoves: 0
 --- !u!4 &101468805
