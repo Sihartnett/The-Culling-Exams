@@ -69,6 +69,9 @@ public class TilePlayManager : TileManagerBase
     // Update is called once per frame
     void Update ()
     {
+        if (Menus.PauseMenuManager.Instance.Paused)
+            return;
+
         player.Movement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), player.gameObject.transform);
         
         if (Physics.Raycast(
@@ -84,23 +87,20 @@ public class TilePlayManager : TileManagerBase
                 // Highlighting
                 crateScript.Highlight(rayHit.collider);
 
-                //if (PauseMenuManager.instance != null && !PauseMenuManager.instance.PauseorNot)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        crateScript.Select(rayHit.collider);
-                    }
-
-                    if (Input.GetMouseButtonDown(1))
-                    {
-                        crateScript.ShootRay(this, player.gameObject);
-                    }
+                    crateScript.Select(rayHit.collider);
                 }
+
+                //if (Input.GetMouseButtonDown(1))
+                //{
+                //    crateScript.ShootRay(this, player.gameObject);
+                //}
             }
         }
     }
 
-    public void SetCrate ( int row, int column, CrateType type, ObjectState state )
+    public void SetCrate(int row, int column, CrateType type, ObjectState state )
     {
         GameObject tile = allTiles[row, column];
 
@@ -114,18 +114,19 @@ public class TilePlayManager : TileManagerBase
         {
             case ObjectState.highlighted:
                 tile.transform.GetChild(1).gameObject.SetActive(true);
-                meshes[1].material = highlightMaterial;
+                meshes[1].material = crateHighlightMaterial;
                 break;
             case ObjectState.selected:
                 tile.transform.GetChild(1).gameObject.SetActive(true);
-                meshes[1].material = selectedMaterial;
+                meshes[1].material = crateSelectedMaterial;
                 break;
             case ObjectState.ghost:
                 tile.transform.GetChild(1).gameObject.SetActive(true);
-                meshes[1].material = ghostMaterial; break;
+                meshes[1].material = crateGhostMaterial;
+                break;
             case ObjectState.ghostHighlighted:
                 tile.transform.GetChild(1).gameObject.SetActive(true);
-                meshes[1].material = highlightMaterial;
+                meshes[1].material = crateHighlightMaterial;
                 break;
             case ObjectState.none:
             default:
@@ -151,6 +152,14 @@ public class TilePlayManager : TileManagerBase
                         case CrateType.purpleCrate:
                             tile.transform.GetChild(1).gameObject.SetActive(true);
                             meshes[1].material = purpleCrateMaterial;
+                            break;
+                        case CrateType.orangeCrate:
+                            tile.transform.GetChild(1).gameObject.SetActive(true);
+                            meshes[1].material = orangeCrateMaterial;
+                            break;
+                        case CrateType.lightBlueCrate:
+                            tile.transform.GetChild(1).gameObject.SetActive(true);
+                            meshes[1].material = lightBlueCrateMaterial;
                             break;
                         case CrateType.mirror:
                             tile.transform.GetChild(1).gameObject.SetActive(true);
@@ -179,16 +188,16 @@ public class TilePlayManager : TileManagerBase
         switch (state)
         {
             case ObjectState.highlighted:
-                meshes[0].material = highlightMaterial;
+                meshes[0].material = tileHighlightMaterial;
                 break;
             case ObjectState.selected:
-                meshes[0].material = selectedMaterial;
+                meshes[0].material = tileSelectedMaterial;
                 break;
             case ObjectState.ghost:
-                meshes[0].material = ghostMaterial;
+                meshes[0].material = tileGhostMaterial;
                 break;
             case ObjectState.ghostHighlighted:
-                meshes[0].material = highlightMaterial;
+                meshes[0].material = tileHighlightMaterial;
                 break;
             case ObjectState.none:
             default:
@@ -224,6 +233,12 @@ public class TilePlayManager : TileManagerBase
                             break;
                         case TileType.brownTile:
                             meshes[0].material = brownTileMaterial;
+                            break;
+                        case TileType.orangeTile:
+                            meshes[0].material = orangeTileMaterial;
+                            break;
+                        case TileType.lightBlueTile:
+                            meshes[0].material = lightBlueTileMaterial;
                             break;
                         case TileType.basicTile:
                         default:
@@ -269,6 +284,14 @@ public class TilePlayManager : TileManagerBase
                 tile.transform.GetChild(2).gameObject.SetActive(true);
                 meshes[2].material = brownDoorMaterial;
                 break;
+            case WallType.orangeDoor:
+                tile.transform.GetChild(2).gameObject.SetActive(true);
+                meshes[2].material = orangeDoorMaterial;
+                break;
+            case WallType.lightBlueDoor:
+                tile.transform.GetChild(2).gameObject.SetActive(true);
+                meshes[2].material = lightBlueDoorMaterial;
+                break;
             case WallType.none:
             default:
                 tile.transform.GetChild(2).gameObject.SetActive(false);
@@ -309,6 +332,14 @@ public class TilePlayManager : TileManagerBase
             case WallType.brownDoor:
                 tile.transform.GetChild(3).gameObject.SetActive(true);
                 meshes[3].material = brownDoorMaterial;
+                break;
+            case WallType.orangeDoor:
+                tile.transform.GetChild(3).gameObject.SetActive(true);
+                meshes[3].material = orangeDoorMaterial;
+                break;
+            case WallType.lightBlueDoor:
+                tile.transform.GetChild(3).gameObject.SetActive(true);
+                meshes[3].material = lightBlueDoorMaterial;
                 break;
             case WallType.none:
             default:
@@ -352,6 +383,14 @@ public class TilePlayManager : TileManagerBase
                 tile.transform.GetChild(4).gameObject.SetActive(true);
                 meshes[4].material = purpleDoorMaterial;
                 break;
+            case WallType.orangeDoor:
+                tile.transform.GetChild(4).gameObject.SetActive(true);
+                meshes[4].material = orangeDoorMaterial;
+                break;
+            case WallType.lightBlueDoor:
+                tile.transform.GetChild(4).gameObject.SetActive(true);
+                meshes[4].material = lightBlueDoorMaterial;
+                break;
             case WallType.none:
             default:
                 tile.transform.GetChild(4).gameObject.SetActive(false);
@@ -393,6 +432,14 @@ public class TilePlayManager : TileManagerBase
             case WallType.brownDoor:
                 tile.transform.GetChild(5).gameObject.SetActive(true);
                 meshes[5].material = brownDoorMaterial;
+                break;
+            case WallType.orangeDoor:
+                tile.transform.GetChild(5).gameObject.SetActive(true);
+                meshes[5].material = orangeDoorMaterial;
+                break;
+            case WallType.lightBlueDoor:
+                tile.transform.GetChild(5).gameObject.SetActive(true);
+                meshes[5].material = lightBlueDoorMaterial;
                 break;
             case WallType.none:
             default:

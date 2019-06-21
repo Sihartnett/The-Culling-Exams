@@ -5,12 +5,12 @@ using TMPro;
 
 public class FatigueGroup : MonoBehaviour
 {
-    PauseMenuManager PMM;
+    Menus.PauseMenuManager PMM;
 
     // Start is called before the first frame update
     void Start()
     {
-        PMM = PauseMenuManager.instance;
+        PMM = Menus.PauseMenuManager.Instance;
     }
 
     // Update is called once per frame

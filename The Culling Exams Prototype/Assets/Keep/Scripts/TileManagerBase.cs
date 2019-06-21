@@ -22,35 +22,53 @@ public class TileManagerBase : MonoBehaviour
     public Material moveableMaterial;
     public Material moveableBarrierMaterial;
     public Material moveableCrateMaterial;
-
-    public Material blueTileMaterial;
-    public Material redTileMaterial;
-    public Material purpleTileMaterial;
-    public Material brownTileMaterial;
-
-    public Material mirrorMaterial;
-    public Material crateMaterial;
-    public Material redCrateMaterial;
-    public Material blueCrateMaterial;
-    public Material purpleCrateMaterial;
-    public Material brownCrateMaterial;
-
-    public Material wallMaterial;
-    public Material redDoorMaterial;
-    public Material blueDoorMaterial;
-    public Material purpleDoorMaterial;
-    public Material brownDoorMaterial;
-    public Material windowMaterial;
     
+    // Basic Materials
+    public Material crateMaterial;
+    public Material wallMaterial;
+
+    // Switches
+    public Material blueTileMaterial;
+    public Material blueCrateMaterial;
+    public Material blueDoorMaterial;
+
+    public Material redTileMaterial;
+    public Material redCrateMaterial;
+    public Material redDoorMaterial;
+
+    public Material purpleTileMaterial;
+    public Material purpleCrateMaterial;
+    public Material purpleDoorMaterial;
+
+    public Material brownTileMaterial;
+    public Material brownCrateMaterial;
+    public Material brownDoorMaterial;
+
+    public Material orangeTileMaterial;
+    public Material orangeCrateMaterial;
+    public Material orangeDoorMaterial;
+
+    public Material lightBlueTileMaterial;
+    public Material lightBlueCrateMaterial;
+    public Material lightBlueDoorMaterial;
+
+    // Dynamic Materials
+    public Material tileHighlightMaterial;
+    public Material tileSelectedMaterial;
+    public Material tileGhostMaterial;
+
+    public Material crateHighlightMaterial;
+    public Material crateSelectedMaterial;
+    public Material crateGhostMaterial;
+
+    // Not Fully Implimented Features
+    public Material mirrorMaterial;
+    public Material windowMaterial;
+
     public Material fatiguePickupMaterial;
     public Material crateMovePickupMaterial;
     public Material timePickupMaterial;
 
-    // Dynamic Materials
-    public Material highlightMaterial;
-    public Material selectedMaterial;
-    public Material ghostMaterial;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -108,6 +126,12 @@ public class TileManagerBase : MonoBehaviour
                 case TileType.brownTile:
                     meshes[0].material = brownTileMaterial;
                     break;
+                case TileType.orangeTile:
+                    meshes[0].material = orangeTileMaterial;
+                    break;
+                case TileType.lightBlueTile:
+                    meshes[0].material = lightBlueTileMaterial;
+                    break;
                 case TileType.basicTile:
                 default:
                     meshes[0].material = defaultMaterial;
@@ -137,6 +161,14 @@ public class TileManagerBase : MonoBehaviour
                 case CrateType.brownCrate:
                     tile.transform.GetChild(1).gameObject.SetActive(true);
                     meshes[1].material = brownCrateMaterial;
+                    break;
+                case CrateType.orangeCrate:
+                    tile.transform.GetChild(1).gameObject.SetActive(true);
+                    meshes[1].material = orangeCrateMaterial;
+                    break;
+                case CrateType.lightBlueCrate:
+                    tile.transform.GetChild(1).gameObject.SetActive(true);
+                    meshes[1].material = lightBlueCrateMaterial;
                     break;
                 case CrateType.mirror:
                     tile.transform.GetChild(1).gameObject.SetActive(true);
@@ -175,6 +207,14 @@ public class TileManagerBase : MonoBehaviour
                     tile.transform.GetChild(2).gameObject.SetActive(true);
                     meshes[2].material = brownDoorMaterial;
                     break;
+                case WallType.orangeDoor:
+                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    meshes[2].material = orangeDoorMaterial;
+                    break;
+                case WallType.lightBlueDoor:
+                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    meshes[2].material = lightBlueDoorMaterial;
+                    break;
                 case WallType.none:
                 default:
                     tile.transform.GetChild(2).gameObject.SetActive(false);
@@ -206,6 +246,15 @@ public class TileManagerBase : MonoBehaviour
                     tile.transform.GetChild(3).gameObject.SetActive(true);
                     meshes[3].material = purpleDoorMaterial;
                     break;
+                case WallType.orangeDoor:
+                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    meshes[3].material = orangeDoorMaterial;
+                    break;
+                case WallType.lightBlueDoor:
+                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    meshes[3].material = lightBlueDoorMaterial;
+                    break;
+
                 case WallType.none:
                 default:
                     tile.transform.GetChild(3).gameObject.SetActive(false);
@@ -236,6 +285,14 @@ public class TileManagerBase : MonoBehaviour
                 case WallType.purpleDoor:
                     tile.transform.GetChild(4).gameObject.SetActive(true);
                     meshes[4].material = purpleDoorMaterial;
+                    break;
+                case WallType.orangeDoor:
+                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    meshes[4].material = orangeDoorMaterial;
+                    break;
+                case WallType.lightBlueDoor:
+                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    meshes[4].material = lightBlueDoorMaterial;
                     break;
                 case WallType.none:
                 default:
@@ -268,13 +325,20 @@ public class TileManagerBase : MonoBehaviour
                     tile.transform.GetChild(5).gameObject.SetActive(true);
                     meshes[5].material = purpleDoorMaterial;
                     break;
+                case WallType.orangeDoor:
+                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    meshes[5].material = orangeDoorMaterial;
+                    break;
+                case WallType.lightBlueDoor:
+                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    meshes[5].material = lightBlueDoorMaterial;
+                    break;
                 case WallType.none:
                 default:
                     tile.transform.GetChild(5).gameObject.SetActive(false);
                     break;
             }
 
-            // TODO: When the prefab is updated then this should work
             switch (tileMapTile.pickupType)
             {
                 case PickupType.fatiguePickup:

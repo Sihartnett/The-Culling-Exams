@@ -182,6 +182,8 @@ public class PlayerMovement : MonoBehaviour
                     || currentTile.Tile.northWallType == WallType.brownDoor
                     || currentTile.Tile.northWallType == WallType.purpleDoor
                     || currentTile.Tile.northWallType == WallType.redDoor
+                    || currentTile.Tile.northWallType == WallType.orangeDoor
+                    || currentTile.Tile.northWallType == WallType.lightBlueDoor
                     || currentTile.Tile.northWallType == WallType.wall
                     || currentTile.Tile.northWallType == WallType.window
                     || tile.Tile.southWallType == WallType.blueDoor
@@ -189,7 +191,10 @@ public class PlayerMovement : MonoBehaviour
                     || tile.Tile.southWallType == WallType.purpleDoor
                     || tile.Tile.southWallType == WallType.redDoor
                     || tile.Tile.southWallType == WallType.wall
-                    || tile.Tile.southWallType == WallType.window))
+                    || tile.Tile.southWallType == WallType.window
+                    || tile.Tile.southWallType == WallType.orangeDoor
+                    || tile.Tile.southWallType == WallType.lightBlueDoor
+                    ))
                     return;
 
                 if (currentTile.Row > row
@@ -200,12 +205,16 @@ public class PlayerMovement : MonoBehaviour
                     || currentTile.Tile.southWallType == WallType.redDoor
                     || currentTile.Tile.southWallType == WallType.wall
                     || currentTile.Tile.southWallType == WallType.window
+                    || currentTile.Tile.southWallType == WallType.orangeDoor
+                    || currentTile.Tile.southWallType == WallType.lightBlueDoor
                     || tile.Tile.northWallType == WallType.blueDoor
                     || tile.Tile.northWallType == WallType.brownDoor
                     || tile.Tile.northWallType == WallType.purpleDoor
                     || tile.Tile.northWallType == WallType.redDoor
                     || tile.Tile.northWallType == WallType.wall
-                    || tile.Tile.northWallType == WallType.window))
+                    || tile.Tile.northWallType == WallType.window
+                    || tile.Tile.northWallType == WallType.orangeDoor
+                    || tile.Tile.northWallType == WallType.lightBlueDoor))
                     return;
 
                 if (currentTile.Column < column
@@ -216,12 +225,17 @@ public class PlayerMovement : MonoBehaviour
                     || currentTile.Tile.westWallType == WallType.redDoor
                     || currentTile.Tile.westWallType == WallType.wall
                     || currentTile.Tile.westWallType == WallType.window
+                    || currentTile.Tile.westWallType == WallType.orangeDoor
+                    || currentTile.Tile.westWallType == WallType.lightBlueDoor
                     || tile.Tile.eastWallType == WallType.blueDoor
                     || tile.Tile.eastWallType == WallType.brownDoor
                     || tile.Tile.eastWallType == WallType.purpleDoor
                     || tile.Tile.eastWallType == WallType.redDoor
                     || tile.Tile.eastWallType == WallType.wall
-                    || tile.Tile.eastWallType == WallType.window))
+                    || tile.Tile.eastWallType == WallType.window
+                    || tile.Tile.eastWallType == WallType.orangeDoor
+                    || tile.Tile.eastWallType == WallType.lightBlueDoor
+                    ))
                     return;
 
                 if (currentTile.Column > column
@@ -232,21 +246,27 @@ public class PlayerMovement : MonoBehaviour
                     || currentTile.Tile.eastWallType == WallType.redDoor
                     || currentTile.Tile.eastWallType == WallType.wall
                     || currentTile.Tile.eastWallType == WallType.window
+                    || currentTile.Tile.eastWallType == WallType.orangeDoor
+                    || currentTile.Tile.eastWallType == WallType.lightBlueDoor
                     || tile.Tile.westWallType == WallType.blueDoor
                     || tile.Tile.westWallType == WallType.brownDoor
                     || tile.Tile.westWallType == WallType.purpleDoor
                     || tile.Tile.westWallType == WallType.redDoor
                     || tile.Tile.westWallType == WallType.wall
-                    || tile.Tile.westWallType == WallType.window))
+                    || tile.Tile.westWallType == WallType.window
+                    || tile.Tile.westWallType == WallType.orangeDoor
+                    || tile.Tile.westWallType == WallType.lightBlueDoor
+                    ))
                     return;
 
                 var moveToMe = new Vector3(tile.Tile.CenterPoint.x, 0.1f, tile.Tile.CenterPoint.z);
                 tileManager.fatigue -= 1;
 
-                StartCoroutine(move(transform, moveToMe, moveV, moveH));
-
                 tileManager.currentTile.x = row;
                 tileManager.currentTile.y = column;
+
+                if (tileManager.fatigue <= 0)
+                    SMS.GameOver();
 
                 if (tile.Tile.pickupType == PickupType.fatiguePickup)
                 {
@@ -256,12 +276,8 @@ public class PlayerMovement : MonoBehaviour
 
                 if (tile.Tile.tileType == TileType.finishTile)
                     SMS.NextLevel();
-
-                if (tile.Tile.pickupType == PickupType.fatiguePickup)
-                {
-                    tileManager.fatigue += (int)tile.Tile.pickupCount;
-                    tileManager.SetPickupType(row, column, PickupType.none, 0.0f);
-                }
+                
+                StartCoroutine(move(transform, moveToMe, moveV, moveH));
             }
         }
     }

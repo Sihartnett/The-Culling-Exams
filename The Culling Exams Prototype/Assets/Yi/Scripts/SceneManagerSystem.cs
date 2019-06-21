@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneManagerSystem : MonoBehaviour
@@ -85,6 +86,11 @@ public class SceneManagerSystem : MonoBehaviour
     public void SelectingCrate()
     {
         audioPlayer.PlayOneShot(SelectingSound);
+    }
+
+    internal void GameOver()
+    {
+      
     }
     #endregion
 }

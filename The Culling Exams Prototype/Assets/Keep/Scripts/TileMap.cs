@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-public enum WallType { none, wall, window, redDoor, blueDoor, purpleDoor, brownDoor, redDoorOpen, blueDoorOpen, purpleDoorOpen, brownDoorOpen };
+public enum WallType { none, wall, window, redDoor, blueDoor, purpleDoor, brownDoor, redDoorOpen, blueDoorOpen, purpleDoorOpen, brownDoorOpen, orangeDoor, orangeDoorOpen, lightBlueDoor, lightBlueDoorOpen };
 
-public enum TileType { basicTile, fallTile, barrierTile, startTile, finishTile, moveableTile, redTile, blueTile, purpleTile, brownTile, moveableBarrierTile, moveableCrateTile };
-public enum CrateType { none, crate, mirror, redCrate, blueCrate, purpleCrate, brownCrate };
+public enum TileType { basicTile, fallTile, barrierTile, startTile, finishTile, moveableTile, redTile, blueTile, purpleTile, brownTile, moveableBarrierTile, moveableCrateTile, orangeTile, lightBlueTile };
+public enum CrateType { none, crate, mirror, redCrate, blueCrate, purpleCrate, brownCrate, orangeCrate, lightBlueCrate };
 
 public enum PickupType { none, fatiguePickup, crateMovePickup, timePickup }
 

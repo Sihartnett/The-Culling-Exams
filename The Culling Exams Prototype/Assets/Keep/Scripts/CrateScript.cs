@@ -306,7 +306,9 @@ public class CrateScript : MonoBehaviour
                     || tileComponent.Tile.tileType == TileType.blueTile
                     || tileComponent.Tile.tileType == TileType.brownTile
                     || tileComponent.Tile.tileType == TileType.purpleTile
-                    || tileComponent.Tile.tileType == TileType.moveableCrateTile ))
+                    || tileComponent.Tile.tileType == TileType.moveableCrateTile
+                    || tileComponent.Tile.tileType == TileType.orangeTile
+                    || tileComponent.Tile.tileType == TileType.lightBlueTile))
                 {
                     playManager.SetCrate(tileComponent.Row, tileComponent.Column, CrateType.crate, ObjectState.ghost);
                 }
@@ -351,30 +353,25 @@ public class CrateScript : MonoBehaviour
             playManager.SetTile(tile.Row, tile.Column, tile.Tile.tileType, ObjectState.none);
     }
 
-    public void ShootRay ( TilePlayManager playManager, GameObject player )
-    {
-        TileComponent currentTile = playManager.allTiles[(int)playManager.currentTile.x, (int)playManager.currentTile.y].GetComponent<TileComponent>();
+    // Removing Funtionality
+    //public void ShootRay ( TilePlayManager playManager, GameObject player )
+    //{
+    //    TileComponent currentTile = playManager.allTiles[(int)playManager.currentTile.x, (int)playManager.currentTile.y].GetComponent<TileComponent>();
         
-        // Find the Forward direction of the player
-        // Loop through the forward direction until we hit something
-        float playerRotationDegree = player.transform.eulerAngles.y;
+    //    // Find the Forward direction of the player
+    //    // Loop through the forward direction until we hit something
+    //    float playerRotationDegree = player.transform.eulerAngles.y;
 
-        // Find our forward Direction
-        Vector2 forwardDirection = Vector2.zero;
-        if (45 <= playerRotationDegree && playerRotationDegree <= 135)
-            forwardDirection.x = 1;
-        else if (135 <= playerRotationDegree && playerRotationDegree <= 225)
-            forwardDirection.y = -1;
-        else if (225 <= playerRotationDegree && playerRotationDegree <= 315)
-            forwardDirection.x = -1;
-        else if (315 <= playerRotationDegree && playerRotationDegree <= 360 || 0 <= playerRotationDegree && playerRotationDegree <= 45)
-            forwardDirection.y = 1;
-
-
-
-        // Loop that direction till you hit something. 
-        // If you hit a Mirror then find the new direction and loop that direction till you hit something
-
-
-    }
+    //    // Find our forward Direction
+    //    Vector2 forwardDirection = Vector2.zero;
+    //    if (45 <= playerRotationDegree && playerRotationDegree <= 135)
+    //        forwardDirection.x = 1;
+    //    else if (135 <= playerRotationDegree && playerRotationDegree <= 225)
+    //        forwardDirection.y = -1;
+    //    else if (225 <= playerRotationDegree && playerRotationDegree <= 315)
+    //        forwardDirection.x = -1;
+    //    else if (315 <= playerRotationDegree && playerRotationDegree <= 360 || 0 <= playerRotationDegree && playerRotationDegree <= 45)
+    //        forwardDirection.y = 1;
+        
+    //}
 }
