@@ -14,7 +14,7 @@ public class WalkAnime : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+   public void Update()
     {
         float translation = Input.GetAxis("Vertical") * speed;
         translation *= Time.deltaTime;
@@ -22,11 +22,19 @@ public class WalkAnime : MonoBehaviour
 
         if (translation != 0)
         {
-            anim.SetBool("isMoving",true);
+            WalkOn();
         }
         else
         {
-            anim.SetBool("isMoving", false);
+            WalkOff();
         }
+    }
+    public static void WalkOn()
+    {
+        anim.SetBool("isMoving", true);
+    }
+    public static void WalkOff()
+    {
+        anim.SetBool("isMoving", false);
     }
 }
