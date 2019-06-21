@@ -25,9 +25,9 @@ public class TilePlayManager : TileManagerBase
     private int layerMask;
 
     // Start is called before the first frame update
-    void Start ()
+    void Start()
     {
-        if (tileMap != null && ( tileMap.rowCount != rows || tileMap.columnCount != columns ))
+        if (tileMap != null && (tileMap.rowCount != rows || tileMap.columnCount != columns))
         {
             Debug.Log("ScirptableObjectDoes not match tiles");
             return;
@@ -61,19 +61,21 @@ public class TilePlayManager : TileManagerBase
         SetMapValues();
 
         cameraTransform = Camera.main.transform;
-        
+
         player = FindObjectOfType<PlayerMovement>();
         layerMask = LayerMask.GetMask("clickableLayer");
     }
-    
+
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
-        if (Menus.PauseMenuManager.Instance.Paused)
+        if (Menus.PauseMenuManager.Instance != null && Menus.PauseMenuManager.Instance.Paused)
             return;
 
+        // If the player moves make sure to deselect everything
         player.Movement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), player.gameObject.transform);
-        
+        player.CameraOrbit(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+
         if (Physics.Raycast(
             new Vector3(player.transform.position.x, player.transform.position.y + rayCastYoffset, player.transform.position.z),
             cameraTransform.TransformDirection(Vector3.forward), out RaycastHit rayHit, layerMask))
@@ -100,7 +102,7 @@ public class TilePlayManager : TileManagerBase
         }
     }
 
-    public void SetCrate(int row, int column, CrateType type, ObjectState state )
+    public void SetCrate(int row, int column, CrateType type, ObjectState state)
     {
         GameObject tile = allTiles[row, column];
 
@@ -175,14 +177,14 @@ public class TilePlayManager : TileManagerBase
         }
     }
 
-    public void SetTile ( int row, int column, TileType type, ObjectState state )
+    public void SetTile(int row, int column, TileType type, ObjectState state)
     {
         GameObject tile = allTiles[row, column];
 
         TileComponent tileComponent = tile.GetComponent<TileComponent>();
         tileComponent.Tile.tileType = type;
         tileComponent.Tile.tileState = state;
-        
+
         MeshRenderer[] meshes = tile.GetComponentsInChildren<MeshRenderer>(true);
 
         switch (state)
@@ -250,7 +252,7 @@ public class TilePlayManager : TileManagerBase
         }
     }
 
-    public void SetNorthWall ( int row, int column, WallType type )
+    public void SetNorthWall(int row, int column, WallType type)
     {
         GameObject tile = allTiles[row, column];
         TileComponent tileComponent = tile.GetComponent<TileComponent>();
@@ -299,7 +301,7 @@ public class TilePlayManager : TileManagerBase
         }
     }
 
-    public void SetSouthWall ( int row, int column, WallType type )
+    public void SetSouthWall(int row, int column, WallType type)
     {
         GameObject tile = allTiles[row, column];
 
@@ -349,7 +351,7 @@ public class TilePlayManager : TileManagerBase
 
     }
 
-    public void SetEastWall ( int row, int column, WallType type )
+    public void SetEastWall(int row, int column, WallType type)
     {
         GameObject tile = allTiles[row, column];
         TileComponent tileComponent = tile.GetComponent<TileComponent>();
@@ -399,7 +401,7 @@ public class TilePlayManager : TileManagerBase
 
     }
 
-    public void SetWestWall ( int row, int column, WallType type )
+    public void SetWestWall(int row, int column, WallType type)
     {
         GameObject tile = allTiles[row, column];
         TileComponent tileComponent = tile.GetComponent<TileComponent>();
@@ -448,7 +450,7 @@ public class TilePlayManager : TileManagerBase
         }
     }
 
-    public void SetPickupType ( int row, int column, PickupType type, float pickupCount )
+    public void SetPickupType(int row, int column, PickupType type, float pickupCount)
     {
         GameObject tile = allTiles[row, column];
         TileComponent tileComponent = tile.GetComponent<TileComponent>();
@@ -457,7 +459,7 @@ public class TilePlayManager : TileManagerBase
 
         tileComponent.Tile.pickupType = type;
         tileComponent.Tile.pickupCount = pickupCount;
-        
+
         switch (type)
         {
             case PickupType.fatiguePickup:

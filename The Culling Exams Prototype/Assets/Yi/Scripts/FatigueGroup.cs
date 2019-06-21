@@ -16,6 +16,7 @@ public class FatigueGroup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponentInChildren<TextMeshPro>().text = "Fatigue: " + PMM.fatigueCopy.ToString();
+        if (PMM != null)
+            GetComponentInChildren<TextMeshPro>().text = "Fatigue: " + PMM.fatigueCopy.ToString();
     }
 }

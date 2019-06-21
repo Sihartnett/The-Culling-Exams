@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        CameraOrbit();
     }
     
     public float mouseSensitivityX = 5f, mouseSensitivityY = 4f;
@@ -29,10 +28,10 @@ public class PlayerMovement : MonoBehaviour
     float mouseX = 0.0f, mouseY = 0.0f;
 
     //Simple camera orbiting around player using a pivot point (center point)
-    void CameraOrbit()
+    public void CameraOrbit(float verticle, float horizontal)
     {
-        mouseX += Input.GetAxis("Mouse X") * mouseSensitivityX;
-        mouseY -= Input.GetAxis("Mouse Y") * mouseSensitivityY;
+        mouseX += verticle * mouseSensitivityX;
+        mouseY -= horizontal * mouseSensitivityY;
 
         mouseY = Mathf.Clamp(mouseY, -60f, 0f);
 
@@ -266,7 +265,10 @@ public class PlayerMovement : MonoBehaviour
                 tileManager.currentTile.y = column;
 
                 if (tileManager.fatigue <= 0)
+                {
+                    CrateScript.Deselect();
                     SMS.GameOver();
+                }
 
                 if (tile.Tile.pickupType == PickupType.fatiguePickup)
                 {
@@ -275,7 +277,10 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 if (tile.Tile.tileType == TileType.finishTile)
+                {
+                    CrateScript.Deselect();
                     SMS.NextLevel();
+                }
                 
                 StartCoroutine(move(transform, moveToMe, moveV, moveH));
             }

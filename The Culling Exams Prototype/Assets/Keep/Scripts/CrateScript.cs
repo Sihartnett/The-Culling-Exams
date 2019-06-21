@@ -9,7 +9,6 @@ public class CrateScript : MonoBehaviour
 
     static GameObject currentSelection = null;
     static GameObject currentHighlight = null;
-
     static SelectionType currentSelectionType = SelectionType.none;
     static Vector2? selectedTile = null;
 
@@ -276,6 +275,14 @@ public class CrateScript : MonoBehaviour
         }
     }
 
+    static public void Deselect()
+    {
+        selectedTile = null;
+        currentSelection = null;
+        currentHighlight = null;
+        currentSelectionType = SelectionType.none;
+    }
+
     private void CreateGhosts ( TilePlayManager playManager, TileComponent tileComponent )
     {
         TileComponent tile = playManager.allTiles[tileComponent.Row - 1, tileComponent.Column].GetComponent<TileComponent>();
@@ -318,7 +325,7 @@ public class CrateScript : MonoBehaviour
         }
     }
 
-    private void ResetGhosts ( TilePlayManager playManager, TileComponent tileComponent )
+    static public void ResetGhosts ( TilePlayManager playManager, TileComponent tileComponent )
     {
         selectedTile = null;
         currentSelection = null;
