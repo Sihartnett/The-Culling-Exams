@@ -14,6 +14,7 @@ public class SceneManagerSystem : MonoBehaviour
     #endregion
 
     #region Pause Menu Load Function
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +56,18 @@ public class SceneManagerSystem : MonoBehaviour
         scene = SceneManager.GetActiveScene().name;
         SceneManager.LoadSceneAsync(scene);
     }
+
+    // YI TODO:  I really like a lot of your code and you are on the way to becoming a great programmer.
+    // Finish this class Currently the functionality of checking death condition is in the Fatigue Counter
+    // I have moved a conditional to the play manager that does it now and that will fix the bug where you die and still win the level
+
+    public void GameOver ()
+    {
+        // SMS.LostGame();
+    }
+
     #endregion
+
     #region Sound Function
 
     public void LostGame()
@@ -87,10 +99,6 @@ public class SceneManagerSystem : MonoBehaviour
     {
         audioPlayer.PlayOneShot(SelectingSound);
     }
-
-    internal void GameOver()
-    {
-      
-    }
+    
     #endregion
 }

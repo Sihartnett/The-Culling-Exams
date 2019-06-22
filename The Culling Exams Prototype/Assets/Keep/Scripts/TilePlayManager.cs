@@ -91,7 +91,7 @@ public class TilePlayManager : TileManagerBase
 
                 if (Input.GetMouseButtonDown(0))
                 {
-                    crateScript.Select(rayHit.collider);
+                    crateScript.Select();
                 }
 
                 //if (Input.GetMouseButtonDown(1))
@@ -116,23 +116,29 @@ public class TilePlayManager : TileManagerBase
         {
             case ObjectState.highlighted:
                 tile.transform.GetChild(1).gameObject.SetActive(true);
-                meshes[1].material = crateHighlightMaterial;
+                tile.transform.GetChild(7).gameObject.SetActive(true);
+                meshes[7].material = crateHighlightMaterial;
                 break;
             case ObjectState.selected:
                 tile.transform.GetChild(1).gameObject.SetActive(true);
-                meshes[1].material = crateSelectedMaterial;
+                tile.transform.GetChild(7).gameObject.SetActive(true);
+                meshes[7].material = crateSelectedMaterial;
                 break;
             case ObjectState.ghost:
                 tile.transform.GetChild(1).gameObject.SetActive(true);
-                meshes[1].material = crateGhostMaterial;
+                tile.transform.GetChild(7).gameObject.SetActive(false);
+                meshes[7].material = crateGhostMaterial;
                 break;
             case ObjectState.ghostHighlighted:
                 tile.transform.GetChild(1).gameObject.SetActive(true);
-                meshes[1].material = crateHighlightMaterial;
+                tile.transform.GetChild(7).gameObject.SetActive(true);
+                meshes[7].material = crateHighlightMaterial;
                 break;
             case ObjectState.none:
             default:
                 {
+                    tile.transform.GetChild(7).gameObject.SetActive(false);
+
                     switch (type)
                     {
                         case CrateType.crate:
@@ -190,20 +196,26 @@ public class TilePlayManager : TileManagerBase
         switch (state)
         {
             case ObjectState.highlighted:
-                meshes[0].material = tileHighlightMaterial;
+                tile.transform.GetChild(8).gameObject.SetActive(true);
+                meshes[8].material = tileHighlightMaterial;
                 break;
             case ObjectState.selected:
-                meshes[0].material = tileSelectedMaterial;
+                tile.transform.GetChild(8).gameObject.SetActive(true);
+                meshes[8].material = tileSelectedMaterial;
                 break;
             case ObjectState.ghost:
+                tile.transform.GetChild(8).gameObject.SetActive(false);
                 meshes[0].material = tileGhostMaterial;
                 break;
             case ObjectState.ghostHighlighted:
-                meshes[0].material = tileHighlightMaterial;
+                tile.transform.GetChild(8).gameObject.SetActive(true);
+                meshes[8].material = tileHighlightMaterial;
                 break;
             case ObjectState.none:
             default:
                 {
+                    tile.transform.GetChild(8).gameObject.SetActive(false);
+
                     switch (type)
                     {
                         case TileType.barrierTile:

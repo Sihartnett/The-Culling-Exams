@@ -4,17 +4,26 @@ using UnityEngine.PostProcessing;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 3f;
-    private float gridSize = 1f;
-    private float factor = 1f;
+
+    public float mouseSensitivityX = 5f;
+    public float mouseSensitivityY = 4f;
+    
+    public float moveSpeed = 3f;
+
+    private readonly float gridSize = 1f;
+    private readonly float factor = 1f;
+
+    private float mouseX = 0.0f;
+    private float mouseY = 0.0f;
+    
+    private Transform centerPoint;
 
     private Vector2 input;
     private bool isMoving = false;
     private Vector3 startPosition;
     private Vector3 endPosition;
     private float t;
-
-
+    
     private PostProcessingBehaviour postBehavior;
     private VignetteModel.Settings vigMod;
 
@@ -28,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isDead = false;
         SMS = FindObjectOfType<SceneManagerSystem>();
+
         anim = GetComponentInChildren<Animator>();
         postBehavior = GetComponentInChildren<PostProcessingBehaviour>();
         vigMod = postBehavior.profile.vignette.settings;
@@ -38,19 +48,14 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         centerPoint = GameObject.Find("Cylinder").transform;
-        //animator = player.GetComponentInChildren<Animator>();
     }
 
+    // Update is Empty Because all Update functionality was moved to the PlayManager
+    // This was done to make sure all keyboard imput is in the right place
     private void Update()
     {
     }
     
-    public float mouseSensitivityX = 5f, mouseSensitivityY = 4f;
-
-    private Transform centerPoint;
-
-    float mouseX = 0.0f, mouseY = 0.0f;
-
     //Simple camera orbiting around player using a pivot point (center point)
     public void CameraOrbit(float verticle, float horizontal)
     {
@@ -89,14 +94,9 @@ public class PlayerMovement : MonoBehaviour
                             playerRotationDegree -= 360;
                     }
                 }
-
-
-
-                anim.SetBool("isMoving", false);
-
+                
                 if (moveV > 0)
                 {
-                    anim.SetBool("isMoving", true);
                     // Move forward
                     if (45 <= playerRotationDegree && playerRotationDegree <= 135)
                     {
@@ -121,7 +121,6 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (moveV < 0)
                 {
-                    anim.SetBool("moveBack", true);
                     // Move back
                     if (45 <= playerRotationDegree && playerRotationDegree <= 135)
                     {
@@ -146,7 +145,6 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (moveH < 0)
                 {
-                    anim.SetBool("moveLeft", true);
                     // Move left
                     if (45 <= playerRotationDegree && playerRotationDegree <= 135)
                     {
@@ -171,7 +169,6 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (moveH > 0)
                 {
-                    anim.SetBool("moveRight", true);
                     // Move right
                     if (45 <= playerRotationDegree && playerRotationDegree <= 135)
                     {
@@ -193,13 +190,6 @@ public class PlayerMovement : MonoBehaviour
                         row = currentTile.Row + 1;
                         column = currentTile.Column;
                     }
-                }
-                else
-                {
-                    anim.SetBool("moveRight", false);
-                    anim.SetBool("moveLeft", false);
-                    anim.SetBool("moveBack", false);
-                    anim.SetBool("isMoving", false);
                 }
 
                 TileComponent tile = null;
@@ -299,6 +289,10 @@ public class PlayerMovement : MonoBehaviour
                         ))
                         return;
 
+
+                    // If you make it to this part of the code you are moving
+
+
                     var moveToMe = new Vector3(tile.Tile.CenterPoint.x, 0.1f, tile.Tile.CenterPoint.z);
                     tileManager.fatigue -= 1;
 
@@ -308,6 +302,9 @@ public class PlayerMovement : MonoBehaviour
                     if (tileManager.fatigue <= 0)
                     {
                         StartCoroutine(Death());
+
+                        CrateScript.Deselect();
+                        SMS.GameOver();
                     }
 
                     if (tile.Tile.pickupType == PickupType.fatiguePickup)
@@ -333,8 +330,6 @@ public class PlayerMovement : MonoBehaviour
         anim.SetTrigger("Death");
         isDead = true;
         yield return new WaitForSeconds(1.0f);
-        CrateScript.Deselect();
-        SMS.GameOver();
         yield return null;
     }
 
@@ -344,11 +339,17 @@ public class PlayerMovement : MonoBehaviour
         startPosition = transform.position;
         endPosition = endPoint;
         t = 0;
+        
+        if( horiz < 0 )
+            anim.SetBool("moveRight", true);
+        if( horiz > 0 ) 
+            anim.SetBool("moveLeft", true);
 
-        //animator?.SetFloat("Vertical", vert);
-        //animator?.SetFloat("Horizontal", vert);
-        //animator?.SetBool("isMoving", true);
-
+        if( vert < 0 )
+            anim.SetBool("isMoving", true);
+        if( vert > 0 )
+            anim.SetBool("moveBack", true);
+        
         while (t < 1f)
         {
             t += Time.deltaTime * (moveSpeed / gridSize) * factor;
@@ -358,11 +359,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         isMoving = false;
-
-        //animator?.SetFloat("Verticle", 0);
-        //animator?.SetFloat("Horizontal", 0);
-        //animator?.SetBool("isMoving", false);
-
+        
+        anim.SetBool("moveRight", false);
+        anim.SetBool("moveLeft", false);
+        anim.SetBool("moveBack", false);
+        anim.SetBool("isMoving", false);
+        
         yield return 0;
     }
 }

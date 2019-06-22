@@ -123,7 +123,7 @@ public class CrateScript : MonoBehaviour
         return returnValue;
     }
 
-    public void Select ( Collider collider )
+    public void Select ()
     {
         TileComponent tileComponent = this.transform.parent.GetComponent<TileComponent>();
         TilePlayManager playManager = this.transform.parent.transform.parent.GetComponent<TilePlayManager>();
@@ -262,6 +262,11 @@ public class CrateScript : MonoBehaviour
                             }
                         }
                     }
+
+
+                    //TODO:
+
+
                 }
 
                 else if (myType == SelectionType.tile)

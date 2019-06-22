@@ -103,8 +103,8 @@ GameObject:
   - component: {fileID: 1130662760764298959}
   - component: {fileID: 6401217305597432963}
   - component: {fileID: 7372828221228914207}
-  - component: {fileID: 4141687497735889589}
-  m_Layer: 9
+  - component: {fileID: 952964550973387709}
+  m_Layer: 0
   m_Name: Tile Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,14 +183,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4141687497735889589
+--- !u!114 &952964550973387709
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559905724775331254}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebd0c431aa4bf3840a74352b3db8eead, type: 3}
   m_Name: 
@@ -378,6 +378,7 @@ GameObject:
   - component: {fileID: 6136597146309033410}
   - component: {fileID: 6902273763065854170}
   - component: {fileID: 8587646123829826412}
+  - component: {fileID: 958423206310885658}
   m_Layer: 0
   m_Name: Crate Highlight
   m_TagString: Untagged
@@ -457,6 +458,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &958423206310885658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641078445192543870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd0c431aa4bf3840a74352b3db8eead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myType: 1
 --- !u!1 &4858085400146075153
 GameObject:
   m_ObjectHideFlags: 0

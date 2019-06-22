@@ -96,7 +96,7 @@ namespace Menus
                 }
                 if (TPM.fatigue <= 0)
                 {
-                    //SMS.LostGame();
+                    SMS.LostGame();
                     StartCoroutine(EnableLostScreen());
                     
                 }
