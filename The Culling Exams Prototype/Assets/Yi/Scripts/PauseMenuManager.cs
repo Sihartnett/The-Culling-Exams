@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Menus
 {
@@ -71,12 +74,14 @@ namespace Menus
 
         #region Pause Function
 
-        void EnableLostScreen()
+        public IEnumerator EnableLostScreen()
         {
+            yield return new WaitForSeconds(1.75f);
             lostScreen.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             canPause = false;
+            yield return null;
         }
 
         // Update is called once per frame
@@ -92,7 +97,8 @@ namespace Menus
                 if (TPM.fatigue <= 0)
                 {
                     //SMS.LostGame();
-                    EnableLostScreen();
+                    StartCoroutine(EnableLostScreen());
+                    
                 }
             }
             if (canPause)
