@@ -11,6 +11,7 @@ public class CrateScript : MonoBehaviour
     static GameObject currentHighlight = null;
     static SelectionType currentSelectionType = SelectionType.none;
     static Vector2? selectedTile = null;
+    
 
     void Start ()
     {
@@ -133,12 +134,12 @@ public class CrateScript : MonoBehaviour
         if (currentHighlight == null && currentSelection != null)
         {
             SMS.DeSelectCrate();
-
+            
             TileComponent sourceCrateTileComponent = currentSelection.transform.parent.GetComponent<TileComponent>();
 
-            playManager.SetCrate(tileComponent.Row, tileComponent.Column, tileComponent.Tile.crateType, ObjectState.none);
-            playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.none);
-
+            playManager.SetCrate(sourceCrateTileComponent.Row, sourceCrateTileComponent.Column, sourceCrateTileComponent.Tile.crateType, ObjectState.none);
+            playManager.SetTile(sourceCrateTileComponent.Row, sourceCrateTileComponent.Column, sourceCrateTileComponent.Tile.tileType, ObjectState.none);
+            
             ResetGhosts(playManager, sourceCrateTileComponent);
         }
 
@@ -168,105 +169,69 @@ public class CrateScript : MonoBehaviour
             {
                 TileComponent sourceCrateTileComponent = currentSelection.transform.parent.GetComponent<TileComponent>();
 
-                if (myType == SelectionType.crate)
+                if (myType == SelectionType.crate || currentSelectionType == SelectionType.crate)
                 {
                     SMS.DeSelectCrate();
 
-                    playManager.SetCrate(tileComponent.Row, tileComponent.Column, sourceCrateTileComponent.Tile.crateType, ObjectState.highlighted);
+                    // Logic for highlighted after placement
+                    // Place the Crate and decide if we should highlight it
+                    if (( playManager.currentTile.x - 1 <= tileComponent.Row && tileComponent.Row <= playManager.currentTile.x + 1 )
+                        &&
+                        ( playManager.currentTile.y - 1 <= tileComponent.Column && tileComponent.Column <= playManager.currentTile.y + 1 ))
+                    {
+                        currentHighlight = tileComponent.gameObject;
+                        playManager.SetCrate(tileComponent.Row, tileComponent.Column, sourceCrateTileComponent.Tile.crateType, ObjectState.highlighted);
+                    }
+                    else
+                    {
+                        currentHighlight = null;
+                        playManager.SetCrate(tileComponent.Row, tileComponent.Column, sourceCrateTileComponent.Tile.crateType, ObjectState.none);
+                    }
+
+                    // remove the previous crate
                     playManager.SetCrate(sourceCrateTileComponent.Row, sourceCrateTileComponent.Column, CrateType.none, ObjectState.none);
 
-                    // This is for when a blue crate lands on a blue tile
-                    if (tileComponent.Tile.tileType == TileType.blueTile &&
-                        tileComponent.Tile.crateType == CrateType.blueCrate)
-                    {
-                        // Open all blue Doors
-                        for (int row = 0; row < playManager.rows; row++)
-                        {
-                            for (int column = 0; column < playManager.columns; column++)
-                            {
-                                TileComponent tile = playManager.allTiles[row, column].GetComponent<TileComponent>();
-                                if (tile.Tile.eastWallType == WallType.blueDoor)
-                                    playManager.SetEastWall(tile.Row, tile.Column, WallType.blueDoorOpen);
-                                if (tile.Tile.northWallType == WallType.blueDoor)
-                                    playManager.SetNorthWall(tile.Row, tile.Column, WallType.blueDoorOpen);
-                                if (tile.Tile.southWallType == WallType.blueDoor)
-                                    playManager.SetSouthWall(tile.Row, tile.Column, WallType.blueDoorOpen);
-                                if (tile.Tile.westWallType == WallType.blueDoor)
-                                    playManager.SetWestWall(tile.Row, tile.Column, WallType.blueDoorOpen);
-                            }
-                        }
-                    }
+                    // This is for when a blue crate lands on a blue tile or the door close
+                    if (tileComponent.Tile.crateType == CrateType.blueCrate)
+                        if (tileComponent.Tile.tileType == TileType.blueTile)
+                            OpenDoor(playManager, WallType.blueDoor, WallType.blueDoorOpen);
+                        else
+                            OpenDoor(playManager, WallType.blueDoorOpen, WallType.blueDoor);
 
-                    // Red crate lands on red tile
-                    if (tileComponent.Tile.tileType == TileType.redTile &&
-                        tileComponent.Tile.crateType == CrateType.redCrate)
-                    {
-                        // Open all red Doors
-                        for (int row = 0; row < playManager.rows; row++)
-                        {
-                            for (int column = 0; column < playManager.columns; column++)
-                            {
-                                TileComponent tile = playManager.allTiles[row, column].GetComponent<TileComponent>();
-                                if (tile.Tile.eastWallType == WallType.redDoor)
-                                    playManager.SetEastWall(tile.Row, tile.Column, WallType.redDoorOpen);
-                                if (tile.Tile.northWallType == WallType.redDoor)
-                                    playManager.SetNorthWall(tile.Row, tile.Column, WallType.redDoorOpen);
-                                if (tile.Tile.southWallType == WallType.redDoor)
-                                    playManager.SetSouthWall(tile.Row, tile.Column, WallType.redDoorOpen);
-                                if (tile.Tile.westWallType == WallType.redDoor)
-                                    playManager.SetWestWall(tile.Row, tile.Column, WallType.redDoorOpen);
-                            }
-                        }
-                    }
+                    // This is for when a red crate lands on a red tile or the door close
+                    if (tileComponent.Tile.crateType == CrateType.redCrate)
+                        if (tileComponent.Tile.tileType == TileType.redTile)
+                            OpenDoor(playManager, WallType.redDoor, WallType.redDoorOpen);
+                        else
+                            OpenDoor(playManager, WallType.redDoorOpen, WallType.redDoor);
 
-                    // purple crate lands on purple tile
-                    if (tileComponent.Tile.tileType == TileType.purpleTile &&
-                        tileComponent.Tile.crateType == CrateType.purpleCrate)
-                    {
-                        // Open all purple Doors
-                        for (int row = 0; row < playManager.rows; row++)
-                        {
-                            for (int column = 0; column < playManager.columns; column++)
-                            {
-                                TileComponent tile = playManager.allTiles[row, column].GetComponent<TileComponent>();
-                                if (tile.Tile.eastWallType == WallType.purpleDoor)
-                                    playManager.SetEastWall(tile.Row, tile.Column, WallType.purpleDoorOpen);
-                                if (tile.Tile.northWallType == WallType.purpleDoor)
-                                    playManager.SetNorthWall(tile.Row, tile.Column, WallType.purpleDoorOpen);
-                                if (tile.Tile.southWallType == WallType.purpleDoor)
-                                    playManager.SetSouthWall(tile.Row, tile.Column, WallType.purpleDoorOpen);
-                                if (tile.Tile.westWallType == WallType.purpleDoor)
-                                    playManager.SetWestWall(tile.Row, tile.Column, WallType.purpleDoorOpen);
-                            }
-                        }
-                    }
+                    // This is for when a brown crate lands on a brown tile or the door close
+                    if (tileComponent.Tile.crateType == CrateType.brownCrate)
+                        if (tileComponent.Tile.tileType == TileType.brownTile)
+                            OpenDoor(playManager, WallType.brownDoor, WallType.brownDoorOpen);
+                        else
+                            OpenDoor(playManager, WallType.brownDoorOpen, WallType.brownDoor);
 
-                    // brown crate lands on brown tile
-                    if (tileComponent.Tile.tileType == TileType.brownTile &&
-                        tileComponent.Tile.crateType == CrateType.brownCrate)
-                    {
-                        // Open all brown Doors
-                        for (int row = 0; row < playManager.rows; row++)
-                        {
-                            for (int column = 0; column < playManager.columns; column++)
-                            {
-                                TileComponent tile = playManager.allTiles[row, column].GetComponent<TileComponent>();
-                                if (tile.Tile.eastWallType == WallType.brownDoor)
-                                    playManager.SetEastWall(tile.Row, tile.Column, WallType.brownDoorOpen);
-                                if (tile.Tile.northWallType == WallType.brownDoor)
-                                    playManager.SetNorthWall(tile.Row, tile.Column, WallType.brownDoorOpen);
-                                if (tile.Tile.southWallType == WallType.brownDoor)
-                                    playManager.SetSouthWall(tile.Row, tile.Column, WallType.brownDoorOpen);
-                                if (tile.Tile.westWallType == WallType.brownDoor)
-                                    playManager.SetWestWall(tile.Row, tile.Column, WallType.brownDoorOpen);
-                            }
-                        }
-                    }
+                    // This is for when a purple crate lands on a purple tile or the door close
+                    if (tileComponent.Tile.crateType == CrateType.purpleCrate)
+                        if (tileComponent.Tile.tileType == TileType.purpleTile)
+                            OpenDoor(playManager, WallType.purpleDoor, WallType.purpleDoorOpen);
+                        else
+                            OpenDoor(playManager, WallType.purpleDoorOpen, WallType.purpleDoor);
 
+                    // This is for when a orange crate lands on a orange tile or the door close
+                    if (tileComponent.Tile.crateType == CrateType.orangeCrate)
+                        if (tileComponent.Tile.tileType == TileType.orangeTile)
+                            OpenDoor(playManager, WallType.orangeDoor, WallType.orangeDoorOpen);
+                        else
+                            OpenDoor(playManager, WallType.orangeDoorOpen, WallType.orangeDoor);
 
-                    //TODO:
-
-
+                    // This is for when a lightBlue crate lands on a lightBlue tile or the door close
+                    if (tileComponent.Tile.crateType == CrateType.lightBlueCrate)
+                        if (tileComponent.Tile.tileType == TileType.lightBlueTile)
+                            OpenDoor(playManager, WallType.lightBlueDoor, WallType.lightBlueDoorOpen);
+                        else
+                            OpenDoor(playManager, WallType.lightBlueDoorOpen, WallType.lightBlueDoor);
                 }
 
                 else if (myType == SelectionType.tile)
@@ -276,6 +241,26 @@ public class CrateScript : MonoBehaviour
                 }
 
                 ResetGhosts(playManager, sourceCrateTileComponent);
+            }
+        }
+    }
+
+    private static void OpenDoor ( TilePlayManager playManager, WallType source, WallType destination)
+    {
+        // Open all blue Doors
+        for (int row = 0; row < playManager.rows; row++)
+        {
+            for (int column = 0; column < playManager.columns; column++)
+            {
+                TileComponent tile = playManager.allTiles[row, column].GetComponent<TileComponent>();
+                if (tile.Tile.eastWallType == source)
+                    playManager.SetEastWall(tile.Row, tile.Column, destination);
+                if (tile.Tile.northWallType == source)
+                    playManager.SetNorthWall(tile.Row, tile.Column, destination);
+                if (tile.Tile.southWallType == source)
+                    playManager.SetSouthWall(tile.Row, tile.Column, destination);
+                if (tile.Tile.westWallType == source)
+                    playManager.SetWestWall(tile.Row, tile.Column, destination);
             }
         }
     }

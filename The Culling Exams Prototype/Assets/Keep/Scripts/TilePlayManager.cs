@@ -176,6 +176,7 @@ public class TilePlayManager : TileManagerBase
                         case CrateType.none:
                         default:
                             tile.transform.GetChild(1).gameObject.SetActive(false);
+                            meshes[1].material = crateMaterial;
                             break;
                     }
                 }
