@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 endPosition;
     private float t;
 
+
+    private PostProcessingBehaviour postBehavior;
+    private VignetteModel.Settings vigMod;
+
     private bool isDead = false;
 
     //Scene Manager
@@ -24,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
         isDead = false;
         SMS = FindObjectOfType<SceneManagerSystem>();
         anim = GetComponentInChildren<Animator>();
+        postBehavior = GetComponentInChildren<PostProcessingBehaviour>();
+        vigMod = postBehavior.profile.vignette.settings;
+        vigMod.intensity = 0;
+        postBehavior.profile.vignette.settings = vigMod;
     }
 
     private void Awake()
