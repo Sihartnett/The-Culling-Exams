@@ -42,6 +42,9 @@ EditorBuildSettings:
     path: Assets/Rohit/Scenes/Level11Addition.unity
     guid: 2745b9f778c0a3e42bafc4ae117b2051
   - enabled: 1
+    path: Assets/Vishnu/Scenes/Level10Replacement.unity
+    guid: 32d413dfcaf06554dafc4bfe28391ab2
+  - enabled: 1
     path: Assets/Vishnu/Scenes/Level17.unity
     guid: f7e998aa7dc9b8c4c962971f8d23afba
   - enabled: 1
@@ -62,6 +65,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Spence/Scenes/Level14.unity
     guid: 1b7390a749b746e40a28f230e9412604
+  - enabled: 1
+    path: Assets/Vishnu/Scenes/Level12Addition.unity
+    guid: a7fd8c38f9feee146b83427a5a52ba6a
   - enabled: 1
     path: Assets/Scenes/Victory Scene.unity
     guid: 0b23762fb54bce64b8fd770290edf73b
