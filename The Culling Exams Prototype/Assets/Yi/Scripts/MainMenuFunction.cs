@@ -11,6 +11,7 @@ public class MainMenuFunction : MonoBehaviour
     [SerializeField] GameObject levelselect;
     [SerializeField] Transform buttonParent;
     public GameObject Parent;
+    public SceneManagerSystem SMS;
 
     public void enableLevelSelect()
     {
@@ -43,6 +44,13 @@ public class MainMenuFunction : MonoBehaviour
 
     void LoadSelectedLevel(int scenenum)
     {
+        //
+        SMS.BGMPlayer.Stop();
+        int RNG = UnityEngine.Random.Range(0, 3);
+        SMS.BGMPlayer.clip = SMS.BGMs[RNG];
+        SMS.BGMPlayer.Play();
+        // 
+
         SceneManager.LoadSceneAsync(LevelName[scenenum]);
     }
 

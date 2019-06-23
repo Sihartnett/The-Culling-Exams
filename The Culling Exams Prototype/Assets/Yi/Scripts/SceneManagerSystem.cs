@@ -11,6 +11,9 @@ public class SceneManagerSystem : MonoBehaviour
     public bool LoadOneTime = true;
 
     private AudioSource audioPlayer;
+    public AudioSource BGMPlayer;
+    public AudioClip MMT;
+    public AudioClip[] BGMs;
     #endregion
 
     #region Pause Menu Load Function
@@ -33,6 +36,13 @@ public class SceneManagerSystem : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        //
+        BGMPlayer.Stop();
+        int RNG = UnityEngine.Random.Range(0, 3);
+        BGMPlayer.clip = BGMs[RNG];
+        BGMPlayer.Play();
+        //
+
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -47,6 +57,7 @@ public class SceneManagerSystem : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        BGMPlayer.Stop();
         SceneManager.LoadSceneAsync("Main Menu");
     }
 
