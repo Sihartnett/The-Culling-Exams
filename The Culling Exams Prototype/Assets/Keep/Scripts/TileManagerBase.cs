@@ -247,11 +247,11 @@ public class TileManagerBase : MonoBehaviour
                     meshes[3].material = purpleDoorMaterial;
                     break;
                 case WallType.orangeDoor:
-                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    tile.transform.GetChild(3).gameObject.SetActive(true);
                     meshes[3].material = orangeDoorMaterial;
                     break;
                 case WallType.lightBlueDoor:
-                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    tile.transform.GetChild(3).gameObject.SetActive(true);
                     meshes[3].material = lightBlueDoorMaterial;
                     break;
 
@@ -287,11 +287,11 @@ public class TileManagerBase : MonoBehaviour
                     meshes[4].material = purpleDoorMaterial;
                     break;
                 case WallType.orangeDoor:
-                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    tile.transform.GetChild(4).gameObject.SetActive(true);
                     meshes[4].material = orangeDoorMaterial;
                     break;
                 case WallType.lightBlueDoor:
-                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    tile.transform.GetChild(4).gameObject.SetActive(true);
                     meshes[4].material = lightBlueDoorMaterial;
                     break;
                 case WallType.none:
@@ -326,11 +326,11 @@ public class TileManagerBase : MonoBehaviour
                     meshes[5].material = purpleDoorMaterial;
                     break;
                 case WallType.orangeDoor:
-                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    tile.transform.GetChild(5).gameObject.SetActive(true);
                     meshes[5].material = orangeDoorMaterial;
                     break;
                 case WallType.lightBlueDoor:
-                    tile.transform.GetChild(2).gameObject.SetActive(true);
+                    tile.transform.GetChild(5).gameObject.SetActive(true);
                     meshes[5].material = lightBlueDoorMaterial;
                     break;
                 case WallType.none:

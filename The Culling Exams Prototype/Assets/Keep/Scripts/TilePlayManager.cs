@@ -127,7 +127,7 @@ public class TilePlayManager : TileManagerBase
             case ObjectState.ghost:
                 tile.transform.GetChild(1).gameObject.SetActive(true);
                 tile.transform.GetChild(7).gameObject.SetActive(false);
-                meshes[7].material = crateGhostMaterial;
+                meshes[1].material = crateGhostMaterial;
                 break;
             case ObjectState.ghostHighlighted:
                 tile.transform.GetChild(1).gameObject.SetActive(true);
