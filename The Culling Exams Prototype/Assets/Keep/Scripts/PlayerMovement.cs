@@ -19,13 +19,13 @@ public class PlayerMovement : MonoBehaviour
     private Transform centerPoint;
 
     private Vector2 input;
-    private bool isMoving = false;
+    [HideInInspector] public bool isMoving = false;
     private Vector3 startPosition;
     private Vector3 endPosition;
     private float t;
     
-    private PostProcessingBehaviour postBehavior;
-    private VignetteModel.Settings vigMod;
+    [HideInInspector] public PostProcessingBehaviour postBehavior;
+    [HideInInspector] public VignetteModel.Settings vigMod;
 
     private bool isDead = false;
 
@@ -73,6 +73,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isDead)
         {
+            //if( horiz < 0 )
+            anim.SetFloat("Horizontal", moveH * 4);
+            //if( horiz > 0 ) 
+            anim.SetFloat("Vertical", moveV * 5);
             if (!isMoving)
             {
                 TilePlayManager tileManager = transform.parent.GetComponent<TilePlayManager>();
@@ -339,17 +343,17 @@ public class PlayerMovement : MonoBehaviour
         startPosition = transform.position;
         endPosition = endPoint;
         t = 0;
-        
-        if( horiz < 0 )
-            anim.SetBool("moveRight", true);
-        if( horiz > 0 ) 
-            anim.SetBool("moveLeft", true);
 
-        if( vert < 0 )
-            anim.SetBool("isMoving", true);
-        if( vert > 0 )
+
+        if( horiz < 0 )
+            anim.SetBool("moveLeft", true);
+        if (horiz > 0)
+            anim.SetBool("moveRight", true);
+        if (vert < 0)
             anim.SetBool("moveBack", true);
-        
+        if (vert > 0)
+            anim.SetBool("isMoving", true);
+
         while (t < 1f)
         {
             t += Time.deltaTime * (moveSpeed / gridSize) * factor;

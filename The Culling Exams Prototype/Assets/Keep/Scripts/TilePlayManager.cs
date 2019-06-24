@@ -24,6 +24,11 @@ public class TilePlayManager : TileManagerBase
     // needed for ray cast collision culling
     private int layerMask;
 
+    // variable to store the max fatigue & checking the blood vignette
+    private int initFatigue = 0;
+    private int bloodFatigue = 0;
+    private bool vignetteAppliedFirst = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +39,10 @@ public class TilePlayManager : TileManagerBase
         }
 
         // Create all GameObjects
+
+        initFatigue = fatigue;
+        vignetteAppliedFirst = false;
+        bloodFatigue = 0;
         // Tiles
         allTiles = new GameObject[rows, columns];
         for (int row = 0; row < rows; row++)
@@ -75,6 +84,23 @@ public class TilePlayManager : TileManagerBase
         // If the player moves make sure to deselect everything
         player.Movement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), player.gameObject.transform);
         player.CameraOrbit(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+
+        // Managing the blood vignette based on fatigue
+
+        if(fatigue < initFatigue * 0.3f)
+        {
+            if(player.postBehavior && !vignetteAppliedFirst)
+            {
+                player.vigMod.intensity = 0.5f;                
+                vignetteAppliedFirst = true;
+                bloodFatigue = fatigue;
+            }
+            if(vignetteAppliedFirst && player.isMoving)
+            {
+                player.vigMod.intensity = 0.5f + (0.5f * (bloodFatigue - fatigue) / bloodFatigue);
+            }
+            player.postBehavior.profile.vignette.settings = player.vigMod;
+        }
 
         if (Physics.Raycast(
             new Vector3(player.transform.position.x, player.transform.position.y + rayCastYoffset, player.transform.position.z),

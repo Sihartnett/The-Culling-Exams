@@ -1049,7 +1049,7 @@ ModelImporter:
     - name: EthanRightHandMiddle1
       parentName: EthanRightHand
       position: {x: 0.013395289, y: 0.08440544, z: -0.031651095}
-      rotation: {x: -0.0069208425, y: 0.02155041, z: 0.061567992, w: 0.9978462}
+      rotation: {x: -0.006920843, y: 0.02155041, z: 0.061567996, w: 0.9978462}
       scale: {x: 1, y: 1, z: 1}
     - name: EthanRightHandMiddle2
       parentName: EthanRightHandMiddle1
