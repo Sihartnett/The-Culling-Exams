@@ -142,6 +142,23 @@ namespace Menus
         {
             //RenderSettings.skybox = skybox;
 
+            if(scene.name == "Main Menu")
+            {
+                SMS.BGMPlayer.Stop();
+                SMS.BGMPlayer.clip = SMS.MMT;
+                SMS.BGMPlayer.Play();
+            }
+
+            else
+            {
+                //
+                SMS.BGMPlayer.Stop();
+                int RNG = UnityEngine.Random.Range(0, 3);
+                SMS.BGMPlayer.clip = SMS.BGMs[RNG];
+                SMS.BGMPlayer.Play();
+                // 
+            }
+
             if (scene.name == "Victory Scene" || scene.name == "Defeat Scene" || scene.name == "Main Menu")
             {
                 managerGroup.SetActive(false);

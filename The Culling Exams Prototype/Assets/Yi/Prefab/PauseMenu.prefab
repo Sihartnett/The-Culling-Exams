@@ -1315,11 +1315,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3197706e48fc099459a270bfcc9b0719, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ca1e80a28be2f1647be5d10bc7a48a45, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1692,6 +1692,7 @@ MonoBehaviour:
   lostScreen: {fileID: 1890548037198417611}
   managerGroup: {fileID: 9013473430434270196}
   fatigueCopy: 0
+  Paused: 0
 --- !u!1 &7250218855518217171
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,6 +2617,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1401000059302447586, guid: 6ad4be4cff70adb4daade36038de017a,
+        type: 3}
+      propertyPath: BGMs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401000059302447586, guid: 6ad4be4cff70adb4daade36038de017a,
+        type: 3}
+      propertyPath: BGMPlayer
+      value: 
+      objectReference: {fileID: 1529826682352905471}
+    - target: {fileID: 1401000059302447586, guid: 6ad4be4cff70adb4daade36038de017a,
+        type: 3}
+      propertyPath: MMT
+      value: 
+      objectReference: {fileID: 8300000, guid: ca1e80a28be2f1647be5d10bc7a48a45, type: 3}
+    - target: {fileID: 1401000059302447586, guid: 6ad4be4cff70adb4daade36038de017a,
+        type: 3}
+      propertyPath: BGMs.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3197706e48fc099459a270bfcc9b0719, type: 3}
+    - target: {fileID: 1401000059302447586, guid: 6ad4be4cff70adb4daade36038de017a,
+        type: 3}
+      propertyPath: BGMs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 10cf8d5343513e547ab8c7127e43e9e2, type: 3}
+    - target: {fileID: 1401000059302447586, guid: 6ad4be4cff70adb4daade36038de017a,
+        type: 3}
+      propertyPath: BGMs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: edc57bad103c0194295e586bff9e0d4d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ad4be4cff70adb4daade36038de017a, type: 3}
 --- !u!114 &3531451395650711581 stripped

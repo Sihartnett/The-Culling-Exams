@@ -36,12 +36,12 @@ public class SceneManagerSystem : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        //
-        BGMPlayer.Stop();
-        int RNG = UnityEngine.Random.Range(0, 3);
-        BGMPlayer.clip = BGMs[RNG];
-        BGMPlayer.Play();
-        //
+        ////
+        //BGMPlayer.Stop();
+        //int RNG = UnityEngine.Random.Range(0, 3);
+        //BGMPlayer.clip = BGMs[RNG];
+        //BGMPlayer.Play();
+        ////
 
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -57,7 +57,6 @@ public class SceneManagerSystem : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        BGMPlayer.Stop();
         SceneManager.LoadSceneAsync("Main Menu");
     }
 

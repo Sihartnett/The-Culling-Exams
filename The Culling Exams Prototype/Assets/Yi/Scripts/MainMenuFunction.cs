@@ -10,18 +10,29 @@ public class MainMenuFunction : MonoBehaviour
     [SerializeField] GameObject title;
     [SerializeField] GameObject levelselect;
     [SerializeField] Transform buttonParent;
-    public GameObject Parent;
-    public SceneManagerSystem SMS;
+    [SerializeField] GameObject Parent;
+    [SerializeField] GameObject storyCanvas;
+
+    public void enableStoryMode()
+    {
+        GetComponentInChildren<Animator>().SetTrigger("PlayTitle");
+        Invoke("disableTitle", 1f);
+    }
 
     public void enableLevelSelect()
     {
-        GetComponentInChildren<Animator>().SetTrigger("PlayTitle");
-        Invoke("showLevelSelect", 1f);
+        storyCanvas.SetActive(false);        
+        Invoke("showLevelSelect", 0.1f);
+    }
+
+    void disableTitle()
+    {
+        title.SetActive(false);
+        storyCanvas.SetActive(true);
     }
 
     void showLevelSelect()
     {
-        title.SetActive(false);
         levelselect.SetActive(true);
         CreateLevelButton();
     }
@@ -44,13 +55,6 @@ public class MainMenuFunction : MonoBehaviour
 
     void LoadSelectedLevel(int scenenum)
     {
-        //
-        SMS.BGMPlayer.Stop();
-        int RNG = UnityEngine.Random.Range(0, 3);
-        SMS.BGMPlayer.clip = SMS.BGMs[RNG];
-        SMS.BGMPlayer.Play();
-        // 
-
         SceneManager.LoadSceneAsync(LevelName[scenenum]);
     }
 

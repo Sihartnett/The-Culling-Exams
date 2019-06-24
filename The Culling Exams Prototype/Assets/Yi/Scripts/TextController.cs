@@ -13,6 +13,8 @@ public class TextController : MonoBehaviour
     [SerializeField] RawImage C1;
     [SerializeField] RawImage C2;
 
+    private MainMenuFunction MMF;
+
     private string[] text;
 
     private int counter = -1;
@@ -26,6 +28,7 @@ public class TextController : MonoBehaviour
 
     void InitializeText()
     {
+        MMF = FindObjectOfType<MainMenuFunction>();
         text = dialogue.text.Split('\n');
     }
 
@@ -38,7 +41,10 @@ public class TextController : MonoBehaviour
             SetUpPortrait(counter);
         }
         else
+        {
             Debug.Log("No text!");
+            MMF.enableLevelSelect();
+        }
     }
 
     void SetUpPortrait(int count)
