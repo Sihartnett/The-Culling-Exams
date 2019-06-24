@@ -2094,8 +2094,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 4900000, guid: 9f6ef6bf02b1d9640baf41e2124be3db, type: 3}
   outputText: {fileID: 962702393}
-  Character1: Van
-  Character2: Biollante
+  Character1: Lab Monitor
+  Character2: Eliza
   C1: {fileID: 1278006462}
   C2: {fileID: 855649865}
 --- !u!114 &1787600210
