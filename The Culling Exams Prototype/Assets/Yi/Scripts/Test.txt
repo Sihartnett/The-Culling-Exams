@@ -1,10 +1,11 @@
-Van: Fuck you!
-Biollante: Fuck you, leather man!
-Van: The leather club is two blocks down.
-Biollante: Smart Ass!
-Van: Come on!
-Biollante: Why don't take off your leather staff and do some wrestl?
-Biollante: Ahhhhhhhhh
-Biollante: Yeahhhhh
-Van: Wooooooooooo
-Van: Ouch!
+Lab Monitor: Welcome to your Culling Exam. I will be monitoring your progress. Would you like for me to go over the rules for you?
+Eliza: Yes please.
+Lab Monitor: The objective for this exam is to pass through a series of puzzles in or under the desired amount of moves and
+Lab Monitor: Make it to the next stage until you reach the end. 
+Lab Monitor: Use “WASD” to move up, left, down, or right respectively.
+Lab Monitor: Use the mouse to look around and use the “Left click button” to select the movable object 
+Lab Monitor: and move it to its desired position. 
+Lab Monitor: You can only move objects one space forward, left or right. You may not move with the object. 
+Lab Monitor: Would you like for me to repeat the rules for you? 
+Eliza: No thank you. I think I got it.
+Lab Monitor: Very Well. Then good luck and I look forward to you becoming a productive member of society.
