@@ -296,7 +296,7 @@ MonoBehaviour:
   columns: 14
   tilePrefab: {fileID: 2617150703862465352, guid: 9a31ab1a5a3da8a44a56eb98478377a9,
     type: 3}
-  tileMap: {fileID: 11400000, guid: f05b400388a95a2459e97378e9f9e7b8, type: 2}
+  tileMap: {fileID: 11400000, guid: 0a20f189038cc114bb94f5ad298a1295, type: 2}
   defaultMaterial: {fileID: 2100000, guid: 1dc90dde883cb034ca62574140bd3600, type: 2}
   startMaterial: {fileID: 2100000, guid: b5d657a024a98df46a18ab495128b29a, type: 2}
   finishMaterial: {fileID: 2100000, guid: b5d657a024a98df46a18ab495128b29a, type: 2}
