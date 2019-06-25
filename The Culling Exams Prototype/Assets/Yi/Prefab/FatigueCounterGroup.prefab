@@ -56,7 +56,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  - {fileID: 21191732813815304, guid: c83dc9fb49a5a4e45bcb51f7e23ddc18, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,8 +114,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
-  m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c83dc9fb49a5a4e45bcb51f7e23ddc18, type: 2}
+  m_sharedMaterial: {fileID: 21191732813815304, guid: c83dc9fb49a5a4e45bcb51f7e23ddc18,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -178,7 +179,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.022451878, w: 0}
+  m_margin: {x: 0, y: 0, z: -8.933776, w: 0}
   m_textInfo:
     textComponent: {fileID: 5454541003121539723}
     characterCount: 11
@@ -251,4 +252,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6000f253583af4b998d76fc8420ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FatigueGroup2: {fileID: 0}
