@@ -13,6 +13,11 @@ public class MainMenuFunction : MonoBehaviour
     [SerializeField] GameObject Parent;
     [SerializeField] GameObject storyCanvas;
 
+    public void enableButtons()
+    {
+
+    }
+
     public void enableStoryMode()
     {
         GetComponentInChildren<Animator>().SetTrigger("PlayTitle");

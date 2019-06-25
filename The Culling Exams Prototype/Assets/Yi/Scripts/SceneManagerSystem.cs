@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,8 @@ public class SceneManagerSystem : MonoBehaviour
     #region variables
 
     [SerializeField] AudioClip WinSound, LostSound, SelectSound, DeselectSound, SelectingSound;
+
+    public GameObject lostScreen;
 
     public bool LoadOneTime = true;
 
@@ -29,12 +32,13 @@ public class SceneManagerSystem : MonoBehaviour
         if (LoadOneTime)
         {
             audioPlayer.PlayOneShot(WinSound);
-            Invoke("LoadNextLevel", 0.5f);
+            Invoke("LoadNextLevel", 0.7f);
             LoadOneTime = false;
         }
     }
 
     public void LoadNextLevel()
+
     {
         ////
         //BGMPlayer.Stop();
@@ -44,6 +48,16 @@ public class SceneManagerSystem : MonoBehaviour
         ////
 
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public IEnumerator EnableLostScreen()
+    {
+        yield return new WaitForSeconds(1.75f);
+        lostScreen.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Menus.PauseMenuManager.Instance.canPause = false;
+        yield return null;
     }
 
     public void QuitGame()
@@ -73,7 +87,7 @@ public class SceneManagerSystem : MonoBehaviour
 
     public void GameOver ()
     {
-        // SMS.LostGame();
+        LostGame();
     }
 
     #endregion
@@ -84,8 +98,8 @@ public class SceneManagerSystem : MonoBehaviour
     {
         if (LoadOneTime)
         {
-            audioPlayer.PlayOneShot(LostSound);
-            Invoke("LoadLostGame", 0.5f);
+            audioPlayer.PlayOneShot(LostSound);            
+            StartCoroutine(EnableLostScreen());
             LoadOneTime = false;   
         }
     }

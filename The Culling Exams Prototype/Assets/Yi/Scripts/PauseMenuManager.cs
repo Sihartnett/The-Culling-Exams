@@ -16,14 +16,13 @@ namespace Menus
         [SerializeField] Material skybox;
         [SerializeField] SceneManagerSystem SMS;
 
-        [SerializeField] GameObject lostScreen;
         [SerializeField] GameObject managerGroup;
 
         public int fatigueCopy = 0;
 
         private TilePlayManager TPM;
         private PlayerMovement TPUS;
-        private bool canPause = true;
+        public bool canPause = true;
         private bool canFatigue = true;
         public bool Paused = false;
 
@@ -62,11 +61,7 @@ namespace Menus
 
         public void Initialize()
         {
-            //TPM = FindObjectOfType<TilePlayManager>();
-            //TPUS = FindObjectOfType<PlayerMovement>();
-            //Cursor.visible = false;
-            //Cursor.lockState = CursorLockMode.Locked;
-            //RenderSettings.skybox = skybox; 
+
         }
         #endregion
 
@@ -74,15 +69,7 @@ namespace Menus
 
         #region Pause Function
 
-        public IEnumerator EnableLostScreen()
-        {
-            yield return new WaitForSeconds(1.75f);
-            lostScreen.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            canPause = false;
-            yield return null;
-        }
+  
 
         // Update is called once per frame
         void Update()
@@ -96,8 +83,8 @@ namespace Menus
                 }
                 if (TPM.fatigue <= 0)
                 {
-                    SMS.LostGame();
-                    StartCoroutine(EnableLostScreen());
+                    //SMS.LostGame();
+                    //StartCoroutine(EnableLostScreen());
                     
                 }
             }
@@ -179,7 +166,7 @@ namespace Menus
                 canPause = true;
                 canFatigue = true;
                 Paused = false;
-                lostScreen.SetActive(false);
+                SMS.lostScreen.SetActive(false);
                 SMS.LoadOneTime = true;
             }
         }
