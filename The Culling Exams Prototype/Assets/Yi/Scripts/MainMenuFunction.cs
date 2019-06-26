@@ -12,10 +12,14 @@ public class MainMenuFunction : MonoBehaviour
     [SerializeField] Transform buttonParent;
     [SerializeField] GameObject Parent;
     [SerializeField] GameObject storyCanvas;
+    [SerializeField] GameObject TouchBG;
+    [SerializeField] GameObject buttonGroup;
 
     public void enableButtons()
     {
-
+        GetComponentInChildren<Animator>().SetTrigger("PlayButtons");
+        buttonGroup.SetActive(true);
+        TouchBG.SetActive(false);
     }
 
     public void enableStoryMode()
