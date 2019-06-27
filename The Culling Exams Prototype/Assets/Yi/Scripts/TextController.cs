@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TextController : MonoBehaviour
 {
@@ -12,8 +13,6 @@ public class TextController : MonoBehaviour
 
     [SerializeField] RawImage C1;
     [SerializeField] RawImage C2;
-
-    private MainMenuFunction MMF;
 
     private string[] text;
 
@@ -27,8 +26,7 @@ public class TextController : MonoBehaviour
     }
 
     void InitializeText()
-    {
-        MMF = FindObjectOfType<MainMenuFunction>();
+    {        
         text = dialogue.text.Split('\n');
     }
 
@@ -43,7 +41,7 @@ public class TextController : MonoBehaviour
         else
         {
             Debug.Log("No text!");
-            MMF.enableLevelSelect();
+            SceneManager.LoadSceneAsync("Level1_Backup");
         }
     }
 

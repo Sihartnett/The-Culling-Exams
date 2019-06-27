@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Keep/Scenes/Level1.unity
     guid: ef00a4875102345468cefb282751babc
   - enabled: 1
+    path: Assets/Scenes/PreLevel.unity
+    guid: 3c796b36a46b096408274be95ced6950
+  - enabled: 1
     path: Assets/Spence/Scenes/Level1_Backup.unity
     guid: 982253ef11059b945ba7942dbf8220cb
   - enabled: 1
