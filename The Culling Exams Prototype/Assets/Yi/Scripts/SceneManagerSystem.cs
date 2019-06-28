@@ -9,6 +9,7 @@ public class SceneManagerSystem : MonoBehaviour
 
     [SerializeField] AudioClip WinSound, LostSound, SelectSound, DeselectSound, SelectingSound;
 
+    public GameObject LoadingBG;
     public GameObject lostScreen;
 
     public bool LoadOneTime = true;
@@ -46,7 +47,7 @@ public class SceneManagerSystem : MonoBehaviour
         //BGMPlayer.clip = BGMs[RNG];
         //BGMPlayer.Play();
         ////
-
+        LoadingBG.SetActive(true);
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

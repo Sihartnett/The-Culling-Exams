@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class TextController : MonoBehaviour
 {
+    [SerializeField] GameObject Loading;
+
     [SerializeField] TextAsset dialogue;
     [SerializeField] TextMeshProUGUI outputText;
 
@@ -41,6 +43,7 @@ public class TextController : MonoBehaviour
         else
         {
             Debug.Log("No text!");
+            Loading.SetActive(true);
             SceneManager.LoadSceneAsync("Level1_Backup");
         }
     }

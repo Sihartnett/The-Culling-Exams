@@ -128,8 +128,9 @@ namespace Menus
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             //RenderSettings.skybox = skybox;
+            SMS.LoadingBG.SetActive(false);
 
-            if(scene.name == "Main Menu")
+            if (scene.name == "Main Menu")
             {
                 SMS.BGMPlayer.Stop();
                 SMS.BGMPlayer.clip = SMS.MMT;
@@ -146,7 +147,7 @@ namespace Menus
                 // 
             }
 
-            if (scene.name == "Victory Scene" || scene.name == "Defeat Scene" || scene.name == "Main Menu")
+            if (scene.name == "Victory Scene" || scene.name == "Defeat Scene" || scene.name == "Main Menu" || scene.name == "PreLevel")
             {
                 managerGroup.SetActive(false);
                 PauseMenu.SetActive(false);

@@ -11,9 +11,9 @@ public class MainMenuFunction : MonoBehaviour
     [SerializeField] GameObject levelselect;
     [SerializeField] Transform buttonParent;
     [SerializeField] GameObject Parent;
-    [SerializeField] GameObject storyCanvas;
     [SerializeField] GameObject TouchBG;
     [SerializeField] GameObject buttonGroup;
+    [SerializeField] GameObject LoadingBG;
 
     public void enableButtons()
     {
@@ -24,20 +24,23 @@ public class MainMenuFunction : MonoBehaviour
 
     public void enableStoryMode()
     {
-        GetComponentInChildren<Animator>().SetTrigger("PlayTitle");
-        Invoke("disableTitle", 1f);
+        LoadingBG.SetActive(true);
+        SceneManager.LoadSceneAsync("PreLevel");
     }
 
     public void enableLevelSelect()
     {
-        storyCanvas.SetActive(false);        
-        Invoke("showLevelSelect", 0.1f);
+        GetComponentInChildren<Animator>().SetTrigger("PlayTitle");
+        Invoke("showLevelSelect", 0.7f);
     }
 
-    void disableTitle()
+    public void QuitGame()
     {
-        title.SetActive(false);
-        storyCanvas.SetActive(true);
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
     }
 
     void showLevelSelect()
@@ -52,7 +55,7 @@ public class MainMenuFunction : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-        Debug.Log("clear");
+
         for (int i = 0; i < LevelName.Length; i++)
         {
             Button lb = Instantiate(levelbutton, buttonParent);
@@ -64,6 +67,7 @@ public class MainMenuFunction : MonoBehaviour
 
     void LoadSelectedLevel(int scenenum)
     {
+        LoadingBG.SetActive(true);
         SceneManager.LoadSceneAsync(LevelName[scenenum]);
     }
 
