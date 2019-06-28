@@ -5,20 +5,39 @@ using UnityEngine.SceneManagement;
 
 public class TextController : MonoBehaviour
 {
+    [HideInInspector]
     [SerializeField] GameObject Loading;
 
-    [SerializeField] TextAsset dialogue;
+    [SerializeField] TextAsset dialogue_Eliza;
+    [SerializeField] TextAsset dialogue_Isabel;
+    [SerializeField] TextAsset dialogue_Ian;
+
+    [HideInInspector]
     [SerializeField] TextMeshProUGUI outputText;
 
-    [SerializeField] string Character1;
-    [SerializeField] string Character2;
+    private string LabMonitorName = "Lab Monitor";
+    private string ProtagonistName;
 
-    [SerializeField] RawImage C1;
-    [SerializeField] RawImage C2;
+    [Tooltip("Art for lab monitor!")]
+    [SerializeField] Sprite LabMonitor;
+    [Tooltip("Drag art assets into these slots.")]
+    [SerializeField] Sprite Eliza, Isabel, Ian;
+
+    [HideInInspector]
+    [SerializeField] Image labmonitorpic;
+    [HideInInspector]
+    [SerializeField] Image protagonistpic;
 
     private string[] text;
 
     private int counter = -1;
+
+    private SceneManagerSystem SMS;
+
+    private void Awake()
+    {
+        SMS = FindObjectOfType<SceneManagerSystem>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +47,27 @@ public class TextController : MonoBehaviour
     }
 
     void InitializeText()
-    {        
-        text = dialogue.text.Split('\n');
+    {
+        labmonitorpic.sprite = LabMonitor;
+
+        if (SMS.Lives == 3)
+        {
+            protagonistpic.sprite = Eliza;
+            ProtagonistName = "Eliza";
+            text = dialogue_Eliza.text.Split('\n');
+        }
+        else if (SMS.Lives == 2)
+        {
+            protagonistpic.sprite = Isabel;
+            ProtagonistName = "Isabel";
+            text = dialogue_Isabel.text.Split('\n');
+        }
+        else if (SMS.Lives == 1)
+        {
+            protagonistpic.sprite = Ian;
+            ProtagonistName = "Ian";
+            text = dialogue_Ian.text.Split('\n');
+        }
     }
 
     public void NextLineOfDialogue()
@@ -50,15 +88,15 @@ public class TextController : MonoBehaviour
 
     void SetUpPortrait(int count)
     {
-        if (text[count].Contains(Character1)) {
-            Debug.Log(text[count]);
-            C1.color = new Color32(255, 255, 255, 255);
-            C2.color = new Color32(128, 128, 128, 255);
+        if (text[count].Contains(LabMonitorName)) {
+            //Debug.Log(text[count]);
+            labmonitorpic.color = new Color32(255, 255, 255, 255);
+            protagonistpic.color = new Color32(128, 128, 128, 255);
         }
-        else if (text[count].Contains(Character2)) {
-            C1.color = new Color32(128, 128, 128, 255);
-            C2.color = new Color32(255, 255, 255, 255);
-            Debug.Log(text[count]);
+        else if (text[count].Contains(ProtagonistName)) {
+            labmonitorpic.color = new Color32(128, 128, 128, 255);
+            protagonistpic.color = new Color32(255, 255, 255, 255);
+            //Debug.Log(text[count]);
         }
         }
 }

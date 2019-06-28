@@ -154,6 +154,8 @@ namespace Menus
                 Time.timeScale = 1;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                SMS.lostScreen_storyfail.SetActive(false);
+                SMS.lostScreen_storymode.SetActive(false);
                 canFatigue = false;
                 canPause = false;
             }
@@ -167,7 +169,7 @@ namespace Menus
                 canPause = true;
                 canFatigue = true;
                 Paused = false;
-                SMS.lostScreen.SetActive(false);
+                SMS.lostScreen_levelselect.SetActive(false);
                 SMS.LoadOneTime = true;
             }
         }
@@ -179,3 +181,5 @@ namespace Menus
         #endregion
     }
 }
+
+

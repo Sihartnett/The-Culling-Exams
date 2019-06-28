@@ -10,7 +10,9 @@ public class SceneManagerSystem : MonoBehaviour
     [SerializeField] AudioClip WinSound, LostSound, SelectSound, DeselectSound, SelectingSound;
 
     public GameObject LoadingBG;
-    public GameObject lostScreen;
+    public GameObject lostScreen_storymode;
+    public GameObject lostScreen_storyfail;
+    public GameObject lostScreen_levelselect;
 
     public bool LoadOneTime = true;
 
@@ -18,6 +20,12 @@ public class SceneManagerSystem : MonoBehaviour
     public AudioSource BGMPlayer;
     public AudioClip MMT;
     public AudioClip[] BGMs;
+
+    private int lives = 3;
+    private int gamemode = 0;
+
+    public int Gamemode { get => gamemode; set => gamemode = value; }
+    public int Lives { get => lives; set => lives = value; }
     #endregion
 
     #region Pause Menu Load Function
@@ -51,16 +59,6 @@ public class SceneManagerSystem : MonoBehaviour
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public IEnumerator EnableLostScreen()
-    {
-        yield return new WaitForSeconds(1.75f);
-        lostScreen.SetActive(true);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        Menus.PauseMenuManager.Instance.canPause = false;
-        yield return null;
-    }
-
     public void QuitGame()
     {
 #if UNITY_EDITOR
@@ -72,7 +70,14 @@ public class SceneManagerSystem : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        gamemode = 0;
+        lives = 3;
         SceneManager.LoadSceneAsync("Main Menu");
+    }
+
+    public void ReturnToNarrativeScene()
+    {
+        SceneManager.LoadSceneAsync("PreLevel");
     }
 
     public void ResetLevel()
@@ -99,10 +104,29 @@ public class SceneManagerSystem : MonoBehaviour
     {
         if (LoadOneTime)
         {
-            audioPlayer.PlayOneShot(LostSound);            
-            StartCoroutine(EnableLostScreen());
+            audioPlayer.PlayOneShot(LostSound);
+            if(gamemode == 1)
+            {
+                lives--;
+                if(lives <= 0)
+                    StartCoroutine(EnableLostScreen(lostScreen_storyfail));
+                else if(lives > 0)
+                    StartCoroutine(EnableLostScreen(lostScreen_storymode));
+            }
+            if(gamemode == 2)
+                StartCoroutine(EnableLostScreen(lostScreen_levelselect));
             LoadOneTime = false;   
         }
+    }
+
+    public IEnumerator EnableLostScreen(GameObject lost)
+    {
+        yield return new WaitForSeconds(1.75f);
+        lost.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Menus.PauseMenuManager.Instance.canPause = false;
+        yield return null;
     }
 
     public void SelectCrate()

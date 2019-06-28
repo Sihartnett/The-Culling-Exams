@@ -15,6 +15,13 @@ public class MainMenuFunction : MonoBehaviour
     [SerializeField] GameObject buttonGroup;
     [SerializeField] GameObject LoadingBG;
 
+    private SceneManagerSystem SMS;
+
+    private void Awake()
+    {
+        SMS = FindObjectOfType<SceneManagerSystem>();
+    }
+
     public void enableButtons()
     {
         GetComponentInChildren<Animator>().SetTrigger("PlayButtons");
@@ -24,12 +31,14 @@ public class MainMenuFunction : MonoBehaviour
 
     public void enableStoryMode()
     {
+        SMS.Gamemode = 1;
         LoadingBG.SetActive(true);
         SceneManager.LoadSceneAsync("PreLevel");
     }
 
     public void enableLevelSelect()
     {
+        SMS.Gamemode = 2;
         GetComponentInChildren<Animator>().SetTrigger("PlayTitle");
         Invoke("showLevelSelect", 0.7f);
     }
