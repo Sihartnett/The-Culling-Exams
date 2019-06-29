@@ -73,6 +73,8 @@ public class TilePlayManager : TileManagerBase
 
         player = FindObjectOfType<PlayerMovement>();
         layerMask = LayerMask.GetMask("clickableLayer");
+
+        CrateScript.Deselect();
     }
 
     // Update is called once per frame

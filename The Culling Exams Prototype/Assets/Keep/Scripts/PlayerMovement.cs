@@ -73,10 +73,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isDead)
         {
-            //if( horiz < 0 )
-            anim.SetFloat("Horizontal", moveH * 4);
-            //if( horiz > 0 ) 
-            anim.SetFloat("Vertical", moveV * 5);
             if (!isMoving)
             {
                 TilePlayManager tileManager = transform.parent.GetComponent<TilePlayManager>();
@@ -98,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
                             playerRotationDegree -= 360;
                     }
                 }
-                
+
                 if (moveV > 0)
                 {
                     // Move forward
@@ -196,9 +192,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }
 
-                TileComponent tile = null;
-
-                tile = tileManager.allTiles[row, column].GetComponent<TileComponent>();
+                TileComponent tile = tileManager.allTiles[row, column].GetComponent<TileComponent>();
 
                 if (moveV != 0 || moveH != 0)
                 {
@@ -292,11 +286,9 @@ public class PlayerMovement : MonoBehaviour
                         || tile.Tile.westWallType == WallType.lightBlueDoor
                         ))
                         return;
-
-
+                    
                     // If you make it to this part of the code you are moving
-
-
+                    
                     var moveToMe = new Vector3(tile.Tile.CenterPoint.x, 0.1f, tile.Tile.CenterPoint.z);
                     tileManager.fatigue -= 1;
 
@@ -323,7 +315,7 @@ public class PlayerMovement : MonoBehaviour
                         SMS.NextLevel();
                     }
 
-                    StartCoroutine(move(transform, moveToMe, moveV, moveH));
+                    StartCoroutine(move(tileManager, transform, moveToMe, moveV, moveH));
                 }
             }
         }        
@@ -337,15 +329,20 @@ public class PlayerMovement : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator move(Transform transform, Vector3 endPoint, float vert, float horiz)
+    public IEnumerator move(TilePlayManager tileManager, Transform transform, Vector3 endPoint, float vert, float horiz)
     {
+        //CrateScript.ClearSelection(tileManager);
+        //CrateScript.ClearHighlighted(tileManager);
+
         isMoving = true;
         startPosition = transform.position;
         endPosition = endPoint;
         t = 0;
 
-
-        if( horiz < 0 )
+        anim.SetFloat("Horizontal", horiz * 4);
+        anim.SetFloat("Vertical", vert * 5);
+        
+        if ( horiz < 0 )
             anim.SetBool("moveLeft", true);
         if (horiz > 0)
             anim.SetBool("moveRight", true);
@@ -363,7 +360,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         isMoving = false;
-        
+
+        anim.SetFloat("Horizontal", 0);
+        anim.SetFloat("Vertical", 0);
+
         anim.SetBool("moveRight", false);
         anim.SetBool("moveLeft", false);
         anim.SetBool("moveBack", false);

@@ -45,11 +45,7 @@ public class CrateScript : MonoBehaviour
 
         TileComponent tileComponent = this.transform.parent.GetComponent<TileComponent>();
         TilePlayManager playManager = this.transform.parent.transform.parent.GetComponent<TilePlayManager>();
-
-        // Do nothing Ever if im standing on the tile
-        if (tileComponent.Row == playManager.currentTile.x && playManager.currentTile.y == tileComponent.Column)
-            return returnValue;
-
+        
         // Deselect everything
         if (tileComponent.Tile.crateState == ObjectState.highlighted)
             playManager.SetCrate(tileComponent.Row, tileComponent.Column, tileComponent.Tile.crateType, ObjectState.none);
@@ -62,6 +58,10 @@ public class CrateScript : MonoBehaviour
 
         if (tileComponent.Tile.tileState == ObjectState.ghostHighlighted)
             playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.ghost);
+
+        // Do nothing Ever if im standing on the tile
+        if (tileComponent.Row == playManager.currentTile.x && playManager.currentTile.y == tileComponent.Column)
+            return returnValue;
 
         if (highlight)
         {
@@ -296,19 +296,102 @@ public class CrateScript : MonoBehaviour
             if (myType == SelectionType.crate)
             {
                 // make sure there is no crate and is a valid place to put it
-                if (tileComponent.Tile.crateType == CrateType.none
-                   &&
-                   ( tileComponent.Tile.tileType == TileType.basicTile
-                    || tileComponent.Tile.tileType == TileType.redTile
-                    || tileComponent.Tile.tileType == TileType.blueTile
-                    || tileComponent.Tile.tileType == TileType.brownTile
-                    || tileComponent.Tile.tileType == TileType.purpleTile
-                    || tileComponent.Tile.tileType == TileType.moveableCrateTile
-                    || tileComponent.Tile.tileType == TileType.orangeTile
-                    || tileComponent.Tile.tileType == TileType.lightBlueTile))
-                {
-                    playManager.SetCrate(tileComponent.Row, tileComponent.Column, CrateType.crate, ObjectState.ghost);
-                }
+                if (tileComponent.Tile.crateType != CrateType.none)
+                    return;
+
+                if (tileComponent.Tile.tileType == TileType.barrierTile
+                    || tileComponent.Tile.tileType == TileType.moveableBarrierTile
+                    || tileComponent.Tile.tileType == TileType.fallTile)
+                    return;
+
+                TileComponent currentTile = playManager.allTiles[(int)playManager.currentTile.x, (int)playManager.currentTile.y].GetComponent<TileComponent>();
+
+                // now check for all the impassible wall tiles in yourself and in your target 
+                if (currentTile.Row < tileComponent.Row
+                    &&
+                    ( currentTile.Tile.northWallType == WallType.blueDoor
+                    || currentTile.Tile.northWallType == WallType.brownDoor
+                    || currentTile.Tile.northWallType == WallType.purpleDoor
+                    || currentTile.Tile.northWallType == WallType.redDoor
+                    || currentTile.Tile.northWallType == WallType.orangeDoor
+                    || currentTile.Tile.northWallType == WallType.lightBlueDoor
+                    || currentTile.Tile.northWallType == WallType.wall
+                    || currentTile.Tile.northWallType == WallType.window
+                    || tileComponent.Tile.southWallType == WallType.blueDoor
+                    || tileComponent.Tile.southWallType == WallType.brownDoor
+                    || tileComponent.Tile.southWallType == WallType.purpleDoor
+                    || tileComponent.Tile.southWallType == WallType.redDoor
+                    || tileComponent.Tile.southWallType == WallType.wall
+                    || tileComponent.Tile.southWallType == WallType.window
+                    || tileComponent.Tile.southWallType == WallType.orangeDoor
+                    || tileComponent.Tile.southWallType == WallType.lightBlueDoor
+                    ))
+                    return;
+
+                if (currentTile.Row > tileComponent.Row
+                    &&
+                    ( currentTile.Tile.southWallType == WallType.blueDoor
+                    || currentTile.Tile.southWallType == WallType.brownDoor
+                    || currentTile.Tile.southWallType == WallType.purpleDoor
+                    || currentTile.Tile.southWallType == WallType.redDoor
+                    || currentTile.Tile.southWallType == WallType.wall
+                    || currentTile.Tile.southWallType == WallType.window
+                    || currentTile.Tile.southWallType == WallType.orangeDoor
+                    || currentTile.Tile.southWallType == WallType.lightBlueDoor
+                    || tileComponent.Tile.northWallType == WallType.blueDoor
+                    || tileComponent.Tile.northWallType == WallType.brownDoor
+                    || tileComponent.Tile.northWallType == WallType.purpleDoor
+                    || tileComponent.Tile.northWallType == WallType.redDoor
+                    || tileComponent.Tile.northWallType == WallType.wall
+                    || tileComponent.Tile.northWallType == WallType.window
+                    || tileComponent.Tile.northWallType == WallType.orangeDoor
+                    || tileComponent.Tile.northWallType == WallType.lightBlueDoor ))
+                    return;
+
+                if (currentTile.Column < tileComponent.Column
+                    &&
+                    ( currentTile.Tile.westWallType == WallType.blueDoor
+                    || currentTile.Tile.westWallType == WallType.brownDoor
+                    || currentTile.Tile.westWallType == WallType.purpleDoor
+                    || currentTile.Tile.westWallType == WallType.redDoor
+                    || currentTile.Tile.westWallType == WallType.wall
+                    || currentTile.Tile.westWallType == WallType.window
+                    || currentTile.Tile.westWallType == WallType.orangeDoor
+                    || currentTile.Tile.westWallType == WallType.lightBlueDoor
+                    || tileComponent.Tile.eastWallType == WallType.blueDoor
+                    || tileComponent.Tile.eastWallType == WallType.brownDoor
+                    || tileComponent.Tile.eastWallType == WallType.purpleDoor
+                    || tileComponent.Tile.eastWallType == WallType.redDoor
+                    || tileComponent.Tile.eastWallType == WallType.wall
+                    || tileComponent.Tile.eastWallType == WallType.window
+                    || tileComponent.Tile.eastWallType == WallType.orangeDoor
+                    || tileComponent.Tile.eastWallType == WallType.lightBlueDoor
+                    ))
+                    return;
+
+                if (currentTile.Column > tileComponent.Column
+                    &&
+                    ( currentTile.Tile.eastWallType == WallType.blueDoor
+                    || currentTile.Tile.eastWallType == WallType.brownDoor
+                    || currentTile.Tile.eastWallType == WallType.purpleDoor
+                    || currentTile.Tile.eastWallType == WallType.redDoor
+                    || currentTile.Tile.eastWallType == WallType.wall
+                    || currentTile.Tile.eastWallType == WallType.window
+                    || currentTile.Tile.eastWallType == WallType.orangeDoor
+                    || currentTile.Tile.eastWallType == WallType.lightBlueDoor
+                    || tileComponent.Tile.westWallType == WallType.blueDoor
+                    || tileComponent.Tile.westWallType == WallType.brownDoor
+                    || tileComponent.Tile.westWallType == WallType.purpleDoor
+                    || tileComponent.Tile.westWallType == WallType.redDoor
+                    || tileComponent.Tile.westWallType == WallType.wall
+                    || tileComponent.Tile.westWallType == WallType.window
+                    || tileComponent.Tile.westWallType == WallType.orangeDoor
+                    || tileComponent.Tile.westWallType == WallType.lightBlueDoor
+                    ))
+                    return;
+
+                playManager.SetCrate(tileComponent.Row, tileComponent.Column, CrateType.crate, ObjectState.ghost);
+
             }
             else if (myType == SelectionType.tile && tileComponent.Tile.tileType == TileType.fallTile)
                 playManager.SetTile(tileComponent.Row, tileComponent.Column, tileComponent.Tile.tileType, ObjectState.ghost);
