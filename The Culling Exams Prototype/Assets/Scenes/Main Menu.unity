@@ -950,10 +950,12 @@ MonoBehaviour:
   - Level5
   - Level16
   - Level8Addition
+  - Level23
   - Level11Addition
   - Level10Replacement
   - Level17
   - Level9Addition
+  - Level22
   - Level8Replacement
   - Level15Replacement
   - Level12
@@ -962,10 +964,8 @@ MonoBehaviour:
   - Level14
   - Level12Addition
   - Level18
-  - 
-  - 
-  - 
   - Level25
+  - Level26
   levelbutton: {fileID: 1609305214099961417, guid: bf52f9c03ce4e434cab6f51531e56efe,
     type: 3}
   title: {fileID: 1107738695}
@@ -1704,7 +1704,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: level Selection
+  m_text: 'Level Select
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 674f380bb8dfff24583ccb74c21500b2, type: 2}
   m_sharedMaterial: {fileID: 21529243759273568, guid: 674f380bb8dfff24583ccb74c21500b2,
@@ -1740,7 +1742,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_textAlignment: 258
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1782,11 +1784,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
