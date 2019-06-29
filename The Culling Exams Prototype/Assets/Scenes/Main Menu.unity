@@ -950,15 +950,15 @@ MonoBehaviour:
   - Level5
   - Level16
   - Level8Addition
-  - Level23
   - Level11Addition
   - Level10Replacement
   - Level17
   - Level9Addition
-  - Level22
   - Level8Replacement
   - Level15Replacement
   - Level12
+  - Level22
+  - Level23
   - Level11
   - Level13
   - Level14
@@ -2137,6 +2137,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 666520985}
     m_Modifications:
+    - target: {fileID: 1956319120502554733, guid: 06487212220be6c4f8a311dfdb84734e,
+        type: 3}
+      propertyPath: m_Name
+      value: Loading..
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956319120502554733, guid: 06487212220be6c4f8a311dfdb84734e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7406860757203924331, guid: 06487212220be6c4f8a311dfdb84734e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2241,16 +2251,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1956319120502554733, guid: 06487212220be6c4f8a311dfdb84734e,
-        type: 3}
-      propertyPath: m_Name
-      value: Loading..
-      objectReference: {fileID: 0}
-    - target: {fileID: 1956319120502554733, guid: 06487212220be6c4f8a311dfdb84734e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06487212220be6c4f8a311dfdb84734e, type: 3}

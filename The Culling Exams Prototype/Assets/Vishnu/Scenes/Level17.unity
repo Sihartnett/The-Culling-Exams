@@ -2937,7 +2937,7 @@ PrefabInstance:
     - target: {fileID: 1347285320113488167, guid: 14cd2e844d996524a8b77dc056d49aad,
         type: 3}
       propertyPath: fatigue
-      value: 28
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14cd2e844d996524a8b77dc056d49aad, type: 3}
