@@ -86,4 +86,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Keep/Scenes/LevelSwitches.unity
     guid: 4f57f9a7790e5424bae51a5622626c68
+  - enabled: 1
+    path: Assets/Vishnu/Scenes/Level23.unity
+    guid: 2023f430ccc1ac24b82e09b90adcf12d
+  - enabled: 1
+    path: Assets/Vishnu/Scenes/Level22.unity
+    guid: 6574ec9413ce018409c77963591d9fe6
   m_configObjects: {}
