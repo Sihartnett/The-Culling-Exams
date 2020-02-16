@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 
 public class MainMenuFunction : MonoBehaviour
@@ -31,9 +32,7 @@ public class MainMenuFunction : MonoBehaviour
 
     public void enableStoryMode()
     {
-        SMS.Gamemode = 1;
-        LoadingBG.SetActive(true);
-        SceneManager.LoadSceneAsync("PreLevel");
+        StartCoroutine(StartStory());
     }
 
     public void enableLevelSelect()
@@ -78,6 +77,14 @@ public class MainMenuFunction : MonoBehaviour
     {
         LoadingBG.SetActive(true);
         SceneManager.LoadSceneAsync(LevelName[scenenum]);
+    }
+
+    IEnumerator StartStory()
+    {
+        yield return new WaitForSeconds(1.75f);
+        SMS.Gamemode = 1;
+        LoadingBG.SetActive(true);
+        SceneManager.LoadSceneAsync("PreLevel");
     }
 
 }
