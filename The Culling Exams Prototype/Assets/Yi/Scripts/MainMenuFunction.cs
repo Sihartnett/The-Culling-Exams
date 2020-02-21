@@ -84,7 +84,7 @@ public class MainMenuFunction : MonoBehaviour
         yield return new WaitForSeconds(1.75f);
         SMS.Gamemode = 1;
         LoadingBG.SetActive(true);
-        SceneManager.LoadSceneAsync("PreLevel");
+        SceneManager.LoadSceneAsync("ChooseScene");
     }
 
 }

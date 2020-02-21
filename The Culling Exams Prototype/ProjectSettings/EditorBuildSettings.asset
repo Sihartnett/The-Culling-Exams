@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Keep/Scenes/Level1.unity
     guid: ef00a4875102345468cefb282751babc
   - enabled: 1
+    path: Assets/Scenes/ChooseScene.unity
+    guid: ce277a0963f0431489640163e0408692
+  - enabled: 1
     path: Assets/Scenes/PreLevel.unity
     guid: 3c796b36a46b096408274be95ced6950
   - enabled: 1

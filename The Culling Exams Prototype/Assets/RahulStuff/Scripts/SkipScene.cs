@@ -19,4 +19,9 @@ public class SkipScene : MonoBehaviour
             SceneManager.LoadScene("Level1_Backup");
         }   
     }
+
+    public void Skip()
+    {
+        SceneManager.LoadScene("Level1_Backup");
+    }
 }

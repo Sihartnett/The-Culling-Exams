@@ -147,7 +147,7 @@ namespace Menus
                 // 
             }
 
-            if (scene.name == "Victory Scene" || scene.name == "Defeat Scene" || scene.name == "Main Menu" || scene.name == "PreLevel")
+            if (scene.name == "Victory Scene" || scene.name == "Defeat Scene" || scene.name == "Main Menu" || scene.name == "StoryScene" || scene.name == "ChooseScene")
             {
                 managerGroup.SetActive(false);
                 PauseMenu.SetActive(false);
